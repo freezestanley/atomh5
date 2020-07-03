@@ -1,0 +1,349 @@
+@import '~@/less/theme.less';
+/**
+ * 覆盖antd默认样式
+ */
+@table_font_color: #343434;
+@border_color: #e6e6e6;
+@label-color: #616161;
+.init_input() {
+  border: none;
+  border-bottom: 1px solid @border_color;
+  background: none;
+  border-radius: 0;
+  padding-left: 0;
+}
+:global {
+
+  html {
+    --antd-wave-shadow-color: @theme-color;
+  }
+
+  // input
+  .ant-input {
+    .init_input;
+    box-sizing: content-box;
+    height: 30px;
+    &:hover,
+    &:focus {
+      box-shadow: none;
+      border-bottom: 2px solid @theme-color !important;
+    }
+  }
+  // 按钮
+  .ant-btn {
+    transition: 500ms;
+    // 新定义type：second
+    &-second {
+      border-color: @theme-color;
+    }
+    &:hover,
+    &:focus {
+      &.ant-btn-primary {
+        color: #fff;
+      }
+    }
+
+    &.ant-btn-link {
+      border: none;
+      background: transparent;
+      color: @theme-color;
+
+      &:hover,
+      &:focus {
+        border: none;
+        background: transparent;
+        // color: #ffffff;
+      }
+    }
+  }
+  // 选择
+  .ant-select {
+    width: 200px !important;
+    .ant-select-selection {
+      .init_input;
+      .ant-select-selection__rendered {
+        margin-left: 0;
+      }
+      &:hover {
+        transition: 500ms;
+        border-color: @theme-color;
+      }
+      &:focus {
+        box-shadow: none;
+      }
+    }
+  }
+  .ant-advanced-search-form .ant-form-item {
+    margin-top: 21px;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+    .ant-form-item-label {
+      padding-top: 8px;
+      font-size: 14px;
+      font-family: PingFangSC-Medium;
+      font-weight: 500;
+      color: rgba(97, 97, 97, 1);
+    }
+  }
+  .ant-form-item-required::before {
+    content: '';
+  }
+  .ant-form-item-label > label {
+    color: @label-color;
+  }
+  .ant-form-item-label > label::after {
+    display: inline-block;
+    margin-right: 4px;
+    color: #f5222d;
+    font-size: 14px;
+    font-family: SimSun, sans-serif;
+    line-height: 1;
+    content: '*';
+  }
+  .ant-calendar-picker-input {
+    .ant-calendar-range-picker-input:first-of-type {
+      text-align: left;
+    }
+  }
+  .ant-cascader-picker:focus,
+  .ant-cascader-picker:hover {
+    .ant-cascader-input {
+      box-shadow: none;
+      border-width: 1px;
+    }
+  }
+  .ant-calendar-cell {
+    &.ant-calendar-today {
+      .ant-calendar-date {
+        border: 1px solid @theme-color;
+        color: @theme-color;
+        border-radius: 50%;
+        &:hover {
+          color: #fff;
+        }
+      }
+    }
+    &.ant-calendar-in-range-cell {
+      &::before {
+        background: rgba(0, 188, 112, 0.1);
+      }
+    }
+  }
+  .ant-calendar-date[aria-selected='true'] {
+    background: @theme-color;
+    border-radius: 50%;
+    &:hover {
+      background: @theme-color;
+    }
+  }
+  // 表单
+  .ant-form {
+    &.z_forms {
+      // border: 1px solid green;
+      .ant-form-item {
+        .ant-form-item-label-left {
+          margin-right: -160px;
+        }
+        .ant-form-item-control-wrapper {
+          .ant-select {
+            .ant-select-selection {
+              padding-left: 160px;
+            }
+          }
+          .ant-input {
+            padding-left: 160px;
+          }
+          .ant-form-item-control {
+            &.has-error {
+              .ant-form-explain {
+                padding-left: 160px !important;
+              }
+            }
+          }
+        }
+      }
+      .ant-select {
+        min-width: 200px !important;
+        .ant-select-selection {
+          width: 640px;
+          background: none;
+          padding-left: 120px;
+          .ant-select-selection__rendered {
+            margin-left: 0;
+          }
+          &:hover {
+            transition: 500ms;
+            border-color: @theme-color;
+          }
+          &:focus {
+            box-shadow: none;
+          }
+        }
+      }
+      .ant-input {
+        .init_input;
+        box-sizing: content-box;
+        height: 30px;
+        &:hover,
+        &:focus {
+          box-shadow: none;
+          border-bottom: 1px solid @theme-color !important;
+        }
+      }
+    }
+  }
+  .z_form_select {
+    box-shadow: none;
+    padding-left: 160px;
+    background: none;
+    width: 600px !important;
+    li {
+      background: #fff;
+      width: 100%;
+      border-left: 1px solid red;
+      border-right: 1px solid red;
+      &:first-child {
+        border: 1px solid red;
+        border-bottom: none;
+      }
+      &:last-child {
+        // box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+        border: 1px solid red;
+        border-top: none;
+      }
+    }
+  }
+  // shijian
+  .ant-calendar-picker {
+    box-shadow: 0 0 0 2px rgba(24, 144, 255, 0);
+  //  &:hover {
+  //    border: 1px solid @theme-color !important;
+  //  }
+    .ant-calendar-picker-input {
+    //  &:hover {
+    //    border: 1px solid @theme-color !important;
+    //  }
+    }
+  }
+  // 上传
+  .ant-upload {
+    .ant-btn {
+      height: 28px;
+      font-size: 12px;
+      color: @theme-color;
+      border: 1px solid @theme-color;
+      // line-height:28px;
+    }
+    &.ant-upload-drag {
+      width: 270px;
+      height: 135px;
+      background: rgba(250, 250, 250, 1);
+      border-radius: 4px;
+      border: 1px solid rgba(230, 230, 230, 1);
+      &:hover {
+        border: 1px solid @theme-color !important;
+      }
+    }
+    &.ant-upload-drag {
+      p {
+        &.ant-upload-drag-icon {
+          margin-bottom: 10px;
+        }
+      }
+    }
+    .ant-upload-text {
+      font-family: PingFangSC-Regular;
+      font-size: 12px;
+      color: rgba(0, 0, 0, 0.85);
+      text-align: center;
+    }
+    .ant-upload-hint {
+      font-family: PingFangSC-Regular;
+      font-size: 12px;
+      color: #616161;
+    }
+  }
+
+  //  table
+  .ant-table-wrapper {
+    table {
+      thead {
+        tr {
+          th {
+            height: 48px;
+            background: rgba(242, 242, 242, 1);
+            border-radius: 4px 4px 0px 0px;
+            padding: 0 16px;
+            text-align: left;
+            border: none;
+            font-size: 14px;
+            font-family: PingFangSC-Medium;
+            font-weight: 500;
+            color: @table_font_color;
+          }
+        }
+      }
+  
+      tbody {
+        tr {
+          td {
+            height: 48px;
+            border-radius: 4px 4px 0px 0px;
+            padding: 0 16px;
+            text-align: left;
+            border: none;
+            color: @table_font_color;
+          }
+  
+          &:nth-child(2n) {
+            td {
+                background: rgba(250, 250, 250, 1);
+            }
+          }
+  
+        }
+      }
+    }
+  
+    .ant-pagination-item {
+      transition: 500ms;
+  
+      &:hover {
+        border-color: @theme-color;
+  
+        a {
+          color: @theme-color  !important;
+        }
+      }
+    }
+  
+    .ant-pagination-next {
+      transition: 500ms;
+  
+      &:hover {
+        .ant-pagination-item-link {
+          transition: 500ms;
+          border-color: @theme-color;
+          color: @theme-color  !important;
+        }
+      }
+    }
+  
+    .ant-pagination-item-active {
+      border: none;
+      background: @theme-color;
+  
+      a {
+        color: #fff !important;
+      }
+  
+      &:hover {
+        border-color: @theme-color;
+  
+        a {
+          color: #fff !important;
+        }
+      }
+    }
+  }
+}

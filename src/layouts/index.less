@@ -1,0 +1,33 @@
+@import '../less/setting.less';
+.header {
+  // height: 100%;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  z-index: 100;
+}
+.content {
+  width: 100%;
+  position: relative;
+}
+.left{
+  position: fixed;
+  height: 100%;
+  top: 56px;
+  left: 0px;
+  // min-height: 600px;
+}
+.right{
+  height: 100vh;
+  width: calc(100% - 220px);
+  margin-left: 220px;
+  position: relative;
+  /* left: 220px; */
+  /* top: 56px; */
+  word-break: break-all;
+  /* bottom: 0; */
+  overflow-y: scroll;
+
+  /* z-index: 1; */
+}
