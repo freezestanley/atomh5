@@ -8,7 +8,7 @@ import {
 import dynamic from 'umi/dynamic';
 import renderRoutes from 'umi/lib/renderRoutes';
 import history from '@@/history';
-import { routerRedux } from 'dva';
+import { routerRedux } from 'umi';
 
 const Router = routerRedux.ConnectedRouter;
 

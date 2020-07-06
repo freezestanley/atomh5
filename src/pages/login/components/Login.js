@@ -1,7 +1,7 @@
 import React from 'react';
 import {Input, Button, message} from 'antd';
 import { UserOutlined } from '@ant-design/icons';
-import router from 'umi/router';
+import { history } from 'umi';
 import style from './index.less';
 // import {login} from '@/network/login';
 

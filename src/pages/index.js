@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import router from 'umi/router';
+import { history } from 'umi';
 
 import styles from './index.less';
 

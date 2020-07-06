@@ -6,8 +6,7 @@
  * @LastEditors: LaoZhang
  */
 import React from 'react';
-import router from 'umi/router';
-
+import { history } from 'umi';
 const menuIcons = {};
 const menuIconsContext = require.context('@/assets/menu', true, /\.(png)$/);
 menuIconsContext.keys().map(key => {
@@ -23,16 +22,16 @@ export const menuConfig = [
     url: '/demo',
     show: true,
     router: () => {
-      router.push('/demo');
+      history.push('/demo');
     },
   },
   {
     iconname: 'tool',
     title: '菜单demo2Page',
-    url: '/demo/demo2Page',
+    url: '/demo2Page',
     // show: true,
     router: () => {
-      router.push('/demo/demo2Page');
+      history.push('/demo2Page');
     },
   },
 ];

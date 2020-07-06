@@ -1,17 +1,15 @@
 {
   "private": true,
   "scripts": {
-    "start": "cross-env UMI_ENV=dev umi dev",
-    "build": "umi build",
+    "start": "umi dev",
+    "build": "cross-env UMI_ENV=prod umi build",
     "test": "umi test",
     "fixlint": "eslint --fix *.js src mock",
     "lint:report": "eslint --ext .jsx,.js src -f checkstyle -o report_zacc_eslint_js.xml; exit 0"
   },
   "dependencies": {
     "@ant-design/icons": "^4.0.6",
-    "antd": "^4.4.0",
     "axios": "^0.17.1",
-    "dva": "^2.6.0-beta.4",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-zmage": "^0.8.5-beta.36",
@@ -23,6 +21,7 @@
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^2.5.0",
     "@typescript-eslint/parser": "^2.5.0",
+    "@umijs/preset-react": "^1.5.15",
     "babel-eslint": "^10.0.3",
     "cross-env": "^5.2.0",
     "eslint": "^6.5.1",
@@ -42,8 +41,7 @@
     "stylelint-checkstyle-formatter": "^0.1.2",
     "stylelint-config-za": "^0.1.0",
     "typescript": "^3.6.4",
-    "umi": "^2.7.0",
-    "umi-plugin-react": "^1.8.0"
+    "umi": "^3.2.7"
   },
   "lint-staged": {
     "*.{js,jsx}": [
@@ -51,6 +49,6 @@
     ]
   },
   "engines": {
-    "node": ">=8.0.0"
+    "node": ">=10.13.0"
   }
 }

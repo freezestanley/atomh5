@@ -1,4 +1,4 @@
-import dva from 'dva';
+import dva from 'umi';
 import { Component } from 'react';
 import createLoading from 'dva-loading';
 import history from '@tmp/history';

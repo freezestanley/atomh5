@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes, { func } from 'prop-types';
-import router from 'umi/router';
-import Link from 'umi/link';
-import { connect } from 'dva';
-import withRouter from 'umi/withRouter';
+import { history } from 'umi';
+import { Link } from 'umi';
+import { connect } from 'umi';
+import {withRouter} from 'umi';
 import { message } from 'antd';
 import store from '../../../utils/store';
 // import menuRoute from 'src/components/menu/menuRoute'

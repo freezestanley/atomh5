@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import router from 'umi/router';
-import Link from 'umi/link';
-import { connect } from 'dva';
-import withRouter from 'umi/withRouter';
+import { history } from 'umi';
+import { Link } from 'umi';
+import { connect } from 'umi';
+import {withRouter} from 'umi';
 import style from './left.less';
 // import menuRoute from 'src/components/menu/menuRoute'
 class left extends React.Component {
@@ -17,6 +17,7 @@ class left extends React.Component {
   }
 
   render() {
+    console.log('left menus ===>', this.props)
     return (
       <div className={style.main}>
         <div className={style.title}>
@@ -97,11 +98,11 @@ export default connect(mapStateToProps)(locationLeft);
 
 // acitve 应该可以由外部传入
 function LinkItem(prop) {
+  console.log('路由菜单 ==>', prop)
   return (
     <div>
-      <a
+      <div
         onClick={prop.link.router}
-        href='#!'
         style={{
           borderColor: prop.item ? 'white' : '',
         }}
@@ -118,7 +119,7 @@ function LinkItem(prop) {
             </div>
           ) : ''}
         </div>
-      </a>
+      </div>
       {(prop.link.children || []).length && prop.active ? (
         <div style={{background: '#fff'}}>
           {prop.link.children.map((e, index) => {

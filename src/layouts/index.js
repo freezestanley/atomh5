@@ -1,6 +1,6 @@
 import React from 'react';
-import withRouter from 'umi/withRouter';
-import { connect } from 'dva';
+import {withRouter} from 'umi';
+import { connect } from 'umi';
 import { LoadingOutlined } from '@ant-design/icons';
 import { Spin } from 'antd';
 import {deepClone} from 'utils/util';

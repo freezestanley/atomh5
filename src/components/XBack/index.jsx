@@ -1,10 +1,10 @@
 import React from 'react';
-import router from 'umi/router';
+import { history } from 'umi';
 import XIcon from '@/components/XIcon';
 import style from './index.less';
 
 const gourl = url => {
-  router.push(url);
+  history.push(url);
 };
 const XBackIcon = props => (
 
