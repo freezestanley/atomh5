@@ -1,20 +1,30 @@
+// @ts-nocheck
 import React from 'react';
 import {withRouter} from 'umi';
 import { connect } from 'umi';
 import { LoadingOutlined } from '@ant-design/icons';
 import { Spin } from 'antd';
 import {deepClone} from 'utils/util';
-import store from 'utils/store';
 import Header from './head';
 import Left from './left';
-import { MenuContext, menu, menuConfig } from '../MenuContext';
+import { MenuContext, menu, MenuItemType } from '../MenuContext';
 import styles from './index.less';
 // import { getConsoleCode } from '@/network/product';
-
+interface PropTypes {
+  dispatch: any;
+  location: any;
+  menus: MenuItemType[];
+}
+interface StateTypes {
+  ready: boolean;
+  menus: MenuItemType[];
+  title?: string;
+  global?: any;
+}
 const antIcon = <LoadingOutlined style={{ fontSize: 60 }} spin />;
 // todo getConfig setConfig env
-class LayoutPage extends React.Component {
-  constructor(props) {
+class LayoutPage extends React.Component<PropTypes, StateTypes> {
+  constructor(props: PropTypes) {
     super(props);
     this.state = {
       menus: [],
@@ -22,7 +32,7 @@ class LayoutPage extends React.Component {
     };
   }
 
-  setMenus(menus = []) {
+  setMenus(menus : MenuItemType[] = []) {
     this.props.dispatch({
       type: 'global/setMenus',
       payload: {
@@ -31,7 +41,7 @@ class LayoutPage extends React.Component {
     });
   }
 
-  setTitle = (title) => {
+  setTitle = (title: string) => {
     this.setState({
       title,
     });
@@ -39,15 +49,14 @@ class LayoutPage extends React.Component {
 
   updateMenu = () => {
     // 保存菜单context
-
-    const conf = this.setMenuActive(menu);
-    this.setState({ menu: conf }, () => {
+    const conf: MenuItemType[] = this.setMenuActive(menu);
+    this.setState({ menus: conf }, () => {
       // 渲染菜单
       this.setMenus(conf);
     });
   };
 
-  componentDidUpdate(prevProps) {
+  componentDidUpdate(prevProps: PropTypes) {
     if (this.props.location !== prevProps.location) {
       if (!this.state.ready) { // 根据接口权限展示页面
         // getConsoleCode({}).then(res => {
@@ -66,20 +75,21 @@ class LayoutPage extends React.Component {
     }
   }
 
-
-  setMenuActive = (menu, deep = true) => {
+  setMenuActive = (menu: MenuItemType[], deep = true): MenuItemType[] => {
     const cloneMenu = deep ? deepClone(menu) : menu.slice(0);
-    console.log('active', cloneMenu);
-    cloneMenu.every(m => {
+    (cloneMenu as MenuItemType[]).every(m => {
       if (m.url === this.props.location.pathname) {
+        // @ts-ignore
         m.active = true;
         return false;
+        // @ts-ignore
       } if (m.children) {
+        // @ts-ignore
         this.setMenuActive(m.children, false);
       }
       return true;
     });
-    return cloneMenu;
+    return (cloneMenu as MenuItemType[]);
   };
 
   componentDidMount() {
@@ -99,7 +109,6 @@ class LayoutPage extends React.Component {
 
 
   layout = () => {
-    console.log('ready', this.state.ready);
     if (this.props.location.pathname === '/login') {
       return (
         <div className={styles.userContent}>
@@ -142,7 +151,7 @@ class LayoutPage extends React.Component {
     return <React.Fragment>{_this.layout()}</React.Fragment>;
   }
 }
-function mapStateToProps(state) {
+function mapStateToProps(state: StateTypes) {
   if (state.global) {
     const { currentLanguage, time, userInfo, menus} = state.global;
     return {
@@ -151,5 +160,6 @@ function mapStateToProps(state) {
   }
   return {};
 }
+// @ts-ignore
 const rootLayoutPage = withRouter(LayoutPage);
 export default connect(mapStateToProps)(rootLayoutPage);

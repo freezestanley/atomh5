@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { v4 } from 'uuid';
 import getEnv from '../utils/getEnv';
-import getSsourl from './ssoUrl'
+import getSsourl from './ssourl';
 
 function getCurrentHost() {
   return window.location.protocol + '//' + window.location.host;

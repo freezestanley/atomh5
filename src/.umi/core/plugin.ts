@@ -5,8 +5,8 @@ const plugin = new Plugin({
   validKeys: ['patchRoutes','rootContainer','render','onRouteChange','dva','getInitialState','request',],
 });
 plugin.register({
-  apply: require('/Users/zhangzhichao/work/df-work/umipc/src/app.js'),
-  path: '/Users/zhangzhichao/work/df-work/umipc/src/app.js',
+  apply: require('/Users/zhangzhichao/work/df-work/umipc/src/app.tsx'),
+  path: '/Users/zhangzhichao/work/df-work/umipc/src/app.tsx',
 });
 plugin.register({
   apply: require('/Users/zhangzhichao/work/df-work/umipc/src/.umi/plugin-dva/runtime.tsx'),

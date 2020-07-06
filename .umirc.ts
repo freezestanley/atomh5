@@ -1,11 +1,11 @@
 // ref: https://umijs.org/config/
-
+import { defineConfig } from 'umi';
+import moduleName from 'umi-types';
 // 开发环境转发地址
 const PoxryUrl = 'http://poxrydemourl.com'
 
 const path = require('path')
-
-export default {
+const config = defineConfig({
   theme: {
     "primary-color": "#00bc70"
   },
@@ -16,29 +16,13 @@ export default {
     hmr: true,
     immer: true,
   },
+  forkTSChecker: {},
   dynamicImport: {
     // loading: '@/components/PageLoading/index',
   },
   targets: {
     ie: 11,
   },
-  // plugins: [
-  //   // ref: https://umijs.org/plugin/umi-plugin-react.html
-  //   ['umi-plugin-react', {
-  //     antd: true,
-  //     dva: true,
-  //     // dynamicImport: { webpackChunkName: true },
-  //     title: '项目脚手架',
-  //     // dll: true,
-  //     // dynamicImport: {
-  //     //   webpackChunkName: true,
-  //     //   // loadingComponent: './components/Loading.js',
-  //     // },
-  //     // // dynamicImport: true,
-  //     // dll: {
-  //     //   include: ['dva', 'dva/router', 'dva/saga', 'dva/fetch'],
-  //     //   exclude: ['@babel/runtime'],
-  //     // },
   //     fastClick: true, // 移动端开启
   routes: [
     {
@@ -50,16 +34,13 @@ export default {
       ],
     },
   ],
-  //   }],
-  // ],
   define: {
     "process.env.apiUrl":'https://www.currenturl.com/'
   },
   alias: {
     '@': path.resolve(__dirname, 'src'),
     '@less': path.resolve(__dirname, 'src/less'),
-    '@/network': path.resolve(__dirname, 'src/network'),
-    '@/api': path.resolve(__dirname, 'src/services'),
+    '@api': path.resolve(__dirname, 'src/services'),
     utils: path.resolve(__dirname, 'utils'),
   },
   proxy: {
@@ -78,4 +59,5 @@ export default {
     },
    
   }
-}
+});
+export default config;

@@ -1,21 +1,24 @@
-/*
- * @Description: In User Settings Edit
- * @Author: your name
- * @Date: 2019-08-09 14:28:28
- * @LastEditTime: 2020-07-03 14:34:16
- * @LastEditors: LaoZhang
- */
+// @ts-nocheck
 import React from 'react';
 import { history } from 'umi';
 const menuIcons = {};
 const menuIconsContext = require.context('@/assets/menu', true, /\.(png)$/);
-menuIconsContext.keys().map(key => {
+menuIconsContext.keys().map((key: string) => {
   menuIcons[key.replace(/\.\/(\w+)\.png/, '$1')] = menuIconsContext(key);
 });
 const analyse = require('@/assets/menu/analyse.png');
 const link = require('@/assets/menu/link.png');
 // name和图片名称一样
-export const menuConfig = [
+export interface MenuItemType {
+  iconname: string;
+  title: string;
+  url: string;
+  show?: boolean;
+  router: () => void;
+  icon?: string;
+  activeIcon?: string;
+}
+export const menuConfig: MenuItemType[] = [
   {
     iconname: 'amoeba',
     title: '菜单demo',

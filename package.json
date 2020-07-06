@@ -4,8 +4,8 @@
     "start": "umi dev",
     "build": "cross-env UMI_ENV=prod umi build",
     "test": "umi test",
-    "fixlint": "eslint --fix *.js src mock",
-    "lint:report": "eslint --ext .jsx,.js src -f checkstyle -o report_zacc_eslint_js.xml; exit 0"
+    "fixlint": "eslint --fix *.ts src mock",
+    "lint:report": "eslint --ext .tsx,.ts src -f checkstyle -o report_zacc_eslint_js.xml; exit 0"
   },
   "dependencies": {
     "@ant-design/icons": "^4.0.6",
@@ -41,7 +41,8 @@
     "stylelint-checkstyle-formatter": "^0.1.2",
     "stylelint-config-za": "^0.1.0",
     "typescript": "^3.6.4",
-    "umi": "^3.2.7"
+    "umi": "^3.2.7",
+    "umi-types": "^0.5.14"
   },
   "lint-staged": {
     "*.{js,jsx}": [

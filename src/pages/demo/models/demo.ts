@@ -1,4 +1,8 @@
-export default {
+import { ModelType } from '@/models/types';
+interface StateTypes {
+  title: string;
+}
+const Model: ModelType<StateTypes>  = {
   namespace: 'demo',
   state: {
     title: '项目模板'
@@ -14,3 +18,4 @@ export default {
     }
   }
 }
+export default Model;

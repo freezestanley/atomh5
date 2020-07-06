@@ -1,8 +1,11 @@
 import React, { useEffect } from 'react';
 import {Button} from 'antd';
 import {GET_TAG_LIST} from '@/services';
+interface PropTypes {
+
+}
 // 这里可以任意命名
-const Demo2 = props => {
+const Demo2 = (props: PropTypes) => {
   useEffect(() => {
     console.log('componentDidMount', props);
     fetchData();

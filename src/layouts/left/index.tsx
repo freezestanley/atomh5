@@ -1,13 +1,25 @@
+//@ts-nocheck
 import React from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import { history } from 'umi';
 import { Link } from 'umi';
 import { connect } from 'umi';
 import {withRouter} from 'umi';
 import style from './left.less';
 // import menuRoute from 'src/components/menu/menuRoute'
-class left extends React.Component {
-  constructor(props) {
+interface PropTypes {
+  title: string;
+  menus: any[];
+  link: any;
+  activeItem: any;
+}
+interface StateTypes {
+  activeIndex: number;
+  activeItemIndex: number;
+  toggle: boolean;
+}
+class left extends React.Component<PropTypes, StateTypes> {
+  constructor(props: PropTypes) {
     super(props);
     this.state = {
       toggle: true,
@@ -46,7 +58,7 @@ class left extends React.Component {
                 <LinkItem
                   link={link}
                   activeItem={this.state.activeItemIndex}
-                  setItemActive={(index) => {
+                  setItemActive={(index: number) => {
                     this.setState({
                       activeItemIndex: index,
                     });
@@ -69,7 +81,7 @@ class left extends React.Component {
       if (e.active) {
         activeIndex = index;
       } else if (e.children) {
-        e.children.map((ee, ind) => {
+        e.children.map((ee: any, ind: number) => {
           if (ee.active) {
             activeIndex = index;
             activeItemIndex = ind;
@@ -87,17 +99,18 @@ class left extends React.Component {
 
   }
 }
-function mapStateToProps(state) {
+function mapStateToProps(state: StateTypes) {
   // const { data } = state.menu;
   return {
     // data
   };
 }
+// @ts-ignore
 const locationLeft = withRouter(left);
 export default connect(mapStateToProps)(locationLeft);
 
 // acitve 应该可以由外部传入
-function LinkItem(prop) {
+function LinkItem(prop: PropTypes) {
   console.log('路由菜单 ==>', prop)
   return (
     <div>

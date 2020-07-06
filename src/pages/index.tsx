@@ -2,15 +2,9 @@ import React, { Component } from 'react';
 import { history } from 'umi';
 
 import styles from './index.less';
-
-
-// console.log(process.UMI_ENV)
 class RegistrationForm extends React.Component {
   componentDidMount() {
-    console.log('aaa')
-    router.replace('/product');
-
-   
+    history.replace('/product');
   }
 
   render() {
@@ -18,12 +12,5 @@ class RegistrationForm extends React.Component {
       <div className={styles.normal} />
     );
   }
-}
-
-function mapStateToProps(state) {
-  const {name} = state.global;
-  return {
-    name,
-  };
 }
 export default RegistrationForm;

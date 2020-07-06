@@ -6,20 +6,20 @@ import style from './index.less';
 // import {login} from '@/network/login';
 
 class Login extends React.Component {
-  userNameonChange = e => {
+  userNameonChange: React.ChangeEventHandler<HTMLInputElement> = (e) => {
     this.setState({
       userName: e.target.value,
     });
   };
 
-  pwdonChange = e => {
+  pwdonChange: React.ChangeEventHandler<HTMLInputElement> = (e) => {
     this.setState({
       password: e.target.value,
     });
   };
 
   login = () => {
-    const {userName, password} = this.state;
+    // const {userName, password} = this.state;
     // TODO 改为当前项目登录接口
     // login({
     //   userName,
@@ -27,9 +27,9 @@ class Login extends React.Component {
     // }).then(res => {
     //   console.log('res', res);
     //   if (res.success) {
-        localStorage.setItem('token', res.data);
+        // localStorage.setItem('token', res.data);
         message.success('登录成功', 1.5, () => {
-          router.replace(
+          history.replace(
             '/demo', // TODO 新项目记得修改
           );
         });

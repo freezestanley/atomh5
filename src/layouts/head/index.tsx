@@ -1,14 +1,14 @@
 import React from 'react';
-import PropTypes, { func } from 'prop-types';
+// import PropTypes, { func } from 'prop-types';
 import { history } from 'umi';
 import { Link } from 'umi';
 import { connect } from 'umi';
 import {withRouter} from 'umi';
 import { message } from 'antd';
-import store from '../../../utils/store';
+// import store from '../../../utils/store';
 // import menuRoute from 'src/components/menu/menuRoute'
 import style from './head.less';
-import getEnv from '../../../utils/env';
+// import getEnv from '../../../utils/env';
 
 let DevHost = 'https://test.url.net';
 const Dict = {
@@ -27,10 +27,14 @@ const HostDict = {
   pre: 'https://www.pre.url.net',
   prd: 'https://www.url.net',
 };
-
-DevHost = Dict[getEnv()];
-class header extends React.Component {
-  constructor(props) {
+interface PropsType {
+  env: string;
+  userInfo: any;
+}
+DevHost = Dict['dev'];
+// DevHost = Dict[getEnv()];
+class header extends React.Component<PropsType> {
+  constructor(props: PropsType) {
     super(props);
     this.state = {
       toggle: true,
@@ -81,17 +85,18 @@ class header extends React.Component {
     );
   }
 }
-function mapStateToProps(state) {
+function mapStateToProps(state: any) {
   // const { data } = state.menu;
   return {
     // data
   };
 }
+// @ts-ignore
 const locationHeader = withRouter(header);
 export default connect(mapStateToProps)(locationHeader);
 
 
-function PersonContent(prop) {
+function PersonContent(prop: PropsType) {
   const env = prop.env;
   return (
     <div>
@@ -103,7 +108,7 @@ function PersonContent(prop) {
       <div className={style.personContentBottom}>
         <div
           onClick={async () => {
-            const serverName = store.getKey('serverName');
+            // const serverName = store.getKey('serverName');
             // TODO 登出
             // api.logout({
             //   serverName,

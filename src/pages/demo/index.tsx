@@ -1,7 +1,10 @@
 import React, { useEffect } from 'react';
 import {Button} from 'antd';
 import DemoComponents from './components/demoComponents';
-const Demo = props => {
+interface PropTypes {
+
+}
+const Demo = (props: PropTypes) => {
   useEffect(() => {
     console.log('componentDidMount', props);
   }, []);

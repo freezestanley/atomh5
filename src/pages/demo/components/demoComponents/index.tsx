@@ -1,6 +1,9 @@
 import React from 'react';
 import style from './index';
-const DemoComponents  = props => {
+interface PropsType {
+  name : string;
+}
+const DemoComponents  = (props: PropsType) => {
   return (
     <div className={style['demo-components']}>Demo Components : props name = {props.name}</div>
   )

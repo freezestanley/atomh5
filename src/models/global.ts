@@ -1,7 +1,16 @@
 import * as globalService from '../services/global';
-import { func } from 'prop-types';
-
-export default {
+import {ModelType} from './types.d';
+// import { func } from 'prop-types';
+interface StateType {
+  name: string;
+  menus:any[];
+  userInfo:{
+    nickName:string
+  },
+  env: 'dev',
+  menusHandle: string
+}
+const Model : ModelType<StateType> = {
   namespace: 'global',
   state: {
     name: 'wike',
@@ -45,6 +54,7 @@ export default {
       })
     }
   }
-}
+};
+export default Model;
 // 菜单设置 全局信息
 // 使用方式 挂载全局
