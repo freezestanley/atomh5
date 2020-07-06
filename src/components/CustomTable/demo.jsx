@@ -1,5 +1,7 @@
 import React, {Fragment, useEffect, useState, useRef} from 'react';
-import {Form, Input, Select, Button} from 'antd';
+import { Form } from '@ant-design/compatible';
+import '@ant-design/compatible/assets/index.css';
+import { Input, Select, Button } from 'antd';
 import Table from './components/Table';
 
 

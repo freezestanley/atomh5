@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Drawer, Icon } from 'antd';
+import { CloseOutlined } from '@ant-design/icons';
+import { Drawer } from 'antd';
 import styles from './index.less';
 
 const closebg = require('@/assets/close.png');
@@ -15,7 +16,7 @@ class AdvDrawer extends Component {
           style={{ backgroundImage: `url(${closebg})`, backgroundSize: '100%' }}
           onClick={onClose}
         >
-          <Icon style={{ fontSize: 14, color: '#bcbcbc' }} type="close" />
+          <CloseOutlined style={{ fontSize: 14, color: '#bcbcbc' }} />
         </span>
         {children}
       </Drawer>

@@ -5,9 +5,9 @@
  * @LastEditTime: 2019-09-24 17:41:19
  * @LastEditors: Please set LastEditors
  */
-import { Icon } from 'antd';
+import { createFromIconfontCN } from '@ant-design/icons';
 
-const MyIcon = Icon.createFromIconfontCN({
+const MyIcon = createFromIconfontCN({
   scriptUrl: '//at.alicdn.com/t/font_1483662_jz1ls38e9d.js',
 });
 

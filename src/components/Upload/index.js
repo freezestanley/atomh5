@@ -1,7 +1,8 @@
 /* eslint-disable no-mixed-spaces-and-tabs */
 /* eslint-disable no-tabs */
 import React, { Component } from 'react';
-import { Upload, Icon, message } from 'antd';
+import { Icon as LegacyIcon } from '@ant-design/compatible';
+import { Upload, message } from 'antd';
 import styles from './index.less';
 
 const headers = {
@@ -77,7 +78,7 @@ class UpLoader extends Component {
               />
             ) : (
               <div className={styles['icon-group']}>
-                <Icon type={this.state.loading ? 'loading' : 'plus'} />
+                <LegacyIcon type={this.state.loading ? 'loading' : 'plus'} />
 
                 <div style={{ width }} className={styles['uploader-tips']}>
                   {tips}

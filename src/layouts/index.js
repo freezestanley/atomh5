@@ -1,7 +1,8 @@
 import React from 'react';
 import withRouter from 'umi/withRouter';
 import { connect } from 'dva';
-import { Spin, Icon } from 'antd';
+import { LoadingOutlined } from '@ant-design/icons';
+import { Spin } from 'antd';
 import {deepClone} from 'utils/util';
 import store from 'utils/store';
 import Header from './head';
@@ -10,7 +11,7 @@ import { MenuContext, menu, menuConfig } from '../MenuContext';
 import styles from './index.less';
 // import { getConsoleCode } from '@/network/product';
 
-const antIcon = <Icon type="loading" style={{ fontSize: 60 }} spin />;
+const antIcon = <LoadingOutlined style={{ fontSize: 60 }} spin />;
 // todo getConfig setConfig env
 class LayoutPage extends React.Component {
   constructor(props) {
