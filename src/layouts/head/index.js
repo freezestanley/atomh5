@@ -92,8 +92,6 @@ export default connect(mapStateToProps)(locationHeader);
 
 
 function PersonContent(prop) {
-  log(prop, 444);
-
   const env = prop.env;
   return (
     <div>
