@@ -5,11 +5,8 @@ import { Link } from 'umi';
 import { connect } from 'umi';
 import {withRouter} from 'umi';
 import { message } from 'antd';
-// import store from '../../../utils/store';
-// import menuRoute from 'src/components/menu/menuRoute'
 import style from './head.less';
-// import getEnv from '../../../utils/env';
-
+import HeaderMenu from './HeaderMenu';
 let DevHost = 'https://test.url.net';
 const Dict = {
   local: 'http://localhost:8000',
@@ -18,14 +15,6 @@ const Dict = {
   uat: 'https://uat.url.net',
   pre: 'https://pre.url.net',
   prd: 'https://url.net',
-};
-const HostDict = {
-  local: 'https://www.prd.url.net',
-  dev: 'https://www.dev.url.net',
-  test: 'https://www.test.url.net',
-  uat: 'https://www.uat.url.net',
-  pre: 'https://www.pre.url.net',
-  prd: 'https://www.url.net',
 };
 interface PropsType {
   env: string;
@@ -56,7 +45,8 @@ class header extends React.Component<PropsType> {
   render() {
     return (
       <div className={style.head}>
-        <div className={style.left} />
+        {/* 一级菜单 */}
+        <HeaderMenu />
         <div className={style.right}>
 
           <div className={style.common}>

@@ -1,11 +1,9 @@
-// ref: https://umijs.org/config/
+// https://umijs.org/config/
 import { defineConfig } from 'umi';
-import moduleName from 'umi-types';
-// 开发环境转发地址
-const PoxryUrl = 'http://poxrydemourl.com'
-
-const path = require('path')
-const config = defineConfig({
+import proxy from './proxy';
+const path = require('path');
+const { REACT_APP_ENV } = process.env;
+export default defineConfig({
   theme: {
     "primary-color": "#00bc70"
   },
@@ -40,24 +38,8 @@ const config = defineConfig({
   alias: {
     '@': path.resolve(__dirname, 'src'),
     '@less': path.resolve(__dirname, 'src/less'),
-    '@api': path.resolve(__dirname, 'src/services'),
-    utils: path.resolve(__dirname, 'utils'),
+    'API': path.resolve(__dirname, 'src/api'),
+    utils: path.resolve(__dirname, 'src/utils'),
   },
-  proxy: {
-    '/v1':{
-      target: PoxryUrl,
-      changeOrigin: true,
-      secure: false,
-
-    },
-     
-    '/file':{
-      target: PoxryUrl,
-      changeOrigin: true,
-      secure: false,
-
-    },
-   
-  }
+  proxy: proxy[REACT_APP_ENV || 'dev']
 });
-export default config;

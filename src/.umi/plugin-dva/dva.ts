@@ -3,7 +3,7 @@ import { Component } from 'react';
 import { ApplyPluginsType } from 'umi';
 import dva from 'dva';
 // @ts-ignore
-import createLoading from '/Users/zhangzhichao/work/df-work/umipc/node_modules/dva-loading/dist/index.esm.js';
+import createLoading from '/Users/zhangzhichao/work/df-work/dffl-fuman-product/dffl-fuman-product-manage/node_modules/dva-loading/dist/index.esm.js';
 import { plugin, history } from '../core/umiExports';
 
 let app:any = null;
@@ -24,13 +24,13 @@ export function _onCreate(options = {}) {
   });
   
   app.use(createLoading());
-  app.use(require('/Users/zhangzhichao/work/df-work/umipc/node_modules/dva-immer/dist/index.js')());
+  app.use(require('/Users/zhangzhichao/work/df-work/dffl-fuman-product/dffl-fuman-product-manage/node_modules/dva-immer/dist/index.js')());
   (runtimeDva.plugins || []).forEach((plugin:any) => {
     app.use(plugin);
   });
-  app.model({ namespace: 'global', ...(require('/Users/zhangzhichao/work/df-work/umipc/src/models/global.ts').default) });
-app.model({ namespace: 'demo', ...(require('/Users/zhangzhichao/work/df-work/umipc/src/pages/demo/models/demo.ts').default) });
-app.model({ namespace: 'login', ...(require('/Users/zhangzhichao/work/df-work/umipc/src/pages/login/models/login.ts').default) });
+  app.model({ namespace: 'global', ...(require('/Users/zhangzhichao/work/df-work/dffl-fuman-product/dffl-fuman-product-manage/src/models/global.ts').default) });
+app.model({ namespace: 'demo', ...(require('/Users/zhangzhichao/work/df-work/dffl-fuman-product/dffl-fuman-product-manage/src/pages/demo/models/demo.ts').default) });
+app.model({ namespace: 'login', ...(require('/Users/zhangzhichao/work/df-work/dffl-fuman-product/dffl-fuman-product-manage/src/pages/login/models/login.ts').default) });
   return app;
 }
 

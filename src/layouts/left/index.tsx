@@ -8,7 +8,6 @@ import {withRouter} from 'umi';
 import style from './left.less';
 // import menuRoute from 'src/components/menu/menuRoute'
 interface PropTypes {
-  title: string;
   menus: any[];
   link: any;
   activeItem: any;
@@ -32,9 +31,9 @@ class left extends React.Component<PropTypes, StateTypes> {
     console.log('left menus ===>', this.props)
     return (
       <div className={style.main}>
-        <div className={style.title}>
+        {/* <div className={style.title}>
           {this.props.title}
-        </div>
+        </div> */}
         <div className={style.links}>
           {this.props.menus.map((link, index) => {
             if (link.render) {
@@ -111,7 +110,6 @@ export default connect(mapStateToProps)(locationLeft);
 
 // acitve 应该可以由外部传入
 function LinkItem(prop: PropTypes) {
-  console.log('路由菜单 ==>', prop)
   return (
     <div>
       <div
@@ -121,9 +119,9 @@ function LinkItem(prop: PropTypes) {
         }}
         className={prop.active ? style.activeLinkItem : style.linkItem}
       >
-        <div className={style.linkImage}>
+        {/* <div className={style.linkImage}>
           <img src={prop.link.active ? prop.link.activeIcon : prop.link.icon} />
-        </div>
+        </div> */}
         <div className={style.linkTitle}>
           <div>{prop.link.title}</div>
           {(prop.link.children || []).length ? (

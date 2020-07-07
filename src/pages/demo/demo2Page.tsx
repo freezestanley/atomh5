@@ -1,18 +1,18 @@
 import React, { useEffect } from 'react';
 import {Button} from 'antd';
-import {GET_TAG_LIST} from '@/services';
+import {QueryDictItems} from '@/api';
 interface PropTypes {
 
 }
 // 这里可以任意命名
 const Demo2 = (props: PropTypes) => {
   useEffect(() => {
-    console.log('componentDidMount', props);
     fetchData();
   }, []);
   async function fetchData() {
     try {
-      await GET_TAG_LIST()
+      const res: ResType<string[]> = await QueryDictItems({code: 'PRODUCT_SORT_1'});
+      console.log(res);
     } catch (err) {
       // handle err
     }

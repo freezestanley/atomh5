@@ -4,10 +4,10 @@ import {withRouter} from 'umi';
 import { connect } from 'umi';
 import { LoadingOutlined } from '@ant-design/icons';
 import { Spin } from 'antd';
-import {deepClone} from 'utils/util';
+import {deepClone} from '@/utils/util';
 import Header from './head';
 import Left from './left';
-import { MenuContext, menu, MenuItemType } from '../MenuContext';
+import { menu, MenuItemType } from '../MenuContext';
 import styles from './index.less';
 // import { getConsoleCode } from '@/network/product';
 interface PropTypes {

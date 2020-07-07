@@ -1,5 +1,5 @@
 import { Effect, ImmerReducer } from 'umi';
-export interface ModelType<T> {
+interface ModelType<T> {
   namespace: string;
   state: T;
   effects: {

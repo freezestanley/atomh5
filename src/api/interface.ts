@@ -1,0 +1,3 @@
+interface DICTCodeReq {
+  code: string;
+}

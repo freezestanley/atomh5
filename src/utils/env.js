@@ -1,4 +1,4 @@
-import store from '../utils/store';
+import store from './store';
 
 export default function getEnv(){
   let env = store.getKey('env');
