@@ -42,45 +42,50 @@ export const MenuContext = React.createContext({
 export interface MenuItemType {
   title: string;
   url: string;
-  show?: boolean;
-  router: () => void;
+  childrens: MenuItemType[];
 }
 export interface HeaderType {
   title: string;
-  menus: MenuItemType[];
+  childrens: MenuItemType[];
 }
 export const headerMenus: HeaderType[] = [{
       title: '保险工厂',
-      menus: [{
-        title: '菜单demo',
-        url: '/demo',
-        show: true,
-        router: () => {
-          history.push('/demo');
-        },
+      childrens: [{
+        title: '产品定义',
+        url: '/define',
+        childrens: [{
+          title: '保险产品列表',
+          url: '/define/list',
+        },{
+          title: '创建保险产品',
+          url: '/define/create',
+        },{
+          title: '主附险配置',
+          url: '/define/config',
+        },{
+          title: '公共责任',
+          url: '/define/duty',
+        }]
       },
       {
-        title: '菜单demo2Page',
-        url: '/demo2Page',
-        router: () => {
-          history.push('/demo2Page');
-        },
+        title: '产品组合',
+        url: '/connect',
+        childrens: [{
+          title: '产品组合列表',
+          url: '/connect/list',
+        },{
+          title: '创建产品组合',
+          url: '/connect/create',
+        }]
       }]
     },{
       title: '商品定义',
-      menus: [{
+      childrens: [{
         title: ' A ',
         url: '/demo',
-        show: true,
-        router: () => {
-          history.push('/demo');
-        },
       },
       {
         title: ' B ',
         url: '/demo2Page',
-        router: () => {
-          history.push('/demo2Page');
-        },
       }]
     }]

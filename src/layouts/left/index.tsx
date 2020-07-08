@@ -1,146 +1,55 @@
-//@ts-nocheck
-import React from 'react';
-// import PropTypes from 'prop-types';
-import { history } from 'umi';
-import { Link } from 'umi';
-import { connect } from 'umi';
-import {withRouter} from 'umi';
-import style from './left.less';
-// import menuRoute from 'src/components/menu/menuRoute'
+import React, { memo, useEffect } from 'react';
+import { Layout, Menu } from 'antd';
+import {SelectParam} from 'antd/es/menu';
+import { UserOutlined, LaptopOutlined, NotificationOutlined } from '@ant-design/icons';
+const { SubMenu, Item } = Menu;
+const { Sider } = Layout;
+import { MenuItemType } from '@/MenuContext';
 interface PropTypes {
-  menus: any[];
-  link: any;
-  activeItem: any;
+  menus: MenuItemType[];
+  currPathname: string;
+  openMenus: string[];
+  onChange: (pathname: string) => void;
+  onOpenChange: (keys: string[]) => void;
 }
-interface StateTypes {
-  activeIndex: number;
-  activeItemIndex: number;
-  toggle: boolean;
-}
-class left extends React.Component<PropTypes, StateTypes> {
-  constructor(props: PropTypes) {
-    super(props);
-    this.state = {
-      toggle: true,
-      activeIndex: -1,
-      activeItemIndex: -1,
-    };
-  }
-
-  render() {
-    return (
-      <div className={style.main}>
-        {/* <div className={style.title}>
-          {this.props.title}
-        </div> */}
-        <div className={style.links}>
-          {this.props.menus.map((link, index) => {
-            if (link.render) {
-              return link.render();
-            }
-            return (
-              <div key={index} onClick={() => {
-                if (this.state.activeIndex == index) {
-                  this.setState({
-                    activeIndex: -1,
-                    activeItemIndex: -1,
-                  });
-                } else {
-                  this.setState({
-                    activeIndex: index,
-                    activeItemIndex: -1,
-                  });
-                }
-              }}
-              >
-                <LinkItem
-                  link={link}
-                  activeItem={this.state.activeItemIndex}
-                  setItemActive={(index: number) => {
-                    this.setState({
-                      activeItemIndex: index,
-                    });
-                  }}
-                  active={(this.state.activeIndex == index)}
-                  key={index}
-                />
-              </div>
-            );
-          })}
-        </div>
-      </div>
-    );
-  }
-
-  componentWillMount() {
-    let activeIndex = -1;
-    let activeItemIndex = -1;
-    this.props.menus.map((e, index) => {
-      if (e.active) {
-        activeIndex = index;
-      } else if (e.children) {
-        e.children.map((ee: any, ind: number) => {
-          if (ee.active) {
-            activeIndex = index;
-            activeItemIndex = ind;
-          }
-        });
-      }
-    });
-    this.setState({
-      activeIndex,
-      activeItemIndex,
+ function Left(props: PropTypes) {
+  function renderMenus(menus: MenuItemType[]) {
+    return Array.isArray(menus) && menus.map((menu, idx) => {
+      const { title, url, childrens } = menu;
+      const hasChild = Array.isArray(childrens) && childrens.length > 0;
+      return hasChild ? <SubMenu key={url} title={title}>
+            {renderMenus(menus[idx].childrens)}
+          </SubMenu>
+          : <Item key={url}>{title}</Item>
     });
   }
-}
-function mapStateToProps(state: StateTypes) {
-  // const { data } = state.menu;
-  return {
-    // data
-  };
-}
-// @ts-ignore
-const locationLeft = withRouter(left);
-export default connect(mapStateToProps)(locationLeft);
-
-// acitve 应该可以由外部传入
-function LinkItem(prop: PropTypes) {
+  /**
+   * @description 更新当前路由
+   * @param params 
+   */
+  function onSelect(params: SelectParam) {
+    props.onChange(params.key);
+  }
+  useEffect(() => {
+    console.log('currPathname ==>', props.currPathname);
+  }, [ props.currPathname])
+  
   return (
-    <div>
-      <div
-        onClick={prop.link.router}
-        style={{
-          borderColor: prop.item ? 'white' : '',
-        }}
-        className={prop.active ? style.activeLinkItem : style.linkItem}
-      >
-        {/* <div className={style.linkImage}>
-          <img src={prop.link.active ? prop.link.activeIcon : prop.link.icon} />
-        </div> */}
-        <div className={style.linkTitle}>
-          <div>{prop.link.title}</div>
-          {(prop.link.children || []).length ? (
-            <div className={prop.active ? style.linkIconActive : style.linkIcon}>
-              <i style={{color: '#909090'}} className="iconfont iconf11-copy" />
-            </div>
-          ) : ''}
-        </div>
-      </div>
-      {(prop.link.children || []).length && prop.active ? (
-        <div style={{background: '#fff'}}>
-          {prop.link.children.map((e, index) => {
-            return (
-              <div onClick={(e) => {
-                prop.setItemActive(index);
-                e.stopPropagation();
-              }}
-              >
-                <LinkItem item active={prop.activeItem == index} link={e} />
-              </div>
-            );
-          })}
-        </div>
-      ) : ''}
-    </div>
-  );
+    <Layout>
+      <Sider width={200} className="site-layout-background">
+        <Menu
+          theme="dark"
+          mode="inline"
+          selectedKeys={[props.currPathname]}
+          openKeys={props.openMenus}
+          style={{ height: '100%', borderRight: 0 }}
+          onSelect={onSelect}
+          onOpenChange={props.onOpenChange}
+        >
+          {renderMenus(props.menus)}
+        </Menu>
+      </Sider>
+    </Layout>
+  )
 }
+export default memo(Left);

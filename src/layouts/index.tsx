@@ -1,149 +1,77 @@
-// @ts-nocheck
-import React from 'react';
-import {withRouter} from 'umi';
-import { connect } from 'umi';
+import React, {memo} from 'react';
+import { withRouter, history, useSelector, useDispatch } from 'umi';
 import { LoadingOutlined } from '@ant-design/icons';
 import { Spin } from 'antd';
-import {deepClone} from '@/utils/util';
 import Header from './head';
-import Left from './left';
+import Left from './left/index';
 import { MenuItemType } from '../MenuContext';
 import styles from './index.less';
-// import { getConsoleCode } from '@/network/product';
+import {GlobalStateType} from '@/models/global';
 interface PropTypes {
   dispatch: any;
   location: any;
   menus: MenuItemType[];
+  children: ChildNode;
 }
 interface StateTypes {
-  ready: boolean;
-  menus: MenuItemType[];
-  title?: string;
-  global?: any;
+  global: GlobalStateType;
 }
 const antIcon = <LoadingOutlined style={{ fontSize: 60 }} spin />;
-// TODO getConfig setConfig env
-class LayoutPage extends React.Component<PropTypes, StateTypes> {
-  constructor(props: PropTypes) {
-    super(props);
-    this.state = {
-      menus: [],
-      ready: false,
-    };
-  }
-
-  /**
-   * @description 设置菜单
-   * @param menus 
-   */
-  setMenus(menus : MenuItemType[] = []) {
-    this.props.dispatch({
-      type: 'global/setMenus',
-      payload: {
-        menus,
-      },
-    });
-  }
-  updateMenu = () => {
-    // // 保存菜单context
-    // const conf: MenuItemType[] = this.setMenuActive(menu);
-    // this.setState({ menus: conf }, () => {
-    //   // 渲染菜单
-      this.setMenus(conf);
-    // });
-  };
-
-  componentDidUpdate(prevProps: PropTypes) {
-    if (this.props.location !== prevProps.location) {
-      window.scrollTo(0, 0);
-    }
-  }
-
-  setMenuActive = (menu: MenuItemType[], deep = true): MenuItemType[] => {
-    const cloneMenu = deep ? deepClone(menu) : menu.slice(0);
-    (cloneMenu as MenuItemType[]).every(m => {
-      if (m.url === this.props.location.pathname) {
-        // @ts-ignore
-        m.active = true;
-        return false;
-        // @ts-ignore
-      } if (m.children) {
-        // @ts-ignore
-        this.setMenuActive(m.children, false);
-      }
-      return true;
-    });
-    return (cloneMenu as MenuItemType[]);
-  };
-
-  componentDidMount() {
-    // this.updateMenu();
-    if (this.props.location.pathname !== '/login') {
-      this.setMenus(this.props.menus);
-      // getConsoleCode({}).then(res => {
-      //   if (res.success) {
-      //     store.setKey('code', res.data);
-      //     this.setState({
-      //       ready: true,
-      //     });
-      //   }
-      // });
-    }
-  }
-
-
-  layout = () => {
-    if (this.props.location.pathname === '/login') {
-      return (
-        <div className={styles.userContent}>
-          <div className={styles.content}>
-            <div className={styles.main}>
-              {this.props.children}
-            </div>
+function Layout(props: PropTypes) {
+  const {openMenus, currPathname, menus } = useSelector((state: StateTypes) => state.global);
+  const dispatch = useDispatch()
+  if (props.location.pathname === '/login') {
+    return (
+      <div className={styles.userContent}>
+        <div className={styles.content}>
+          <div className={styles.main}>
+            {props.children}
           </div>
         </div>
-      );
-    }
-    return (
-      <React.Fragment>
-        <div className={styles.header}>
-          <Header />
-          <div className={styles.content}>
-            <div className={styles.left}>
-              {this.props.menus.length ? (
-                <Left title={this.state.title} menus={this.props.menus} />
-              ) : (
+      </div>
+    );
+  }
+  function onRouterChange(path: string) {
+    history.push(path);
+  }
+  function onOpenChange(openMenus: string[]) {
+    console.log('keys', openMenus);
+    dispatch({
+      type: 'global/setOpenMenus',
+      payload: {
+        openMenus
+      }
+    })
+  }
+  return (
+    <React.Fragment>
+      <div className={styles.header}>
+        <Header />
+        <div className={styles.content}>
+          <div className={styles.left}>
+            {menus.length ? (
+              <Left 
+                menus={menus}
+                currPathname={currPathname}
+                openMenus={openMenus}
+                onChange={onRouterChange}
+                onOpenChange={onOpenChange}
+              />
+            ) : (
                 ''
               )}
-            </div>
+          </div>
 
-            <div className={styles.right}>
-              { this.props.children}
-              {/* { this.state.ready && this.props.children} */}
-            </div>
+          <div className={styles.right}>
+            {props.children}
           </div>
         </div>
-        <div className="loadMask ant-modal-wrap" style={{ display: 'none' }} id="loadMask">
-          <Spin indicator={antIcon} />
-        </div>
-      </React.Fragment>
-    );
-  };
-
-  render() {
-    const _this = this;
-    return <React.Fragment>{_this.layout()}</React.Fragment>;
-  }
-}
-function mapStateToProps(state: StateTypes) {
-  if (state.global) {
-    const { currentLanguage, time, userInfo, menus} = state.global;
-    return {
-      currentLanguage, time, menus, userInfo,
-    };
-  }
-  return {};
+      </div>
+      <div className="loadMask ant-modal-wrap" style={{ display: 'none' }} id="loadMask">
+        <Spin indicator={antIcon} />
+      </div>
+    </React.Fragment>
+  )
 }
 // @ts-ignore
-const rootLayoutPage = withRouter(LayoutPage);
-export default connect(mapStateToProps)(rootLayoutPage);
+export default memo(withRouter(Layout));
