@@ -1,6 +1,6 @@
 // import * as globalService from '../services/global';
 import { ModelType } from './types.d';
-// import { Dispatch } from 'umi';
+import { history } from 'umi';
 import {headerMenus, HeaderType} from '@/MenuContext';
 export interface GlobalStateType {
   headerMenus: HeaderType[]; // 一级菜单list
@@ -26,7 +26,7 @@ const Model: ModelType<GlobalStateType> = {
      * @param currentHeaderIdx 
      */
     setCurrHeader(state, { payload: { currentHeaderIdx } }) {
-      return { ...state, currentHeaderIdx }
+      state.currentHeaderIdx = currentHeaderIdx;
     },
     /**
      * @description 设置对应一级菜单的二级菜单列表
@@ -35,7 +35,7 @@ const Model: ModelType<GlobalStateType> = {
     setMenus(state) {
       const {currentHeaderIdx, headerMenus} = state;
       const currMenus = headerMenus[currentHeaderIdx].childrens;
-      return { ...state, menus: currMenus }
+      state.menus = currMenus;
     },
     /**
      * @description 设置
@@ -43,7 +43,7 @@ const Model: ModelType<GlobalStateType> = {
      * @param param1 
      */
     setCurrPathname(state, { payload: { currPathname } }) {
-      return { ...state, currPathname }
+      state.currPathname = currPathname;
     },
     /**
      * @description 设置打开/关闭的菜单
@@ -51,7 +51,25 @@ const Model: ModelType<GlobalStateType> = {
      * @param param1 
      */
     setOpenMenus(state, {payload: {openMenus}}) {
-      return { ...state, openMenus }
+      state.openMenus = openMenus;
+    },
+    /**
+     * @description 一级菜单点击
+     * 修改对应的二级菜单
+     * 当前的一级菜单角标
+     * 打开菜单的 index[]
+     */
+    onHeaderClick(state, {payload: {currentHeaderIdx}}) {
+      const { headerMenus} = state;
+      state.currentHeaderIdx = currentHeaderIdx;
+      state.menus = headerMenus[currentHeaderIdx].childrens;
+      if (Array.isArray(state.menus[0].childrens) && state.menus[0].childrens.length > 0) {
+        // 如果带有 3 级菜单，要打开2级，选中第一个3级
+        state.openMenus = [state.menus[0].url];
+        history.push(state.menus[0].childrens[0].url);
+      } else {
+        history.push(state.menus[0].url);
+      }
     }
   },
   effects: {

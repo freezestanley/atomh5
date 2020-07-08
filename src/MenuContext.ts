@@ -77,6 +77,9 @@ export const headerMenus: HeaderType[] = [{
           title: '创建产品组合',
           url: '/connect/create',
         }]
+      },{
+        title: '二级菜单',
+        url: '/test',
       }]
     },{
       title: '商品定义',

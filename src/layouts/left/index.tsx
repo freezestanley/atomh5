@@ -30,10 +30,6 @@ interface PropTypes {
   function onSelect(params: SelectParam) {
     props.onChange(params.key);
   }
-  useEffect(() => {
-    console.log('currPathname ==>', props.currPathname);
-  }, [ props.currPathname])
-  
   return (
     <Layout>
       <Sider width={200} className="site-layout-background">
