@@ -92,10 +92,6 @@ class left extends React.Component<PropTypes, StateTypes> {
       activeItemIndex,
     });
   }
-
-  componentDidMount() {
-
-  }
 }
 function mapStateToProps(state: StateTypes) {
   // const { data } = state.menu;

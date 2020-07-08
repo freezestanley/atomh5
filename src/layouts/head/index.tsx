@@ -6,7 +6,7 @@ import { connect } from 'umi';
 import {withRouter} from 'umi';
 import { message } from 'antd';
 import style from './head.less';
-import HeaderMenu from './components/HeaderMenu';
+import HeaderMenu from './components/headerMenu';
 let DevHost = 'https://test.url.net';
 const Dict = {
   local: 'http://localhost:8000',
