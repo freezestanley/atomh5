@@ -1,11 +1,14 @@
-import { Effect, ImmerReducer } from 'umi';
+import { Effect, ImmerReducer, SubscriptionAPI } from 'umi';
 interface ModelType<T> {
   namespace: string;
-  state: T;
-  effects: {
+  state?: T;
+  effects?: {
     [propsName: string]: Effect
   };
-  reducers: {
+  reducers?: {
     [propsName: string]: ImmerReducer<T>
+  },
+  subscriptions?: {
+    [propsName: string]: (params: SubscriptionAPI) => void;
   }
 }

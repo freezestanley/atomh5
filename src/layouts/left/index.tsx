@@ -28,7 +28,6 @@ class left extends React.Component<PropTypes, StateTypes> {
   }
 
   render() {
-    console.log('left menus ===>', this.props)
     return (
       <div className={style.main}>
         {/* <div className={style.title}>

@@ -17,7 +17,7 @@ declare module '*.svg' {
   export default url;
 }
 declare module 'omit.js';
-
+declare var REACT_APP_ENV: string;
 // google analytics interface
 interface GAFieldsObject {
   eventCategory: string;

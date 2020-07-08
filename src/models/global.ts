@@ -1,59 +1,73 @@
 import * as globalService from '../services/global';
-import {ModelType} from './types.d';
+import { ModelType } from './types.d';
+// import { Dispatch } from 'umi';
+import {headerMenus, HeaderType} from '@/MenuContext';
 // import { func } from 'prop-types';
-interface StateType {
-  name: string;
-  menus:any[];
-  userInfo:{
-    nickName:string
-  },
-  env: 'dev',
-  menusHandle: string
+export interface GlobalStateType {
+  headerMenus: HeaderType[]; // 一级菜单list
+  menus: HeaderType['menus']; // 当前的二级菜单
+  currentHeaderIdx: string; // 当前选中一级菜单
+  currPathname: string;
 }
-const Model : ModelType<StateType> = {
+const Model: ModelType<GlobalStateType> = {
   namespace: 'global',
   state: {
-    name: 'wike',
-    menus:[],
-    userInfo:{
-      nickName:'hancongcong'
-    },
-    env:'dev',
-    menusHandle:''
+    headerMenus,
+    menus: headerMenus[0].menus,
+    currentHeaderIdx: '0',
+    currPathname: headerMenus[0].menus[0].url, // 初始路由地址
   },
   reducers: {
-    setUserInfo(state, {payload: {name}}) {
-      return {...state, name}
+    /**
+     * @description 设置当前一级菜单
+     * @param state 
+     * @param currentHeaderIdx 
+     */
+    setCurrHeader(state, { payload: { currentHeaderIdx } }) {
+      return { ...state, currentHeaderIdx }
     },
-    setMenus(state,{payload: {menus}}){
-      return {...state,menus}
+    /**
+     * @description 设置对应一级菜单的二级菜单列表
+     * @param state 
+     */
+    setMenus(state) {
+      const {currentHeaderIdx, headerMenus} = state;
+      const currMenus = headerMenus[currentHeaderIdx].menus;
+      return { ...state, menus: currMenus }
     },
-    setMenusHandle(state,{payload:{handle}}){
-      return {...state,menusHandle:handle}
+    /**
+     * @description 设置
+     * @param state 
+     * @param param1 
+     */
+    setCurrPathname(state, { payload: { currPathname } }) {
+      return { ...state, currPathname }
     }
   },
   effects: {
-    * user ({payload: {}}, {call, put}) {
-      const {data, headers} = yield call(globalService.user, {name: '123213'})
-      console.log(JSON.stringify(data))
-      yield put({
-        type: 'setUserInfo',
-        payload: {
-          name: data.name
-        },
-      })
+    // * user({ payload: { } }, { call, put }) {
+    //   const { data, headers } = yield call(globalService.user, { name: '123213' })
+    //   console.log(JSON.stringify(data))
+    //   yield put({
+    //     type: 'setUserInfo',
+    //     payload: {
+    //       name: data.name
+    //     },
+    //   })
+    // },
+  },
+  subscriptions: {
+    // 监听路由变更, 修改model 中当前路由的值,激活菜单
+    listenRouter({ dispatch, history }) {
+      // @ts-ignore
+      history.listen(({ pathname }) => {
+        dispatch({
+          type: 'global/setCurrPathname',
+          playload: pathname
+        })
+      });
     },
-    *menusHandle({payload:{
-      handle
-    }},{call,put}){
-      yield put({
-        type: 'setMenusHandle',
-        payload: {
-          handle
-        },
-      })
-    }
-  }
+  },
 };
 export default Model;
 // 菜单设置 全局信息

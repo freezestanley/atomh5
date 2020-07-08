@@ -7,7 +7,7 @@ import { Spin } from 'antd';
 import {deepClone} from '@/utils/util';
 import Header from './head';
 import Left from './left';
-import { menu, MenuItemType } from '../MenuContext';
+import { MenuItemType } from '../MenuContext';
 import styles from './index.less';
 // import { getConsoleCode } from '@/network/product';
 interface PropTypes {
@@ -22,7 +22,7 @@ interface StateTypes {
   global?: any;
 }
 const antIcon = <LoadingOutlined style={{ fontSize: 60 }} spin />;
-// todo getConfig setConfig env
+// TODO getConfig setConfig env
 class LayoutPage extends React.Component<PropTypes, StateTypes> {
   constructor(props: PropTypes) {
     super(props);
@@ -32,6 +32,10 @@ class LayoutPage extends React.Component<PropTypes, StateTypes> {
     };
   }
 
+  /**
+   * @description 设置菜单
+   * @param menus 
+   */
   setMenus(menus : MenuItemType[] = []) {
     this.props.dispatch({
       type: 'global/setMenus',
@@ -40,37 +44,17 @@ class LayoutPage extends React.Component<PropTypes, StateTypes> {
       },
     });
   }
-
-  setTitle = (title: string) => {
-    this.setState({
-      title,
-    });
-  };
-
   updateMenu = () => {
-    // 保存菜单context
-    const conf: MenuItemType[] = this.setMenuActive(menu);
-    this.setState({ menus: conf }, () => {
-      // 渲染菜单
+    // // 保存菜单context
+    // const conf: MenuItemType[] = this.setMenuActive(menu);
+    // this.setState({ menus: conf }, () => {
+    //   // 渲染菜单
       this.setMenus(conf);
-    });
+    // });
   };
 
   componentDidUpdate(prevProps: PropTypes) {
     if (this.props.location !== prevProps.location) {
-      if (!this.state.ready) { // 根据接口权限展示页面
-        // getConsoleCode({}).then(res => {
-        //   if (res.success) {
-        //     store.setKey('code', res.data);
-        //     this.setState({
-        //       ready: true,
-        //     });
-        //   }
-        // });
-      }
-
-
-      this.updateMenu();
       window.scrollTo(0, 0);
     }
   }
@@ -93,9 +77,9 @@ class LayoutPage extends React.Component<PropTypes, StateTypes> {
   };
 
   componentDidMount() {
-    this.setTitle('管理系统Title');
-    this.updateMenu();
+    // this.updateMenu();
     if (this.props.location.pathname !== '/login') {
+      this.setMenus(this.props.menus);
       // getConsoleCode({}).then(res => {
       //   if (res.success) {
       //     store.setKey('code', res.data);
