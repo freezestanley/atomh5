@@ -1,9 +1,9 @@
 // @ts-nocheck
 import { useState, useEffect, useContext, useRef } from 'react';
 // @ts-ignore
-import isEqual from '/Users/zhangzhichao/work/df-work/dffl-fuman-product/dffl-fuman-product-manage/node_modules/fast-deep-equal/index.js';
+import isEqual from '/Users/zhangzhichao/work/df-work/dffl-fuman-product/front-fuman-sales/node_modules/fast-deep-equal/index.js';
 // @ts-ignore
-import { UmiContext } from '/Users/zhangzhichao/work/df-work/dffl-fuman-product/dffl-fuman-product-manage/node_modules/@umijs/plugin-model/lib/helpers/constant';
+import { UmiContext } from '/Users/zhangzhichao/work/df-work/dffl-fuman-product/front-fuman-sales/node_modules/@umijs/plugin-model/lib/helpers/constant';
 import { Model, models } from './Provider';
 
 export type Models<T extends keyof typeof models> = Model<T>[T]

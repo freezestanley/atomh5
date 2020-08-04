@@ -1,11 +1,20 @@
-import request from './config';
-// import moduleA from './modules/moduleA/moduleA';
-const root = '/api';
-export const QueryDictItems = async (params: DICTCodeReq) => request.get(`${root}/business/queryDictItemsByDictCode`, {params});
-// export const QueryDictItems = (params: DICTCodeReq) => request(`${root}/business/queryDictItemsByDictCode`, {
-//   params
-//   });
-// export {moduleA}; // 子模块导出
+import request from './config'
+import { IS_DEV } from '@/utils/env'
+const prefix = '/biz/api'
+
+export const QueryDictItems = async (data: DICTCodeReq) =>
+  request.post(`${prefix}/business/queryDictItemsByDictCode`, { data })
+export const QueryDictList = async (data: DICTCodesReq) =>
+  request.post(`${prefix}/business/getSysDictItemChildListByDictCodeList`, {
+    data,
+  })
+
+const filePrefix = IS_DEV ? `api${prefix}` : prefix
+export const uploadFileUrl = `${filePrefix}/business/uploadFileOss`
+// export { Define } // 子模块导出
+// export { Md2 } // 子模块导出
 export default {
   QueryDictItems,
+  QueryDictList,
+  uploadFileUrl,
 }

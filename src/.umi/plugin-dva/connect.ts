@@ -6,9 +6,9 @@ import { EffectsCommandMap, SubscriptionAPI } from 'dva';
 import { match } from 'react-router-dom';
 import { Location, LocationState, History } from 'history';
 
-export * from '/Users/zhangzhichao/work/df-work/dffl-fuman-product/dffl-fuman-product-manage/src/models/global';
-export * from '/Users/zhangzhichao/work/df-work/dffl-fuman-product/dffl-fuman-product-manage/src/pages/demo/models/demo';
-export * from '/Users/zhangzhichao/work/df-work/dffl-fuman-product/dffl-fuman-product-manage/src/pages/login/models/login';
+export * from '/Users/zhangzhichao/work/df-work/dffl-fuman-product/front-fuman-sales/src/models/global';
+export * from '/Users/zhangzhichao/work/df-work/dffl-fuman-product/front-fuman-sales/src/pages/demo/models/demo';
+export * from '/Users/zhangzhichao/work/df-work/dffl-fuman-product/front-fuman-sales/src/pages/login/models/login';
 
 export interface Action<T = any> {
   type: T
