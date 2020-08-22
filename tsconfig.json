@@ -3,7 +3,7 @@
     "outDir": "build/dist",
     "module": "esnext",
     "target": "esnext",
-    "lib": ["esnext", "dom"],
+    "lib": ["esnext", "dom", "ES6"],
     "sourceMap": true,
     "baseUrl": ".",
     "jsx": "react",
@@ -18,10 +18,20 @@
     "skipLibCheck": true,
     "experimentalDecorators": true,
     "strict": true,
+    "noImplicitAny": false,
     "paths": {
-      "@/*": ["./src/*"],
-      "@@/*": ["./src/.umi/*"]
+      "@/*": ["src/*"],
+      // "@@/*": ["./src/.umi-production/*"]
+      "@@/*": ["src/.umi/*"]
     }
   },
-  "exclude": ["node_modules", "build", "dist", "scripts", "src/.umi/*", "webpack", "jest"]
+  "exclude": [
+    "node_modules",
+    "build",
+    "dist",
+    "scripts",
+    "src/.umi/*",
+    "webpack",
+    "jest"
+  ]
 }
