@@ -3,8 +3,10 @@ import { Component } from 'react';
 import { ApplyPluginsType } from 'umi';
 import dva from 'dva';
 // @ts-ignore
-import createLoading from '/Users/zhangzhichao/work/df-work/dffl-fuman-product/front-fuman-sales/node_modules/dva-loading/dist/index.esm.js';
+import createLoading from '/Users/zhangzhichao/work/df-work/dffl-fuman-product/scaffold-m/node_modules/dva-loading/dist/index.esm.js';
 import { plugin, history } from '../core/umiExports';
+import ModelGlobal0 from '/Users/zhangzhichao/work/df-work/dffl-fuman-product/scaffold-m/src/models/global.ts';
+import ModelDemo1 from '/Users/zhangzhichao/work/df-work/dffl-fuman-product/scaffold-m/src/pages/demo/models/demo.ts';
 
 let app:any = null;
 
@@ -24,13 +26,12 @@ export function _onCreate(options = {}) {
   });
   
   app.use(createLoading());
-  app.use(require('/Users/zhangzhichao/work/df-work/dffl-fuman-product/front-fuman-sales/node_modules/dva-immer/dist/index.js')());
+  app.use(require('/Users/zhangzhichao/work/df-work/dffl-fuman-product/scaffold-m/node_modules/dva-immer/dist/index.js')());
   (runtimeDva.plugins || []).forEach((plugin:any) => {
     app.use(plugin);
   });
-  app.model({ namespace: 'global', ...(require('/Users/zhangzhichao/work/df-work/dffl-fuman-product/front-fuman-sales/src/models/global.ts').default) });
-app.model({ namespace: 'demo', ...(require('/Users/zhangzhichao/work/df-work/dffl-fuman-product/front-fuman-sales/src/pages/demo/models/demo.ts').default) });
-app.model({ namespace: 'login', ...(require('/Users/zhangzhichao/work/df-work/dffl-fuman-product/front-fuman-sales/src/pages/login/models/login.ts').default) });
+  app.model({ namespace: 'global', ...ModelGlobal0 });
+app.model({ namespace: 'demo', ...ModelDemo1 });
   return app;
 }
 

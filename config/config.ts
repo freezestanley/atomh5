@@ -4,9 +4,9 @@ import proxy from './proxy'
 import theme from './theme'
 import routes from './routes'
 const path = require('path')
-const { REACT_APP_ENV } = process.env
+const { UMI_ENV } = process.env
 export default defineConfig({
-  title: '福满保险产品管理后台',
+  title: 'h5-template',
   theme,
   mountElementId: 'app',
   // treeShaking: true,
@@ -15,7 +15,7 @@ export default defineConfig({
     antd: true,
     title: false,
   },
-  antd: {},
+  // antd: {},
   dva: {
     hmr: true,
     immer: true,
@@ -39,6 +39,16 @@ export default defineConfig({
     API: path.resolve(__dirname, 'src/api'),
     utils: path.resolve(__dirname, 'src/utils'),
   },
+  cssModulesTypescriptLoader: {
+    mode: 'emit'
+  },
+  extraBabelPlugins: [
+    ['import', {
+      libraryName: 'zarm',
+      style: true, // or 'css'
+    }],
+  ],
+  // cssModulesTypescriptLoader: {},
   // devServer: {
   // setup: function(app, server) {
   //   app.get('/some/path', function(req, res) {
@@ -46,5 +56,19 @@ export default defineConfig({
   //   });
   // }
   // },
-  proxy: proxy[REACT_APP_ENV || 'dev'],
+  proxy: proxy[UMI_ENV || 'dev'],
+  sass: {},
+  chainWebpack(config) {
+    config.optimization.splitChunks({
+      cacheGroups: {
+        styles: {
+          name: 'styles',
+          test: /\.(css|less)$/,
+          chunks: 'async',
+          minChunks: 1,
+          minSize: 0,
+        }
+      },
+    });
+  },
 })

@@ -128,7 +128,7 @@ export interface IConfigFromPlugins {
   lessLoader?: {};
   manifest?: {
     fileName?: string;
-    publicPath?: string;
+    publicPath?: "";
     basePath?: string;
     writeToFileEmit?: boolean;
   };
@@ -200,5 +200,12 @@ export interface IConfigFromPlugins {
     dataField?: "";
   };
   block?: number;
+  sass?: {
+    implementation?: any;
+    sassOptions?: {};
+    prependData?: string | (() => any);
+    sourceMap?: boolean;
+    webpackImporter?: boolean;
+  };
   [k: string]: any;
 }

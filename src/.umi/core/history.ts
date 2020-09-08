@@ -1,5 +1,5 @@
 // @ts-nocheck
-import { createBrowserHistory } from '/Users/zhangzhichao/work/df-work/dffl-fuman-product/front-fuman-sales/node_modules/@umijs/runtime';
+import { createBrowserHistory } from '/Users/zhangzhichao/work/df-work/dffl-fuman-product/scaffold-m/node_modules/@umijs/runtime';
 
 let options = {
   "basename": "/"

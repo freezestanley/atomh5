@@ -2,16 +2,19 @@
 import './core/polyfill';
 import '@@/core/devScripts';
 import { plugin } from './core/plugin';
+import './core/pluginRegister';
 import { createHistory } from './core/history';
-import { ApplyPluginsType } from '/Users/zhangzhichao/work/df-work/dffl-fuman-product/front-fuman-sales/node_modules/@umijs/runtime';
-import { renderClient } from '/Users/zhangzhichao/work/df-work/dffl-fuman-product/front-fuman-sales/node_modules/@umijs/renderer-react/dist/index.js';
+import { ApplyPluginsType } from '/Users/zhangzhichao/work/df-work/dffl-fuman-product/scaffold-m/node_modules/@umijs/runtime';
+import { renderClient } from '/Users/zhangzhichao/work/df-work/dffl-fuman-product/scaffold-m/node_modules/@umijs/renderer-react/dist/index.js';
+import { getRoutes } from './core/routes';
 
 
 require('../global.less');
-require('./plugin-locale/locale')._onCreate();
+import { _onCreate } from './plugin-locale/locale';
+_onCreate();
 (() => {
   // Runtime block add component
-  window.GUmiUIFlag = require('/Users/zhangzhichao/work/df-work/dffl-fuman-product/front-fuman-sales/node_modules/@umijs/plugin-ui-blocks/lib/sdk/flagBabelPlugin/GUmiUIFlag.js').default;
+  window.GUmiUIFlag = require('/Users/zhangzhichao/work/df-work/dffl-fuman-product/scaffold-m/node_modules/@umijs/plugin-ui-blocks/lib/sdk/flagBabelPlugin/GUmiUIFlag.js').default;
 
   // Enable/Disable block add edit mode
   window.addEventListener(
@@ -44,7 +47,7 @@ require('./plugin-locale/locale')._onCreate();
 })();
 
 
-const getClientRender = (args: { hot?: boolean } = {}) => plugin.applyPlugins({
+const getClientRender = (args: { hot?: boolean; routes?: any[] } = {}) => plugin.applyPlugins({
   key: 'render',
   type: ApplyPluginsType.compose,
   initialValue: () => {
@@ -52,14 +55,13 @@ const getClientRender = (args: { hot?: boolean } = {}) => plugin.applyPlugins({
       key: 'modifyClientRenderOpts',
       type: ApplyPluginsType.modify,
       initialValue: {
-        // @ts-ignore
-        routes: require('./core/routes').routes,
+        routes: args.routes || getRoutes(),
         plugin,
         history: createHistory(args.hot),
         isServer: process.env.__IS_SERVER,
         dynamicImport: true,
         rootElement: 'app',
-        defaultTitle: `福满保险产品管理后台`,
+        defaultTitle: `h5-template`,
       },
     });
     return renderClient(opts);
@@ -72,7 +74,7 @@ export default clientRender();
 
 
     window.g_umi = {
-      version: '3.2.14',
+      version: '3.2.19',
     };
   
 
@@ -83,9 +85,9 @@ export default clientRender();
         if (isIE) return;
 
         // Umi UI Bubble
-        require('/Users/zhangzhichao/work/df-work/dffl-fuman-product/front-fuman-sales/node_modules/@umijs/preset-ui/lib/bubble').default({
-          port: 3000,
-          path: '/Users/zhangzhichao/work/df-work/dffl-fuman-product/front-fuman-sales',
+        require('/Users/zhangzhichao/work/df-work/dffl-fuman-product/scaffold-m/node_modules/@umijs/preset-ui/lib/bubble').default({
+          port: 3001,
+          path: '/Users/zhangzhichao/work/df-work/dffl-fuman-product/scaffold-m',
           currentProject: '',
           isBigfish: undefined,
         });
@@ -100,6 +102,13 @@ export default clientRender();
 if (module.hot) {
   // @ts-ignore
   module.hot.accept('./core/routes', () => {
-    getClientRender({ hot: true })();
+    const ret = require('./core/routes');
+    if (ret.then) {
+      ret.then(({ getRoutes }) => {
+        getClientRender({ hot: true, routes: getRoutes() })();
+      });
+    } else {
+      getClientRender({ hot: true, routes: ret.getRoutes() })();
+    }
   });
 }

@@ -1,18 +1,21 @@
-import React, { useEffect } from 'react';
-import {Button} from 'antd';
+import React, { useState,useEffect } from 'react';
 import DemoComponents from './components/demoComponents';
+import { Button, Cell } from 'zarm';
+
 interface PropTypes {
 
 }
 const Demo = (props: PropTypes) => {
+  const [multiple,setMultiple] = useState<boolean>(true),
+  [visible, setVisible] = useState<boolean>(false);
   useEffect(() => {
     console.log('componentDidMount', props);
   }, []);
   return (
     <div>
-      <p>页面模板</p> 
-      <DemoComponents name={'页面子组件'} />
-      <Button>click</Button>
+       <Cell title="multiple">
+        <Button>default</Button>
+      </Cell>
     </div>
   );
 };
