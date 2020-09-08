@@ -70,5 +70,16 @@ export default defineConfig({
         }
       },
     });
+    // config.module.rule('pxtovw')
+    // .test(/.css$/)
+    // .loader('pxtovw-loader')
+    // .options({
+    //   unitToConvert: 'px', // 自定义转换单位
+    //   viewportWidth: 375, // 视口宽度
+    //   unitPrecision: 5, // 保留小数位
+    //   minPixelValue: 2 // 最小转换数值
+    // })
+    // .exclude.add([path.resolve('../src/pages/.umi'), path.resolve('node_modules')])
+    // .end()
   },
 })

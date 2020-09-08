@@ -57,6 +57,7 @@
     "eslint-plugin-vue": "^5.2.3",
     "husky": "^4.2.5",
     "lint-staged": "^7.3.0",
+    "pxtovw-loader": "^2.1.0",
     "react-test-renderer": "^16.7.0",
     "sass-loader": "^10.0.2",
     "stylelint": "^13.0.0",
