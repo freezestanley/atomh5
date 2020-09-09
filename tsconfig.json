@@ -1,5 +1,7 @@
 {
   "compilerOptions": {
+    "incremental": true, // 增量编译, 相当于sourceMap
+    "tsBuildInfoFile": "./dist/tsBuildInfo",
     "outDir": "build/dist",
     "module": "esnext",
     "target": "esnext",
@@ -10,7 +12,7 @@
     "allowSyntheticDefaultImports": true,
     "moduleResolution": "node",
     "forceConsistentCasingInFileNames": true,
-    "noImplicitReturns": true,
+    "noImplicitReturns": false,
     "suppressImplicitAnyIndexErrors": true,
     "noUnusedLocals": false,
     "noUnusedParameters": false,
@@ -19,6 +21,8 @@
     "experimentalDecorators": true,
     "strict": true,
     "noImplicitAny": false,
+    "strictNullChecks": false,
+    "removeComments": true,
     "paths": {
       "@/*": ["src/*"],
       // "@@/*": ["./src/.umi-production/*"]

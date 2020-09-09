@@ -6,10 +6,10 @@ report_*.xml
 /yarn-error.log
 /yarn.lock
 /package-lock.json
-
+/config/config.local.ts
 # production
 /dist
-
+.idea
 # misc
 .DS_Store
 
@@ -17,3 +17,8 @@ report_*.xml
 .umi
 .umi-production
 .umirc.local.js
+
+# vscode
+.history
+
+*.zip
