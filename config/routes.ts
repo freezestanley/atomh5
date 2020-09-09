@@ -1,4 +1,5 @@
 export default [
   // 基于 src/page 路径
-  { path: '/demo', component: './demo/index' },
+  { path: '/', component: './demo/index' },
+  { exact: true, path: '/', redirect: '/' },
 ]
