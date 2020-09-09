@@ -58,7 +58,6 @@
     "husky": "^4.2.5",
     "lint-staged": "^7.3.0",
     "postcss-px-to-viewport": "^1.1.1",
-    "pxtovw-loader": "^2.1.0",
     "react-test-renderer": "^16.7.0",
     "sass-loader": "^10.0.2",
     "stylelint": "^13.0.0",

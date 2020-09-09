@@ -3,7 +3,6 @@ import { defineConfig } from 'umi'
 import proxy from './proxy'
 import theme from './theme'
 import routes from './routes'
-const pxToVwLoader =  require('pxtovw-loader');
 const path = require('path')
 const { UMI_ENV } = process.env
 export default defineConfig({
@@ -69,17 +68,6 @@ export default defineConfig({
     mediaQuery: false
   })],
   chainWebpack(config) {
-    // config.optimization.splitChunks({
-    //   cacheGroups: {
-    //     styles: {
-    //       name: 'styles',
-    //       test: /\.(css|less)$/,
-    //       chunks: 'async',
-    //       minChunks: 1,
-    //       minSize: 0,
-    //     }
-    //   },
-    // });
     config.merge({
       module: {
         rules: [{
@@ -96,17 +84,5 @@ export default defineConfig({
         }]
       }
     })
-    // config.module
-    // .rule('pxtovw')
-    // .test(/.css$/)
-    // .use('pxtovw-loader')
-    // .loader(path.resolve('./loaders/inline-style-px-to-vw.js'))
-    // .options({
-    //   unitToConvert: 'px', // 自定义转换单位
-    //   viewportWidth: 375, // 视口宽度
-    //   unitPrecision: 5, // 保留小数位
-    //   minPixelValue: 2 // 最小转换数值
-    // })
-    // .end().exclude.add([path.resolve('../src/pages/.umi'), path.resolve('node_modules')])
   },
 })
