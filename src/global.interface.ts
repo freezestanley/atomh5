@@ -33,3 +33,11 @@ declare interface ResType<T = null> {
     [propName: string]: any
   }
 }
+/**
+ * @description 分页类型
+ */
+interface PageType<T> {
+  success: boolean
+  total: number // 总数
+  data: T[]
+}

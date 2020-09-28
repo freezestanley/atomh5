@@ -1,3 +1,4 @@
+*.zip
 # eslint report
 report_*.xml
 # dependencies
@@ -13,11 +14,13 @@ report_*.xml
 # misc
 .DS_Store
 
+# vscode
+.history
+
 # umi
 .umi
 .umi-production
 .umirc.local.js
-
 # vscode
 .history
 
