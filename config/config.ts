@@ -4,7 +4,7 @@ import proxy from './proxy'
 import theme from './theme'
 import routes from './routes'
 const path = require('path')
-const { REACT_APP_ENV } = process.env
+const { UMI_ENV } = process.env
 export default defineConfig({
   title: '福满保险产品管理后台',
   theme,
@@ -46,5 +46,5 @@ export default defineConfig({
   //   });
   // }
   // },
-  proxy: proxy[REACT_APP_ENV || 'dev'],
+  proxy: proxy[UMI_ENV || 'dev'],
 })
