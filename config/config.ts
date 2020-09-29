@@ -39,16 +39,16 @@ export default defineConfig({
     API: path.resolve(__dirname, 'src/api'),
     utils: path.resolve(__dirname, 'src/utils'),
   },
-  cssModulesTypescriptLoader: {
-    mode: 'emit'
-  },
+  // ! 不要用
+  // cssModulesTypescriptLoader: {
+  //   mode: 'emit'
+  // },
   extraBabelPlugins: [
     ['import', {
       libraryName: 'zarm',
       style: true, // or 'css'
     }],
   ],
-  // cssModulesTypescriptLoader: {},
   // devServer: {
   // setup: function(app, server) {
   //   app.get('/some/path', function(req, res) {
