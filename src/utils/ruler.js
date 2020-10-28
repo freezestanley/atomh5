@@ -230,7 +230,7 @@ export default function initPlugin(params) {
   // 手指按下
   canvas.addEventListener(
     'touchstart',
-    e => {
+    (e) => {
       initX = e.targetTouches[0].pageX
     },
     false
@@ -239,7 +239,7 @@ export default function initPlugin(params) {
   // 手指滑动
   canvas.addEventListener(
     'touchmove',
-    e => {
+    (e) => {
       endX = e.targetTouches[0].pageX
       moveEvent()
     },
@@ -261,7 +261,7 @@ export default function initPlugin(params) {
   // 鼠标按下
   canvas.addEventListener(
     'mousedown',
-    e => {
+    (e) => {
       isMouseDown = true
       initX = e.layerX
     },
@@ -271,7 +271,7 @@ export default function initPlugin(params) {
   // 鼠标移动
   canvas.addEventListener(
     'mousemove',
-    e => {
+    (e) => {
       if (!isMouseDown) {
         return false
       }
