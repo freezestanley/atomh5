@@ -1,6 +1,13 @@
 .footer {
   padding: 15px;
-  width: 100%;
+  flex: 1;
+  :global {
+    .za-button:active,
+    .za-button:hover {
+      background-color: unset;
+      color: #fff;
+    }
+  }
   &-btn {
     height: 44px;
     background: linear-gradient(315deg, #5cb4ec 0%, #3d96e2 100%);
@@ -16,7 +23,7 @@
 .bottom {
   position: fixed;
   bottom: 0;
-  z-index: 999;
+  z-index: 1;
   padding: 10px 15px;
   box-shadow: 0px -1px 5px 0px rgba(0, 0, 0, 0.05);
   &-btn {

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>定位</title>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="32" height="32"></rect>
+        <linearGradient x1="83.0078125%" y1="100%" x2="16.9921875%" y2="0%" id="linearGradient-3">
+            <stop stop-color="#5CB4EC" offset="0%"></stop>
+            <stop stop-color="#3D96E2" offset="100%"></stop>
+        </linearGradient>
+        <path d="M22.1960043,3.88484073 C19.7861379,1.40201398 16.4673592,0 13,0 C9.53264081,0 6.21386212,1.40201398 3.80399567,3.88484073 C-1.26799856,9.10909987 -1.26799856,17.3973556 3.80399567,22.6216147 L13,32 L22.1960043,22.6216147 C27.2679986,17.3973556 27.2679986,9.10909987 22.1960043,3.88484073 Z" id="path-4"></path>
+    </defs>
+    <g id="页面-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="城市筛选" transform="translate(-30.000000, -245.000000)">
+            <g id="定位" transform="translate(30.000000, 245.000000)">
+                <mask id="mask-2" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <g id="蒙版"></g>
+                <g mask="url(#mask-2)" id="形状">
+                    <g transform="translate(3.000000, 0.000000)">
+                        <g fill="none" fill-rule="evenodd">
+                            <use fill="#FFFFFF" xlink:href="#path-4"></use>
+                            <use fill="url(#linearGradient-3)" xlink:href="#path-4"></use>
+                        </g>
+                        <path d="M12.9926211,8 C10.607599,8.00367039 8.55720122,9.6914093 8.09519346,12.0312612 C7.63318569,14.3711131 8.8882198,16.711517 11.0928745,17.6213757 C13.2975292,18.5312345 15.8378909,17.7571866 17.1605934,15.7725425 C18.4832958,13.7878984 18.220016,11.1453071 16.5317428,9.46064557 C15.5949174,8.51995368 14.3202138,7.99388483 12.9926211,8 L12.9926211,8 Z" fill="#FFFFFF" fill-rule="nonzero"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

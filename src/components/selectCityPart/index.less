@@ -1,0 +1,176 @@
+@font-face {
+  font-family: 'iconfont';
+  src: url('./icon/iconfont.eot');
+  src: url('./icon/iconfont.eot?#iefix') format('embedded-opentype'),
+    url('./icon/iconfont.woff2') format('woff2'), url('./icon/iconfont.woff') format('woff'),
+    url('./icon/iconfont.ttf') format('truetype'),
+    url('./icon/iconfont.svg#iconfont') format('svg');
+}
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+:global {
+  .am-search {
+    flex: 1;
+    background: #fff;
+    padding-right: 0;
+    .am-search-input {
+      background: #f7f8fa;
+      input {
+        border-radius: 2px;
+      }
+      .am-search-synthetic-ph {
+        text-align: left;
+        padding-left: 13px;
+      }
+    }
+    .am-search-cancel{
+      font-size: 14px;
+      font-weight: 400;
+      color: #666666;
+    }
+  }
+  .am-indexed-list-container {
+    height: 100%;
+    .am-indexed-list {
+      height: 100%;
+    }
+    .am-list-view-scrollview-content {
+      padding-bottom: 80px;
+      .am-list-header {
+        background: #fff;
+        padding-bottom: 0;
+        padding-top: 0;
+        padding-right: 30px;
+        h3 {
+          font-size: 14px;
+          color: #999;
+          font-weight: 400;
+          line-height: 16px;
+          margin-bottom: 0;
+          padding-bottom: 15px;
+        }
+        ul {
+          display: flex;
+          width: 100%;
+          flex-wrap: wrap;
+          justify-content: space-between;
+          text-align: center;
+          padding-left: 0px !important;
+          margin-bottom: 0px;
+          li {
+            // margin-left: 17px;
+            border: 1px solid #E5E5E5;
+            width: 102px;
+            height: 33px;
+            line-height: 33px;
+            text-align: center;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            word-wrap: normal;
+            margin-bottom: 20px;
+            color: #333333;
+            border-radius: 4px;
+            &:nth-child(3n + 1) {
+              margin-left: 0px;
+            }
+          }
+        }
+      }
+    }
+    .am-indexed-list-quick-search-bar li {
+      margin: 5px 0px;
+      font-weight: 400;
+      color: #108EE9;
+      border-radius: 50%;
+      width: 16px;
+      height: 16px;
+      font-size: 11px;
+      padding: 0;
+      line-height: 15px;
+    }
+    .am-indexed-list-quick-search-bar-over {
+      background: #3d96e2;
+      color: #fff !important;
+    }
+    .am-indexed-list-qsindicator {
+      color: #3d96e2;
+      font-size: 80px;
+      white-space: nowrap;
+    }
+  }
+}
+.cityContainer {
+  height: 100vh;
+  overflow: hidden;
+  text-align: left;
+  .search_header {
+    .search_row1 {
+      display: flex;
+      background: #fff;
+      border-bottom: 1px solid #F0F0F0;
+      align-items: center;
+      height: 44px;
+      padding: 0 15px;
+    }
+    .header_city {
+      display: flex;
+      color: #999;
+      font-size: 12px;
+      line-height: 24px;
+      margin: 0 15px;
+      padding: 14px 0;
+      background: #fff;
+      border-bottom: 1px solid #F0F0F0;
+      font-weight: 400;
+      span {
+        color: #333;
+        font-size: 16px;
+        margin: auto 10px auto 6px;
+        font-weight: 600;
+      }
+    }
+  }
+  .current_city {
+    margin-top: 14px;
+    ul {
+      // justify-content: flex-start !important;
+      li {
+        // margin-right: 10px;
+      }
+    }
+  }
+  .rowItem {
+    margin-left: 16px;
+    position: relative;
+    font-size: 13px;
+    font-weight: 400;
+    color: #333;
+    padding: 10px 0px;
+    line-height: 24px;
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      height: 0.026667rem;
+      border-bottom: 0.026667rem solid #EEEEEE;
+      color: #EEEEEE;
+      -webkit-transform-origin: 0 100%;
+      transform-origin: 0 100%;
+      -webkit-transform: scaleY(0.5);
+      transform: scaleY(0.5);
+    }
+  }
+  .toast_SELECT_CITY {
+    height: 50px;
+    line-height: 50px;
+    font-size: 30px;
+  }
+}

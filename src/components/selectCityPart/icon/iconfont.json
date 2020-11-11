@@ -1,0 +1,16 @@
+{
+  "id": "2120320",
+  "name": "dongfu",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "2529743",
+      "name": "上一页、后退",
+      "font_class": "arrowleft",
+      "unicode": "e61b",
+      "unicode_decimal": 58907
+    }
+  ]
+}
