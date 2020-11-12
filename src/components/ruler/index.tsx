@@ -1,8 +1,8 @@
 import React, { useState, useEffect, memo } from 'react'
-import initPlugin from "@/utils/ruler";
+import initPlugin from "./components/ruler";
 import style from './styles/index.less'
 interface PropTypes {
-  defaultValue: number
+  defaultValue: number | string
   rulerId: 'height' | 'weight'
   answerValue: string[]
   answerCode: string
@@ -16,7 +16,7 @@ function Ruler(props: PropTypes) {
       el: rulerId, //容器id
       height: 50, //刻度尺高度
       maxScale: Number(answerValue[1]), //最大刻度
-      startValue: defaultValue, //刻度开始的初始值
+      startValue: Number(defaultValue), //刻度开始的初始值
       region: answerValue.map(Number), //选择刻度的区间范围
       background: "#fff", //刻度尺背景色
       color: "#666", //字体的颜色
@@ -28,7 +28,7 @@ function Ruler(props: PropTypes) {
         changeValue(res, answerCode)
       }
     });
-  }, [])
+  }, [defaultValue])
   return (
     <div className={style['rulerWrap']}>
       <div className={style['rulerWrap-value']}>
