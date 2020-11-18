@@ -10,11 +10,6 @@ export default defineConfig({
   theme,
   mountElementId: 'app',
   // treeShaking: true,
-  locale: {
-    default: 'zh-CN',
-    antd: true,
-    title: false,
-  },
   // antd: {},
   dva: {
     hmr: true,
@@ -26,6 +21,7 @@ export default defineConfig({
   },
   targets: {
     ie: 11,
+    android: 9
   },
   ignoreMomentLocale: true,
   //     fastClick: true, // 移动端开启
