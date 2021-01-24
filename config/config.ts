@@ -3,6 +3,10 @@ import { defineConfig } from 'umi'
 import proxy from './proxy'
 import theme from './theme'
 import routes from './routes'
+const { NODE_ENV } = process.env
+const erudaScript =
+  NODE_ENV === 'prod' ? [] : ['//cdn.jsdelivr.net/npm/eruda', 'eruda.init()']
+
 const path = require('path')
 const { UMI_ENV } = process.env
 export default defineConfig({
@@ -21,9 +25,10 @@ export default defineConfig({
   },
   targets: {
     ie: 11,
-    android: 9
+    android: 9,
   },
   ignoreMomentLocale: true,
+  scripts: [...erudaScript],
   //     fastClick: true, // 移动端开启
   routes,
   define: {
@@ -40,10 +45,13 @@ export default defineConfig({
   //   mode: 'emit'
   // },
   extraBabelPlugins: [
-    ['import', {
-      libraryName: 'zarm',
-      style: true, // or 'css'
-    }],
+    [
+      'import',
+      {
+        libraryName: 'zarm',
+        style: true, // or 'css'
+      },
+    ],
   ],
   // devServer: {
   // setup: function(app, server) {
@@ -54,31 +62,37 @@ export default defineConfig({
   // },
   proxy: proxy[UMI_ENV || 'dev'],
   sass: {},
-  extraPostCSSPlugins: [require('postcss-px-to-viewport')({
-    viewportWidth: 375,
-    viewportHeight: 667,
-    unitPrecision: 5,
-    viewportUnit: 'vw',
-    selectorBlackList: ['NoVw'],
-    minPixelValue: 1,
-    mediaQuery: false
-  })],
+  extraPostCSSPlugins: [
+    require('postcss-px-to-viewport')({
+      viewportWidth: 375,
+      viewportHeight: 667,
+      unitPrecision: 5,
+      viewportUnit: 'vw',
+      selectorBlackList: ['NoVw'],
+      minPixelValue: 1,
+      mediaQuery: false,
+    }),
+  ],
   chainWebpack(config) {
     config.merge({
       module: {
-        rules: [{
-          test: /\.tsx$/,
-          use: [{
-            loader: path.resolve('./loaders/inline-style-px-to-vw.js'),
-            options: {
-              unitToConvert: 'px', // 自定义转换单位
-              viewportWidth: 375, // 视口宽度
-              unitPrecision: 5, // 保留小数位
-              minPixelValue: 2 // 最小转换数值
-            }
-          }]
-        }]
-      }
+        rules: [
+          {
+            test: /\.tsx$/,
+            use: [
+              {
+                loader: path.resolve('./loaders/inline-style-px-to-vw.js'),
+                options: {
+                  unitToConvert: 'px', // 自定义转换单位
+                  viewportWidth: 375, // 视口宽度
+                  unitPrecision: 5, // 保留小数位
+                  minPixelValue: 2, // 最小转换数值
+                },
+              },
+            ],
+          },
+        ],
+      },
     })
   },
 })

@@ -1,14 +1,18 @@
-import React, { Component } from 'react'
+// import HeaderNav from "@/components/headerNav"
+import React, { FC, useEffect } from 'react'
 import { history } from 'umi'
-
-import styles from './index.less'
-class RegistrationForm extends React.Component {
-  componentDidMount() {
-    history.replace('/product')
-  }
-
-  render() {
-    return <div className={styles.normal} />
-  }
+import Routes from '../../config/routes'
+import useGlobalDict from '@/hooks/useGlobalDict'
+import PageLoading from '@/components/pageLoading'
+// currPathname
+import './index.less'
+// const childrenRouter = Routes.filter((router) => router.path === "/employee")
+const Home: FC = function (props) {
+  return (
+    <div style={{ minHeight: '100vh', backgroundColor: '#f7f7f7' }}>
+      <PageLoading />
+      {props.children}
+    </div>
+  )
 }
-export default RegistrationForm
+export default Home
