@@ -4,13 +4,15 @@ import { history } from 'umi'
 import Routes from '../../config/routes'
 import useGlobalDict from '@/hooks/useGlobalDict'
 import PageLoading from '@/components/pageLoading'
+import Header from '@/components/header'
 // currPathname
-import './index.less'
+import styles from './index.less'
 // const childrenRouter = Routes.filter((router) => router.path === "/employee")
 const Home: FC = function (props) {
   return (
-    <div style={{ minHeight: '100vh', backgroundColor: '#f7f7f7' }}>
+    <div className={styles['container']}>
       <PageLoading />
+      <Header />
       {props.children}
     </div>
   )

@@ -1,8 +1,45 @@
 .header {
+  height: 44px;
+  padding: 0 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
   .hamburger {
+    width: 21px;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    & > i {
+      display: block;
+      width: 21px;
+      height: 2px;
+      background-color: #ff5858;
+      margin-top: 5px;
+    }
   }
   .logo {
+    width: 66px;
+    height: 24px;
+    & > img {
+      width: 100%;
+    }
   }
   .i18n {
+    display: flex;
+    color: #2f281e;
+    .icon {
+      width: 15px;
+      height: 15px;
+    }
+    .lang {
+      font-size: 10px;
+      margin: 0 5px;
+    }
+    .arrow-down {
+    }
   }
 }

@@ -64,8 +64,8 @@ export default defineConfig({
   sass: {},
   extraPostCSSPlugins: [
     require('postcss-px-to-viewport')({
-      viewportWidth: 375,
-      viewportHeight: 667,
+      viewportWidth: 320,
+      // viewportHeight: 667,
       unitPrecision: 5,
       viewportUnit: 'vw',
       selectorBlackList: ['NoVw'],
