@@ -1,0 +1,44 @@
+@import '~@/less/variable.less';
+.footer-pre {
+  width: @page-width;
+  margin: 0 auto;
+  border-top: 1px solid rgba(188, 208, 229, 0.5);
+  padding-top: 18px;
+  .logo {
+    width: 145px;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    & > img {
+      width: 100%;
+    }
+  }
+  .page-list {
+    font-size: 10px;
+    color: #777c7a;
+    display: flex;
+    margin-bottom: 30px;
+    & > span {
+      margin-left: 10px;
+      word-break: keep-all;
+      &:first-child {
+        margin-left: 0;
+      }
+    }
+  }
+}
+.copyright {
+  text-align: center;
+  background-color: #9c3434;
+  height: 30px;
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 2;
+}
+footer {
+  background-color: #611f1f;
+  text-align: center;
+  padding-bottom: 18px;
+  li {
+    color: rgba(255, 255, 255, 0.6);
+    padding-top: 20px;
+  }
+}

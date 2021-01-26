@@ -5,6 +5,7 @@ import Routes from '../../config/routes'
 import useGlobalDict from '@/hooks/useGlobalDict'
 import PageLoading from '@/components/pageLoading'
 import Header from '@/components/header'
+import Footer from '@/components/footer'
 // currPathname
 import styles from './index.less'
 // const childrenRouter = Routes.filter((router) => router.path === "/employee")
@@ -14,6 +15,7 @@ const Home: FC = function (props) {
       <PageLoading />
       <Header />
       {props.children}
+      <Footer />
     </div>
   )
 }
