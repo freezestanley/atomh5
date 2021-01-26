@@ -10,7 +10,7 @@ const erudaScript =
 const path = require('path')
 const { UMI_ENV } = process.env
 export default defineConfig({
-  title: 'h5-template',
+  title: 'atom8',
   theme,
   mountElementId: 'app',
   // treeShaking: true,
