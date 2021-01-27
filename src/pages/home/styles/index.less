@@ -30,9 +30,69 @@
     }
   }
   .highcosts {
-    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
     height: 580px;
-    background-color: #fff;
+    background: url('../images/highcosts_bg.svg') no-repeat center bottom;
+    background-size: 100% auto;
+
+    font-family: 'Inter', 'Noto Sans', 'Noto Sans JP', 'Noto Sans KR',
+      'Noto Naskh Arabic', 'Noto Sans Thai', 'Noto Sans Hebrew',
+      'Noto Sans Bengali', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    color: @color3;
+    margin: 0 auto;
+    overflow: hidden;
+
+    h2 {
+      margin: 90px 0 64px 0;
+    }
+
+    ul {
+      width: 1100px;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
+    li {
+      width: 239px;
+      padding-top: 93px;
+      background: no-repeat 0 0;
+      background-size: 70px 70px;
+
+      &:nth-child(1) {
+        background-image: url(../images/icon-building.png);
+      }
+
+      &:nth-child(2) {
+        background-image: url(../images/icon-hand.png);
+      }
+
+      &:nth-child(3) {
+        background-image: url(../images/icon-operation.png);
+      }
+
+      &:nth-child(4) {
+        background-image: url(../images/icon-dollar.png);
+      }
+    }
+
+    h3 {
+      color: @color3;
+      font-size: 22px;
+      line-height: 1.2;
+      margin-bottom: 20px;
+    }
+
+    p {
+      color: @color2;
+      font-size: 16px;
+      line-height: 1.67;
+      margin-top: 20px;
+    }
   }
   .values {
     height: 340px + 270px;
