@@ -1,0 +1,20 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="1440" height="676" version="1.1" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="720" cy="338" r="280" fill="rgb(228,228,228)"/>
+    <circle cx="720" cy="338" r="160" fill="rgb(255,255,255)" stroke="rgb(199,199,199)" stroke-width="20"/>
+    <circle cx="720" cy="-10" r="125" fill="rgb(255,255,255)"/>
+    <circle cx="720" cy="686" r="125" fill="rgb(255,255,255)"/>
+    <circle cx="372" cy="338" r="125" fill="rgb(255,255,255)"/>
+    <circle cx="1068" cy="338" r="125" fill="rgb(255,255,255)"/>
+    <circle cx="474" cy="92" r="125" fill="rgb(255,255,255)"/>
+    <circle cx="966" cy="92" r="125" fill="rgb(255,255,255)"/>
+    <circle cx="474" cy="584" r="125" fill="rgb(255,255,255)"/>
+    <circle cx="966" cy="584" r="125" fill="rgb(255,255,255)"/>
+    <circle cx="372" cy="338" r="90" fill="rgb(119,175,162)"/>
+    <circle cx="1068" cy="338" r="90" fill="rgb(255,97,49)"/>
+    <circle cx="474" cy="92" r="90" fill="rgb(50,160,100)"/>
+    <circle cx="966" cy="92" r="90" fill="rgb(93,215,248)"/>
+    <circle cx="474" cy="584" r="90" fill="rgb(161,219,204)"/>
+    <circle cx="966" cy="584" r="90" fill="rgb(255,98,91)"/>
+</svg>

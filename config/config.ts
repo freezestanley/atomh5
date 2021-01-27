@@ -73,6 +73,13 @@ export default defineConfig({
       mediaQuery: false,
     }),
   ],
+  locale: {
+    default: 'zh-TW',
+    antd: false,
+    title: false,
+    baseNavigator: true,
+    baseSeparator: '-',
+  },
   chainWebpack(config) {
     config.merge({
       module: {
