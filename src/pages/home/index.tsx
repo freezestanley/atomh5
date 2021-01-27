@@ -13,7 +13,7 @@ const Home: FC<PropTypes> = function (props) {
         <h2>{i18n.formatMessage({ id: 'home_banner_head1' })}</h2>
         <h2>{i18n.formatMessage({ id: 'home_banner_head2' })}</h2>
         <h3>{i18n.formatMessage({ id: 'home_banner_text' })}</h3>
-        <a>{i18n.formatMessage({ id: 'home_getintouch' })}</a>
+        <div>{i18n.formatMessage({ id: 'home_getintouch' })}</div>
       </section>
       <section className={styles.highcosts}></section>
       <section className={styles.values}></section>
