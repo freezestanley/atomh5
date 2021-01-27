@@ -241,8 +241,6 @@ export default {
   how_faq_inv_a_6:
     'Capital gains are not taxed in Hong Kong. However, gains on the disposal of assets may be subject to profits tax if the disposal constitutes a transaction in the nature of trade.',
   how_academy_head: 'STO Academy',
-  list_comingsoon:
-    'Coming Soon! Please fill in your email address to receive latest updates',
   sto_email_placeholder: 'Enter your Email address',
   sto_email_submit: 'submit',
   sto_nolist_privacy:

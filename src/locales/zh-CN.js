@@ -213,7 +213,6 @@ export default {
   how_faq_inv_a_6:
     '资本利得在香港不徵税。但是，如果出售构成一项具有贸易性质的交易，则出售资产的收益可能要缴纳利得税。',
   how_academy_head: 'STO学院',
-  list_comingsoon: '即将公佈！请填写您的电子邮件地址以接收最新信息',
   sto_email_placeholder: '填写您的电邮地址',
   sto_email_submit: '提交',
   sto_nolist_privacy:
