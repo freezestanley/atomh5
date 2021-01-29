@@ -11,6 +11,7 @@ export const QueryDictList = async (data: DICTCodesReq) =>
 
 const filePrefix = IS_DEV ? `api${prefix}` : prefix
 export const uploadFileUrl = `${filePrefix}/business/uploadFileOss`
+
 // export { Define } // 子模块导出
 // export { Md2 } // 子模块导出
 export default {

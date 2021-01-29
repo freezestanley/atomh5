@@ -1,0 +1,136 @@
+.ValueChat {
+  height: 495px;
+  position: relative;
+  z-index: -1;
+  h1 {
+    opacity: 0.9;
+    font-size: 12px;
+    font-weight: 600;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: center;
+    color: #202020;
+    margin-bottom: 30px;
+  }
+  .treeicon {
+    padding: 0px 0 60px 0;
+    position: relative;
+    border-left: 3px solid #ef570c;
+    transform: translate(37px, 0px);
+    &::after {
+      background: url('../images/issuers.png') no-repeat #fff;
+      top: -5px;
+    }
+    &::before {
+      background: url('../images/investors.png') no-repeat #fff;
+      bottom: -5px;
+    }
+    &::after,
+    &::before {
+      display: block;
+      position: absolute;
+      transform: translate(-32px, 0px);
+      content: ' ';
+      width: 60px;
+      height: 60px;
+      background-size: 63%;
+      background-position: center center;
+      border: 1px solid #ef570c;
+      border-radius: 99px;
+    }
+  }
+  .treeicon_box {
+    background: rgba(255, 238, 177, 0.9);
+    border-radius: 13px;
+    font-weight: bold;
+    padding: 10px 11px 20px 15px;
+    width: 100%;
+    transform: translate(-37px, 0px);
+    text-align: center;
+    margin-top: 20px;
+    .ps,
+    .coin,
+    .dt {
+      position: relative;
+      padding-left: 70px;
+      margin-top: 25px;
+      &::before {
+        position: absolute;
+        display: block;
+        content: ' ';
+        background-repeat: no-repeat;
+        background-size: 100%;
+        width: 40px;
+        height: 40px;
+        top: 0;
+        left: 0;
+      }
+      h1 {
+        font-size: 11.9px;
+        font-weight: 600;
+        color: #2f281e;
+        text-align: left;
+        margin: 0;
+        padding: 0;
+      }
+      h3 {
+        font-size: 8.7px;
+        line-height: 1.67;
+        color: #544837;
+        text-align: left;
+        margin: 0;
+        padding: 0;
+      }
+    }
+    .ps::before {
+      background-image: url('../images/ps.png');
+    }
+    .coin::before {
+      background-image: url('../images/coin.png');
+      background-position: 0 0;
+      transform: translate(0px, -6px);
+    }
+    .dt::before {
+      background-image: url('../images/st.png');
+      background-position: 0 0;
+      transform: translate(0px, -6px);
+    }
+  }
+  .tree_list {
+    transform: translate(45px, 6px);
+    & > dt {
+      text-align: left;
+      font-weight: bold;
+    }
+    & > dd {
+      text-align: left;
+      font-size: 10px;
+      font-weight: normal;
+      color: #544837;
+      padding: 0 0 0 30px;
+      margin: 0;
+      position: relative;
+      &::before {
+        content: ' ';
+        position: absolute;
+        border-radius: 100px;
+        left: 10px;
+        display: block;
+        width: 0px;
+        height: 0px;
+        border: 2px solid #000;
+        background: #000;
+        bottom: 6px;
+        overflow: hidden;
+      }
+    }
+  }
+  .tree_Investors {
+    font-size: 12px;
+    font-weight: 600;
+    color: #2f281e;
+    transform: translate(50px, 48px);
+  }
+}
