@@ -17,7 +17,7 @@ const menu: ItemTypes[] = [
 const langList: ItemTypes[] = [
   { label: 'ENGLISH', subLabel: 'EN', value: 'en-US', type: 'lang' },
   { label: '简体中文', subLabel: '简', value: 'zh-CN', type: 'lang' },
-  { label: '繁體中文', subLabel: '繁', value: 'zh_TW', type: 'lang' },
+  { label: '繁體中文', subLabel: '繁', value: 'zh-TW', type: 'lang' },
 ]
 const Header: FC<PropTypes> = function (props) {
   const [list, setList] = useState<ItemTypes[]>([]),
@@ -35,7 +35,7 @@ const Header: FC<PropTypes> = function (props) {
   function onMaskClick(item: ItemTypes) {
     if (item.type === 'lang') {
       setLang(item.subLabel)
-      setLocale(item.value)
+      setLocale(item.value, false)
     } else {
       history.push(item.value)
     }
