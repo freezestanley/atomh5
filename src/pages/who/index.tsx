@@ -32,6 +32,7 @@ interface personTypes {
   avater: string
   name: string
   introduce: string
+  link?: string
 }
 const Person: FC<personTypes> = function (props) {
   return (
@@ -40,8 +41,8 @@ const Person: FC<personTypes> = function (props) {
         className={styles['avater']}
         style={{ backgroundImage: `url(${props?.avater})` }}
       ></div>
-      <div className={styles['name']}>
-        {props.name} <b className={styles['linked']}></b>
+      <div className={styles['name']}>{props.name}
+        <a href={ props.link } target="_blank" className={styles['linked']}></a>
       </div>
       <div className={styles['introduce']}>{props.introduce}</div>
     </div>
@@ -51,21 +52,25 @@ const Person: FC<personTypes> = function (props) {
 const personer = [
   {
     name: 'Ken Lo',
+    link: 'https://www.linkedin.com/in/ken-lo-52979098/',
     introduce:
       '10+ years of experience in global corporations and early stage startups, incl. HSBC, McKinsey, ZA International',
   },
   {
     name: 'Xiaochuan Wu',
+    link: 'https://www.linkedin.com/in/xiaochuan-wu-26069185',
     introduce:
       '8+ years of experience in blockchain and crypto assets development with leading tech companies incl. Huobi, ZhongAn',
   },
   {
     name: 'Yue Cheng',
+    link: 'https://www.linkedin.com/in/dan-cheng-73472a3',
     introduce:
       '15+ years of experience in software engineering with leading tech companies incl. Nokia, Blackberry, Arris ',
   },
   {
     name: 'Jonathan Cheung',
+    link: 'https://www.linkedin.com/in/jonathan-cheung-b229b017/Jonathan',
     introduce:
       '10+ years of experience in product development and pricing in major financial institutions incl. Manulife, FWD, ZA International ',
   },
@@ -160,6 +165,7 @@ const WHO: FC<PropTypes> = function (props) {
               name={ele.name}
               avater={ITEMS[idx]}
               introduce={ele.introduce}
+              link={ ele.link }
             />
           )
         })}
