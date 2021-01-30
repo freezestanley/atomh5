@@ -14,7 +14,7 @@ const Home: FC = function (props) {
     <div className={styles['container']}>
       <PageLoading />
       <Header />
-      {props.children}
+      <div>{props.children}</div>
       <Footer />
     </div>
   )

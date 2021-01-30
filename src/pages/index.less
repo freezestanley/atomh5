@@ -1,6 +1,13 @@
 @import '../less/setting.less';
 .container {
-  padding-top: 44px;
-  min-height: '100vh';
+  // padding-top: 44px;
+  min-height: 100vh;
   background-color: '#f7f7f7';
+  display: flex;
+  flex-flow: column nowrap;
+  & > div {
+    overflow: hidden;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+  }
 }
