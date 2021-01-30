@@ -12,6 +12,15 @@ import jc from './images/a.jpg'
 import wxc from './images/wxc.jpg'
 import chengyue from './images/chengyue.png'
 
+import logo1 from './images/investors/1_1.png'
+import logo2 from './images/investors/1_2.png'
+import logo3 from './images/investors/1_3.png'
+import logo4 from './images/investors/2_1.png'
+import logo5 from './images/investors/2_2.png'
+import logo6 from './images/investors/2_3.png'
+import logo7 from './images/investors/2_4.png'
+
+
 const ITEMS = [ken, wxc, chengyue, jc]
 const contentRender = () => {
   return ITEMS.map((item, i) => {
@@ -32,9 +41,9 @@ const Person: FC<personTypes> = function (props) {
     <div className={styles['person']}>
       <div
         className={styles['avater']}
-        style={{ background: `url(${props?.avater})` }}
+        style={{ backgroundImage: `url(${props?.avater})` }}
       ></div>
-      <div className={styles['name']}>{props.name}</div>
+      <div className={styles['name']}>{props.name} <b className={ styles['linked']}></b></div>
       <div className={styles['introduce']}>{props.introduce}</div>
     </div>
   )
@@ -63,6 +72,23 @@ const personer = [
   },
 ]
 
+
+interface investorType {
+  label: string;
+  logo: string[];
+}
+const logo = [ logo1, logo2, logo6, logo7, logo5, logo3, logo4]
+const Investor: FC<investorType> = function (props) {
+  return (
+    <dl className={styles['investor']}>
+      <dt>{props.label}</dt>
+      {props.logo.map((ele, idx, arr) => {
+        return (<dd key={`${idx}a`}><img src={ ele } /></dd>)
+      })}
+    </dl>
+  )
+}
+
 interface PropTypes {}
 const WHO: FC<PropTypes> = function (props) {
   const carouselRef = useRef()
@@ -90,8 +116,8 @@ const WHO: FC<PropTypes> = function (props) {
         <Valuechart />
       </div>
 
-      <div>
-        <div>Senior Management </div>
+      <div className={ styles['WHO_manage']}>
+        <div className={ styles['WHO_title']}>Senior Management </div>
         {personer.map((ele, idx, arr) => {
           return (
             <Person
@@ -104,13 +130,15 @@ const WHO: FC<PropTypes> = function (props) {
         })}
       </div>
 
-      <div>
+      <Investor logo={logo} label={ 'Our Investors' }/>
+
+      {/* <div> */}
         {/* <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1258px" height="960px">
           <image width="200" height="200" stroke="black" href="http://jtl3d.oss-cn-hangzhou.aliyuncs.com/contents/54c89316-bcf7-59f1-934b-9314429f5b7a/top.png">
           </image>
       </svg> */}
         {/* <Aa /> */}
-      </div>
+      {/* </div> */}
 
       {/* <Carousel
         ref={carouselRef}

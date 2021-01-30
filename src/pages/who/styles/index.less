@@ -26,29 +26,81 @@
     background-color: var(--white);
     padding: 20px 5px;
   }
+  .WHO_manage {
+    background: -webkit-linear-gradient(bottom, #fff, #f1d6b0 40%, #f1d6b0);
+    padding-top: 20px;
+    .WHO_title {
+      font-size: 14px;
+      font-weight: 600;
+      text-align: center;
+      color: #202020;
+    }
+    .person {
+      background: #fff;
+      padding: 10px;
+      border-radius: 5px;
+      box-shadow: 0 1px 32px 0 rgba(0, 0, 0, 0.2);
+      margin: 20px 20px 0 20px;
+      & > .avater {
+        display: block;
+        width: 130px;
+        height: 130px;
+        border-radius: 100px;
+        margin: 0 auto 10px;
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        background-position: center center;
+      }
+      & > .name {
+        font-size: 14.3px;
+        font-weight: bold;
+        color: #2f281e;
+        margin: 0 auto 10px;
+        text-align: center;
+        & .linked {
+          display: inline-block;
+          width: 16px;
+          height: 16px;
+          background: url('../images/linkedin.png') no-repeat;
+          background-size: 100% 100%;
+          transform: translate(10px, 4px);
+        }
+      }
+      & > .introduce {
+        font-size: 10px;
+        line-height: 1.62;
+        color: #544837;
+      }
+    }
+  }
 }
-.person {
-  background: #fff;
-  padding: 10px;
-  border-radius: 5px;
-  box-shadow: 0 1px 32px 0 rgba(0, 0, 0, 0.1);
-  & > .avater {
-    display: block;
-    width: 130px;
-    height: 130px;
-    border-radius: 100px;
-    margin: 0 auto 10px;
-  }
-  & > .name {
-    font-size: 14.3px;
-    font-weight: bold;
-    color: #2f281e;
-    margin: 0 auto 10px;
+.investor {
+  display: flex;
+  flex-wrap: wrap;
+  dt {
+    font-size: 14px;
+    font-weight: 600;
+    color: #202020;
     text-align: center;
+    margin: 20px 0;
+    width: 100%;
   }
-  & > .introduce {
-    font-size: 10px;
-    line-height: 1.62;
-    color: #544837;
+  dd {
+    width: 50%;
+    align-items: center;
+    padding: 1.5625vw;
+    text-align: center;
+    vertical-align: middle;
+    display: flex;
+    justify-content: center;
+    img {
+      width: 90%;
+    }
+  }
+  dd:last-child {
+    width: 100%;
+    img {
+      width: 45%;
+    }
   }
 }
