@@ -2,7 +2,7 @@
  * @description 描述
  */
 import React, { FC, useState, useEffect } from 'react'
-import { history } from 'umi'
+import { history, setLocale, getLocale } from 'umi'
 import CommonMask, { ItemTypes } from '../commonMask'
 import styles from './styles/index.less'
 const logo = require('./images/atom8_logo_s.png')
@@ -15,13 +15,14 @@ const menu: ItemTypes[] = [
   { label: 'GET IT TOUCH', value: '/get' },
 ]
 const langList: ItemTypes[] = [
-  { label: 'ENGLISH', value: 'EN', type: 'lang' },
-  { label: '简体中文', value: 'ZH', type: 'lang' },
-  { label: '繁體中文', value: 'zh_TW', type: 'lang' },
+  { label: 'ENGLISH', subLabel: 'EN', value: 'en-US', type: 'lang' },
+  { label: '简体中文', subLabel: '简', value: 'zh-CN', type: 'lang' },
+  { label: '繁體中文', subLabel: '繁', value: 'zh_TW', type: 'lang' },
 ]
 const Header: FC<PropTypes> = function (props) {
   const [list, setList] = useState<ItemTypes[]>([]),
     [visible, setVisible] = useState(false),
+    currLang = getLocale(),
     [lang, setLang] = useState('EN')
   function onBurgerClick() {
     setList(menu)
@@ -33,12 +34,18 @@ const Header: FC<PropTypes> = function (props) {
   }
   function onMaskClick(item: ItemTypes) {
     if (item.type === 'lang') {
-      setLang(item.value)
+      setLang(item.subLabel)
+      setLocale(item.value)
     } else {
       history.push(item.value)
     }
     setVisible(false)
   }
+  useEffect(() => {
+    const curr = langList.find((item) => item.value === currLang)
+    setLang(curr?.subLabel)
+  }, [])
+
   return (
     <div className={styles['header']}>
       <div className={styles['hamburger']} onClick={onBurgerClick}>
