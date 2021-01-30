@@ -113,6 +113,8 @@ export default {
   home_products_item_text_3_1: '有关尽职调查范围和协助的谘询服务',
   home_products_item_text_3_2:
     '拟写报价备忘录并连接到数字交易所（减低审查所需时间）',
+  home_products_item_text_3_3:
+    'IT Implementation – complementing Advisory service​',
   home_products_invest_subscribe: '订阅HKbitEX上的证券型代币项目',
   home_products_invest_comment:
     'HKbitEX是一家机构级数字资产交易所，并有保险覆盖其託管业务。HKbitEX是Atom 8有限公司的附属公司。',

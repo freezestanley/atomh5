@@ -126,6 +126,8 @@ export default {
     'Consultation on scope of and assistance on due diligence required',
   home_products_item_text_3_2:
     'Drafting offer memorandum in connection to token listing on digital exchanges (i.e. minimize vetting time required)',
+  home_products_item_text_3_3:
+    'IT Implementation – complementing Advisory service​',
   home_products_invest_subscribe: 'Subscribe to STO projects on HKbitEX',
   home_products_invest_comment:
     'HKbitEX is an institutional-grade digital asset exchange with insurance covered custody solutions. HKbitEX is an affiliate company to Atom 8 Limited.',
