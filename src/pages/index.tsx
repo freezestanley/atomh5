@@ -14,8 +14,10 @@ const Home: FC = function (props) {
     <div className={styles['container']}>
       <PageLoading />
       <Header />
-      <div>{props.children}</div>
-      <Footer />
+      <div className={ styles['contain_box']}>
+        <div>{props.children}</div>
+        <Footer />
+      </div>
     </div>
   )
 }
