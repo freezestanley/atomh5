@@ -8,18 +8,18 @@ import CustomerArrow from './components/customerArrow'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 interface PropTypes {
-  urls: string[] // 图片url
+  items: { url: string; text?: string }[] // 图片url
   carouselProps?: any // react-slick属性
 }
-const AtSlider: FC<PropTypes> = function ({ urls, carouselProps = {} }) {
+const AtSlider: FC<PropTypes> = function ({ items, carouselProps = {} }) {
   function renderList() {
-    if (!Array.isArray(urls)) return
-    return urls.map((url, idx) => {
+    if (!Array.isArray(items)) return
+    return items.map((item, idx) => {
       return (
         <div>
           <div className={styles['item']} key={idx}>
-            <img src={url} />
-            <section>Excellence in everything we do.</section>
+            <img src={item.url} />
+            <section>{item.text}</section>
           </div>
         </div>
       )

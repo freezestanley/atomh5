@@ -1,17 +1,12 @@
 /**
  * @description 描述
  */
-import React, { FC, useRef } from 'react'
-import styles from './styles/index.less'
-import Valuechart from './components/valuechat'
-import { Carousel, Button } from 'zarm'
-import { ReactComponent as Email } from './images/ledger-new-logo-.svg'
-import { ReactComponent as Aa } from './images/aa.svg'
-import ken from './images/ken.png'
-import jc from './images/a.jpg'
-import wxc from './images/wxc.jpg'
-import chengyue from './images/chengyue.png'
 import AtSlider from '@/components/atSlider'
+import React, { FC, useRef } from 'react'
+import { useIntl } from 'umi'
+import Valuechart from './components/valuechat'
+import jc from './images/a.jpg'
+import chengyue from './images/chengyue.png'
 import logo1 from './images/investors/1_1.png'
 import logo2 from './images/investors/1_2.png'
 import logo3 from './images/investors/1_3.png'
@@ -19,6 +14,9 @@ import logo4 from './images/investors/2_1.png'
 import logo5 from './images/investors/2_2.png'
 import logo6 from './images/investors/2_3.png'
 import logo7 from './images/investors/2_4.png'
+import ken from './images/ken.png'
+import wxc from './images/wxc.jpg'
+import styles from './styles/index.less'
 
 const ITEMS = [ken, wxc, chengyue, jc]
 const contentRender = () => {
@@ -92,17 +90,41 @@ const Investor: FC<investorType> = function (props) {
     </dl>
   )
 }
-const coreValues = [
-  require('./images/core-value/Core_Values_1.png'),
-  require('./images/core-value/Core_Values_2.png'),
-  require('./images/core-value/Core_Values_3.png'),
-  require('./images/core-value/Core_Values_4.png'),
-  require('./images/core-value/Core_Values_5.png'),
-]
+/**
+ * i18n.formatMessage({ id: 'who_core_txt_1' }),
+      i18n.formatMessage({ id: 'who_core_txt_2' }),
+      i18n.formatMessage({ id: 'who_core_txt_3' }),
+      i18n.formatMessage({ id: 'who_core_txt_4' }),
+      i18n.formatMessage({ id: 'who_core_txt_5' }),
+ */
+
 interface PropTypes {}
 const WHO: FC<PropTypes> = function (props) {
   const carouselRef = useRef()
+  const i18n = useIntl()
 
+  const coreValuesItem = [
+    {
+      url: require('./images/core-value/Core_Values_1.png'),
+      text: i18n.formatMessage({ id: 'who_core_txt_1' }),
+    },
+    {
+      url: require('./images/core-value/Core_Values_2.png'),
+      text: i18n.formatMessage({ id: 'who_core_txt_2' }),
+    },
+    {
+      url: require('./images/core-value/Core_Values_3.png'),
+      text: i18n.formatMessage({ id: 'who_core_txt_3' }),
+    },
+    {
+      url: require('./images/core-value/Core_Values_4.png'),
+      text: i18n.formatMessage({ id: 'who_core_txt_4' }),
+    },
+    {
+      url: require('./images/core-value/Core_Values_5.png'),
+      text: i18n.formatMessage({ id: 'who_core_txt_5' }),
+    },
+  ]
   return (
     <div className={styles['WHO']}>
       <div className={styles['WHO_banner']}>Who we are</div>
@@ -126,7 +148,8 @@ const WHO: FC<PropTypes> = function (props) {
         <Valuechart />
       </div>
       <div className={styles['core_values']}>
-        <AtSlider urls={coreValues} />
+        <h3>Core Values </h3>
+        <AtSlider items={coreValuesItem} />
       </div>
       <div className={styles['WHO_manage']}>
         <div className={styles['WHO_title']}>Senior Management </div>
