@@ -1,4 +1,29 @@
 .how {
+    .title {
+        font-size: 14px;
+        font-weight: 600;
+        text-align: center;
+        color: #202020;
+        line-height: 18px;
+        margin-bottom: 0;
+        word-break: keep-all;
+    }
+    .des{
+        font-size: 14px;
+        text-align: center;
+        color: #544837;
+        word-break: keep-all;
+        span{
+            font-weight: 600;
+        }
+        &.mb30{
+            margin-bottom: 30px;
+        }
+        &.m20{
+            margin-bottom: 20px;
+            margin-top: 20px;
+        }
+    }
   .banner {
     height: 150px;
     line-height: 150px;
@@ -12,24 +37,10 @@
   }
   .what{
     padding: 21px 40px 15px;
-    h2 {
-        font-size: 14px;
-        font-weight: 600;
-        text-align: center;
-        color: #202020;
-    }
   }
   .underlying{
     padding: 10px 20px 29px;
     background-color: #fffaf0; 
-    h3 {
-        font-size: 14px;
-        text-align: center;
-        color: #544837;
-        &.mb30{
-            margin-bottom: 30px;
-        }
-    }
     ul{
         li{
             padding: 10px 10px 10px 9px;
@@ -41,10 +52,14 @@
             align-items: flex-start;
             div{
                 &:nth-of-type(1){
-                    width: 66px;
+                    width: 38px;
+                    height: 38px;
+                    margin-right: 18px;
+                    background-repeat: no-repeat;
+                    background-size: contain;
                 }
                 &:nth-of-type(2){
-                    width: 288px;
+                    width: 204px;
                     h2 {
                         font-size: 14px;
                         font-weight: 600;
@@ -72,7 +87,125 @@
                     }
                 }
             }
+            &:nth-of-type(1){
+                div{
+                    &:nth-of-type(1){
+                        background-image: url(../images/Equity.png);
+                    }
+                }
+            }
+            &:nth-of-type(2){
+                div{
+                    &:nth-of-type(1){
+                        background-image: url(../images/Debt.png);
+                    }
+                }
+            }
+            &:nth-of-type(3){
+                div{
+                    &:nth-of-type(1){
+                        background-image: url(../images/Fund.png);
+                    }
+                }
+            }
+            &:nth-of-type(4){
+                div{
+                    &:nth-of-type(1){
+                        background-image: url(../images/Alternative.png);
+                    }
+                }
+            }
         }
     }
+  }
+  .sto{
+      padding: 21px 20px 20px;
+      .sto_item{
+          margin-bottom: 40px;
+          .title_bg{
+              width: 280px;
+              height: 70px;
+              margin: 0 auto 20px;
+              padding-top: 16px;
+              background: url('../images/title_bg.png') no-repeat center center/cover;
+              .title{
+                  color: #ffffff;
+              }
+              &.bg01{
+                background: url('../images/title_bg01.png') no-repeat center center/cover;
+              }
+          }
+          .item_des{
+            margin-bottom: 38px;
+              >img{
+                  display: block;
+                  width: 70px;
+                  height: 70px;
+                  margin: 0 auto 20px;
+              }
+              .title{
+                  margin-bottom: 10px;
+              }
+          }
+          .right_arrow{
+              display: block;
+              width: 28px;
+              height: 30px;
+              margin: 0 auto 18px;
+              transform: rotate(90deg);
+          }
+      }
+  }
+  .faqs{
+    padding: 0 20px 50px;
+    .title {
+        margin-bottom: 20px;
+    }
+    aside {
+        padding: 10px 10px 20px 11px;
+        border-radius: 16px;
+        background-color: #f8fbfc;
+        margin-bottom: 20px;
+        &:last-child{
+            margin-bottom: 0;
+        }
+        h4{
+            font-size: 14px;
+            font-weight: 600;
+            color: #2f281e;
+        }
+      }
+    
+      ul {
+        padding: 0;
+        list-style-type: none;
+    
+        h6 {
+          font-size: 14px;
+          line-height: 24px;
+          padding: 20px 18px 8px 0;
+          width: 100%;
+          cursor: pointer;
+          background: url(../images/icon-folded.svg) no-repeat right 60%;
+          border-bottom: 1px solid #e9f0f2;
+        }
+    
+        li.open h6 {
+          background: url(../images/icon-unfold.svg) no-repeat right 60%;
+        }
+    
+        p {
+          color: #878da4;
+          font-size: 14px;
+          font-weight: normal;
+          line-height: 2;
+          margin-top: 20px;
+          display: none;
+        }
+    
+        li.open p {
+          display: block;
+        }
+      }
   }
 }

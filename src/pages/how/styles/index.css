@@ -1,3 +1,28 @@
+.how .title {
+  font-size: 14px;
+  font-weight: 600;
+  text-align: center;
+  color: #202020;
+  line-height: 18px;
+  margin-bottom: 0;
+  word-break: keep-all;
+}
+.how .des {
+  font-size: 14px;
+  text-align: center;
+  color: #544837;
+  word-break: keep-all;
+}
+.how .des span {
+  font-weight: 600;
+}
+.how .des.mb30 {
+  margin-bottom: 30px;
+}
+.how .des.m20 {
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
 .how .banner {
   height: 150px;
   line-height: 150px;
@@ -12,23 +37,9 @@
 .how .what {
   padding: 21px 40px 15px;
 }
-.how .what h2 {
-  font-size: 14px;
-  font-weight: 600;
-  text-align: center;
-  color: #202020;
-}
 .how .underlying {
   padding: 10px 20px 29px;
   background-color: #fffaf0;
-}
-.how .underlying h3 {
-  font-size: 14px;
-  text-align: center;
-  color: #544837;
-}
-.how .underlying h3.mb30 {
-  margin-bottom: 30px;
 }
 .how .underlying ul li {
   padding: 10px 10px 10px 9px;
@@ -40,10 +51,14 @@
   align-items: flex-start;
 }
 .how .underlying ul li div:nth-of-type(1) {
-  width: 66px;
+  width: 38px;
+  height: 38px;
+  margin-right: 18px;
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 .how .underlying ul li div:nth-of-type(2) {
-  width: 288px;
+  width: 204px;
 }
 .how .underlying ul li div:nth-of-type(2) h2 {
   font-size: 14px;
@@ -69,4 +84,101 @@
   height: 6px;
   border-radius: 50%;
   background-color: #544837;
+}
+.how .underlying ul li:nth-of-type(1) div:nth-of-type(1) {
+  background-image: url(../images/Equity.png);
+}
+.how .underlying ul li:nth-of-type(2) div:nth-of-type(1) {
+  background-image: url(../images/Debt.png);
+}
+.how .underlying ul li:nth-of-type(3) div:nth-of-type(1) {
+  background-image: url(../images/Fund.png);
+}
+.how .underlying ul li:nth-of-type(4) div:nth-of-type(1) {
+  background-image: url(../images/Alternative.png);
+}
+.how .sto {
+  padding: 21px 20px 20px;
+}
+.how .sto .sto_item {
+  margin-bottom: 40px;
+}
+.how .sto .sto_item .title_bg {
+  width: 280px;
+  height: 70px;
+  margin: 0 auto 20px;
+  padding-top: 16px;
+  background: url('../images/title_bg.png') no-repeat center center / cover;
+}
+.how .sto .sto_item .title_bg .title {
+  color: #ffffff;
+}
+.how .sto .sto_item .title_bg.bg01 {
+  background: url('../images/title_bg01.png') no-repeat center center / cover;
+}
+.how .sto .sto_item .item_des {
+  margin-bottom: 38px;
+}
+.how .sto .sto_item .item_des > img {
+  display: block;
+  width: 70px;
+  height: 70px;
+  margin: 0 auto 20px;
+}
+.how .sto .sto_item .item_des .title {
+  margin-bottom: 10px;
+}
+.how .sto .sto_item .right_arrow {
+  display: block;
+  width: 28px;
+  height: 30px;
+  margin: 0 auto 18px;
+  transform: rotate(90deg);
+}
+.how .faqs {
+  padding: 0 20px 50px;
+}
+.how .faqs .title {
+  margin-bottom: 20px;
+}
+.how .faqs aside {
+  padding: 10px 10px 20px 11px;
+  border-radius: 16px;
+  background-color: #f8fbfc;
+  margin-bottom: 20px;
+}
+.how .faqs aside:last-child {
+  margin-bottom: 0;
+}
+.how .faqs aside h4 {
+  font-size: 14px;
+  font-weight: 600;
+  color: #2f281e;
+}
+.how .faqs ul {
+  padding: 0;
+  list-style-type: none;
+}
+.how .faqs ul h6 {
+  font-size: 14px;
+  line-height: 24px;
+  padding: 20px 18px 8px 0;
+  width: 100%;
+  cursor: pointer;
+  background: url(../images/icon-folded.svg) no-repeat right 60%;
+  border-bottom: 1px solid #e9f0f2;
+}
+.how .faqs ul li.open h6 {
+  background: url(../images/icon-unfold.svg) no-repeat right 60%;
+}
+.how .faqs ul p {
+  color: #878da4;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 2;
+  margin-top: 20px;
+  display: none;
+}
+.how .faqs ul li.open p {
+  display: block;
 }
