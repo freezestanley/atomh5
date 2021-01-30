@@ -6,6 +6,8 @@ import { history, setLocale, getLocale } from 'umi'
 import CommonMask, { ItemTypes } from '../commonMask'
 import styles from './styles/index.less'
 const logo = require('./images/atom8_logo_s.png')
+const menuIcon = require('./images/menu.png')
+const icons = [require('./images/language.png'), require('./images/arrow.png')]
 interface PropTypes {}
 const menu: ItemTypes[] = [
   { label: 'HOME', value: '/home' },
@@ -49,19 +51,21 @@ const Header: FC<PropTypes> = function (props) {
   return (
     <div className={styles['header']}>
       <div className={styles['hamburger']} onClick={onBurgerClick}>
-        <i />
-        <i />
-        <i />
+        <img src={menuIcon} alt="" />
       </div>
       <div className={styles['logo']}>
         <img src={logo} alt="logo" />
       </div>
       <div className={styles['i18n']}>
-        <div className={styles['icon']}></div>
+        {/* <div className={styles['icon']}> */}
+        <img src={icons[0]} alt="" />
+        {/* </div> */}
         <div className={styles['lang']} onClick={onLangClick}>
           {lang}
         </div>
-        <div className={styles['arrow-down']}></div>
+        {/* <div className={styles['arrow-down']}> */}
+        <img src={icons[1]} alt="" />
+        {/* </div> */}
       </div>
       <CommonMask visible={visible} list={list} onClick={onMaskClick} />
     </div>
