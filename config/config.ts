@@ -74,7 +74,7 @@ export default defineConfig({
     }),
   ],
   locale: {
-    default: 'zh-TW',
+    default: 'en-US',
     antd: false,
     title: false,
     baseNavigator: true,

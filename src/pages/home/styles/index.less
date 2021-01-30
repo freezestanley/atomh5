@@ -32,13 +32,14 @@
       color: #373737;
     }
   }
-  .highcosts {
+  .highcosts,
+  .why {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    height: 580px;
-    background: url('../images/highcosts_bg.svg') no-repeat center bottom;
+    // height: 580px;
+    // background: url('../images/highcosts_bg.svg') no-repeat center bottom;
     background-size: 100% auto;
 
     font-family: 'Inter', 'Noto Sans', 'Noto Sans JP', 'Noto Sans KR',
@@ -50,24 +51,30 @@
     overflow: hidden;
 
     h2 {
-      margin: 90px 0 64px 0;
+      margin: 20px 0 50px 0;
+      color: #202020;
+      font-size: 14px;
     }
 
     ul {
-      width: 1100px;
+      width: 270px;
       display: flex;
-      flex-direction: row;
+      flex-flow: column nowrap;
       justify-content: space-between;
     }
 
     li {
-      width: 239px;
-      padding-top: 93px;
+      width: 100%;
       background: no-repeat 0 0;
-      background-size: 70px 70px;
-
+      background-size: 38px 38px;
+      display: flex;
+      justify-content: flex-start;
+      flex-flow: column nowrap;
+      padding-left: 58px;
+      margin-top: 50px;
       &:nth-child(1) {
         background-image: url(../images/icon-building.png);
+        margin-top: 0;
       }
 
       &:nth-child(2) {
@@ -85,28 +92,72 @@
 
     h3 {
       color: @color3;
-      font-size: 22px;
       line-height: 1.2;
-      margin-bottom: 20px;
+      font-size: 14px;
+      margin-bottom: 10px;
     }
 
     p {
       color: @color2;
-      font-size: 16px;
-      line-height: 1.67;
-      margin-top: 20px;
+      font-size: 14px;
+      // line-height: 1.67;
+      // margin-top: 20px;
     }
   }
   .values {
-    height: 340px + 270px;
-    background-color: #f77;
+    position: relative;
+    padding-top: 20px;
+    padding-bottom: 30px;
+    background: -webkit-linear-gradient(bottom, #fff, #f1d6b0 40%, #f1d6b0);
+    // .bg {
+    //   position: absolute;
+    //   width: 100%;
+    //   height: 340px;
+    //   top: 0;
+    //   left: 0;
+    //   background-image: linear-gradient(
+    //     to bottom,
+    //     #f09819,
+    //     rgba(255, 88, 88, 0)
+    //   );
+    //   opacity: 0.3;
+    // }
+    .box {
+      margin: 20px;
+      border-radius: 14px;
+      box-shadow: 0 1px 27px 0 rgba(0, 0, 0, 0.1);
+      background-color: var(--white);
+      padding: 20px 5px;
+    }
+
+    // opacity: 0.3;
   }
+
   .why {
     height: 653px;
+    background-color: #fffaf0;
+    li {
+      margin-top: 20px;
+      &:nth-child(1) {
+        margin-top: 0px;
+        background-image: url(../images/icon-people.png);
+      }
+
+      &:nth-child(2) {
+        background-image: url(../images/icon-future.png);
+      }
+
+      &:nth-child(3) {
+        background-image: url(../images/icon-security.png);
+      }
+
+      &:nth-child(4) {
+        background-image: url(../images/icon-invest.png);
+      }
+    }
   }
   .advisory {
-    height: 150px + 67px;
-    background-color: #f77;
+    margin-bottom: 50px;
   }
   .products {
     height: 525px + 116px;
