@@ -1,2 +1,78 @@
-.home {
+.how {
+  .banner {
+    height: 150px;
+    line-height: 150px;
+    background: url('../images/how_it_works_banner.png') no-repeat center center/cover;
+    h2 {
+      font-size: 14px;
+      font-weight: 600;
+      text-align: center;
+      color: #ffffff;
+    }
+  }
+  .what{
+    padding: 21px 40px 15px;
+    h2 {
+        font-size: 14px;
+        font-weight: 600;
+        text-align: center;
+        color: #202020;
+    }
+  }
+  .underlying{
+    padding: 10px 20px 29px;
+    background-color: #fffaf0; 
+    h3 {
+        font-size: 14px;
+        text-align: center;
+        color: #544837;
+        &.mb30{
+            margin-bottom: 30px;
+        }
+    }
+    ul{
+        li{
+            padding: 10px 10px 10px 9px;
+            border-radius: 14px;
+            box-shadow: 0 1px 27px 0 rgba(0, 0, 0, 0.1);
+            background-color: #ffffff;
+            margin-top: 20px;
+            display: flex;
+            align-items: flex-start;
+            div{
+                &:nth-of-type(1){
+                    width: 66px;
+                }
+                &:nth-of-type(2){
+                    width: 288px;
+                    h2 {
+                        font-size: 14px;
+                        font-weight: 600;
+                        color: #373737;
+                    }
+                    p{
+                        font-style: 14px;
+                        line-height: 18px;
+                        padding-left: 35px;
+                        word-break: keep-all;
+                        color: #544837;
+                        position: relative;
+                        margin-bottom: 4px;
+                        &::before{
+                            content: "";
+                            position: absolute;
+                            left: 10px;
+                            top: 9px;
+                            transform: translateY(-50%);
+                            width: 6px;
+                            height: 6px;
+                            border-radius: 50%;
+                            background-color: #544837;
+                        }
+                    }
+                }
+            }
+        }
+    }
+  }
 }
