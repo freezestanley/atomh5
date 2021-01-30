@@ -12,9 +12,7 @@ import jc from './images/a.jpg'
 import wxc from './images/wxc.jpg'
 import chengyue from './images/chengyue.png'
 
-const ITEMS = [
-  ken, wxc, chengyue, jc
-];
+const ITEMS = [ken, wxc, chengyue, jc]
 const contentRender = () => {
   return ITEMS.map((item, i) => {
     return (
@@ -24,34 +22,46 @@ const contentRender = () => {
     )
   })
 }
-interface personTypes {}
+interface personTypes {
+  avater: string
+  name: string
+  introduce: string
+}
 const Person: FC<personTypes> = function (props) {
-  return <div className={ styles['person']}>
-    <div className={styles['avater']} style={{ background: `url(${props?.avater})` }}></div>
-    <div className={styles['name']}>{ props.name}</div>
-    <div className={styles['introduce']}>{ props.introduce}</div>
-  </div>
+  return (
+    <div className={styles['person']}>
+      <div
+        className={styles['avater']}
+        style={{ background: `url(${props?.avater})` }}
+      ></div>
+      <div className={styles['name']}>{props.name}</div>
+      <div className={styles['introduce']}>{props.introduce}</div>
+    </div>
+  )
 }
 
 const personer = [
   {
-    name: "Ken Lo",
-    introduce: "10+ years of experience in global corporations and early stage startups, incl. HSBC, McKinsey, ZA International"
+    name: 'Ken Lo',
+    introduce:
+      '10+ years of experience in global corporations and early stage startups, incl. HSBC, McKinsey, ZA International',
   },
   {
-    name: "Xiaochuan Wu",
-    introduce: "8+ years of experience in blockchain and crypto assets development with leading tech companies incl. Huobi, ZhongAn"
+    name: 'Xiaochuan Wu',
+    introduce:
+      '8+ years of experience in blockchain and crypto assets development with leading tech companies incl. Huobi, ZhongAn',
   },
   {
-    name: "Yue Cheng",
-    introduce: "15+ years of experience in software engineering with leading tech companies incl. Nokia, Blackberry, Arris "
+    name: 'Yue Cheng',
+    introduce:
+      '15+ years of experience in software engineering with leading tech companies incl. Nokia, Blackberry, Arris ',
   },
   {
-    name: "Jonathan Cheung",
-    introduce: "10+ years of experience in product development and pricing in major financial institutions incl. Manulife, FWD, ZA International "
-  }
+    name: 'Jonathan Cheung',
+    introduce:
+      '10+ years of experience in product development and pricing in major financial institutions incl. Manulife, FWD, ZA International ',
+  },
 ]
-
 
 interface PropTypes {}
 const WHO: FC<PropTypes> = function (props) {
@@ -76,22 +86,26 @@ const WHO: FC<PropTypes> = function (props) {
         </p>
       </div>
 
-      <div className={ styles['WHO_box']}>
+      <div className={styles['WHO_box']}>
         <Valuechart />
       </div>
 
       <div>
-      <div>Senior Management </div>
-      {
-        personer.map((ele, idx, arr) => {
-          return <Person key={ idx } name={ele.name} avater={ITEMS[idx]} introduce={ ele.introduce }/>
-        })
-      }
+        <div>Senior Management </div>
+        {personer.map((ele, idx, arr) => {
+          return (
+            <Person
+              key={idx}
+              name={ele.name}
+              avater={ITEMS[idx]}
+              introduce={ele.introduce}
+            />
+          )
+        })}
       </div>
 
-
-    <div>
-      {/* <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1258px" height="960px">
+      <div>
+        {/* <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1258px" height="960px">
           <image width="200" height="200" stroke="black" href="http://jtl3d.oss-cn-hangzhou.aliyuncs.com/contents/54c89316-bcf7-59f1-934b-9314429f5b7a/top.png">
           </image>
       </svg> */}
