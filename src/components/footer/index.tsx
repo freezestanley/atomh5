@@ -2,11 +2,12 @@
  * @description 描述
  */
 import React, { FC } from 'react'
-import styles from './styles/index.less'
 import { useIntl } from 'umi'
+import styles from './styles/index.less'
 interface PropTypes {}
 const Footer: FC<PropTypes> = function (props) {
-  const i18n = useIntl();
+  const i18n = useIntl()
+  // {i18n.formatMessage({ id: 'home_costs_item_head_2_1' })}
   return (
     <>
       <div className={styles['footer-pre']}>
@@ -25,9 +26,9 @@ const Footer: FC<PropTypes> = function (props) {
       </div>
       <footer>
         <ul>
-          <li>{i18n.formatMessage({ id: 'footer_stoprojects_description' })}</li>
-          <li>User Agreement</li>
-          <li>{i18n.formatMessage({ id: 'footer_howitworks_description' })}</li>
+          <li><a href="/static/pdf/Atom8_Data_Privacy_Policy.pdf" target="_blank" >{i18n.formatMessage({ id: 'footer_stoprojects_description' })}</a></li>
+          <li><a href="/static/pdf/Atom8_User_Agreement.pdf" target="_blank" >{i18n.formatMessage({ id: 'footer_home_description' })}</a></li>
+          <li><a href="/static/pdf/Atom8_Cookies_Policy.pdf" target="_blank" >{i18n.formatMessage({ id: 'footer_howitworks_description' })}</a></li>
         </ul>
       </footer>
     </>

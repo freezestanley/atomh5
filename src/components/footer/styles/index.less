@@ -15,12 +15,14 @@
   .page-list {
     font-size: 10px;
     color: #777c7a;
-    display: flex;
+    display: table;
     margin-bottom: 30px;
+    width: 100%;
     & > span {
-      margin-left: 10px;
+      display: table-cell;
       word-break: keep-all;
       text-align: center;
+      width: 25%;
     }
   }
 }
@@ -38,5 +40,6 @@ footer {
   li {
     color: rgba(255, 255, 255, 0.6);
     padding-top: 20px;
+    font-size: 12px;
   }
 }

@@ -3,7 +3,7 @@ export default {
   header_get_in_touch: 'Get in Touch',
   footer_home: 'Home',
   footer_home_description: 'Conditions of Use of Website',
-  footer_aboutus: 'About us',
+  footer_aboutus: 'Who we are',
   footer_aboutus_description: 'User Guide and FAQ',
   footer_stoprojects: 'STO projects',
   footer_stoprojects_description: 'Data Privacy Policy',
@@ -23,9 +23,6 @@ export default {
   footer_info6:
     'The Information is being provided solely for general information purposes and is not, shall not be construed as, and does not constitute as legal, business, or tax advice. In deciding whether to make any investment decision, the recipient must rely on its own evaluation of the terms of any proposed investment and the merits and risks involved and should seek independent advice where necessary.',
   list_label: 'STO projects',
-  list_comingsoon:
-    'Coming Soon! Please fill in your email address to receive latest updates',
-
   home_getintouch: 'GET IN TOUCH',
   home_contact_head: 'Feel free to contact us',
   home_contact_text:
@@ -34,7 +31,7 @@ export default {
   home_contact_field_email: 'Your Email',
   home_contact_field_subject: 'Subject',
   home_contact_field_message: 'Your Message',
-  home_contact_send: 'Send us message',
+  home_contact_send: 'Send us a message',
   home_banner_head1: 'Enabling alternate avenue to Capital Markets:',
   home_banner_head2: 'Faster access to capital. Lower cost.',
   home_banner_text: 'Powering end-to-end Security Token Offering solutions.',
@@ -126,8 +123,6 @@ export default {
     'Consultation on scope of and assistance on due diligence required',
   home_products_item_text_3_2:
     'Drafting offer memorandum in connection to token listing on digital exchanges (i.e. minimize vetting time required)',
-  home_products_item_text_3_3:
-    'IT Implementation – complementing Advisory service​',
   home_products_invest_subscribe: 'Subscribe to STO projects on HKbitEX',
   home_products_invest_comment:
     'HKbitEX is an institutional-grade digital asset exchange with insurance covered custody solutions. HKbitEX is an affiliate company to Atom 8 Limited.',
@@ -243,8 +238,10 @@ export default {
   how_faq_inv_a_6:
     'Capital gains are not taxed in Hong Kong. However, gains on the disposal of assets may be subject to profits tax if the disposal constitutes a transaction in the nature of trade.',
   how_academy_head: 'STO Academy',
+  list_comingsoon:
+    'Coming Soon! Please fill in your email address to receive latest updates',
   sto_email_placeholder: 'Enter your Email address',
-  sto_email_submit: 'submit',
+  sto_email_submit: 'Submit',
   sto_nolist_privacy:
     "We're committed to your privacy. Atom 8 uses your provided contact information to contact you about digital asset related projects, products, and services.  By clicking submit, you consent to our privacy policy and allow Atom 8 to store and provide you with digital asset related content. You may unsubscribe from these communications at any time. For more information, check out our Privacy Policy.",
   sto_Completed: 'Completed',
@@ -302,17 +299,17 @@ export default {
     'Traditionally, banks do not provide supply chain financing to SMEs because of the duplicate financing problem. But now, by leveraging on cryptographic elements of the blockchain, banks can be more confident in dealing with a new range of clients. Examples of trade finance blockchains include eTradeconnect in Hong Kong and We.trade in Europe.',
   who_desc: `[b]Atom 8[/b] Limited provides end-to-end Security Token Offering
   (STO) solutions to empower issuers to raise capital in a more
-  efficient manner. It operates as a &nbsp;
+  efficient manner. It operates as a
   [b]blockchain-based workflow orchestration platform[/b] servicing
   business clients, including sponsors (Hong Kong SFC RA6), issuers
   and digital custodians.`,
-  who_desc_2: `Atom 8 Limited is an affiliate company to &nbsp;
+  who_desc_2: `Atom 8 Limited is an sister company to
   [b]Hong Kong Digital Asset Ex Ltd.[/b] (HKbitEX), which operates the
   website www.hkbitex.com.hk offering custody and transaction of
   digital assets (cryptocurrencies and security tokens). HKbitEX is an
   applicant to SFC Type 1 & 7 licenses.`,
-  who_core_txt_1: 'Excellence in everything we do.',
-  who_core_txt_2: 'Passion to make meaningful change.',
+  who_core_txt_1: 'Excellence in everything we do',
+  who_core_txt_2: 'Passion to make meaningful change',
   who_core_txt_3: 'One multicultural team',
   who_core_txt_4: 'Courage to innovate',
   who_core_txt_5: 'Human centric',
@@ -328,4 +325,16 @@ export default {
   who_manage_Jonathan: 'Jonathan Cheung',
   who_manage_Jonathan_desc:
     '10+ years of experience in product development and pricing in major financial institutions incl. Manulife, FWD, ZA International ',
+  sto_toast: 'Registration complete. Now you will receive our latest news!',
+  sto_toast1: 'Please enter a valid email address',
+  sto_tag: 'TAG',
+  sto_lockup: 'Lockup',
+  sto_banner: 'STO Projects',
+  sto_howwork: 'How It Works',
+  sto_whoweare: 'Who we are',
+  sto_core: 'Core Values',
+  sto_senior: 'Senior Management',
+  sto_lasthink: 'Check Out Our Latest Thinking',
+  sto_our: 'Our Investors',
+  sto_news: 'In the News',
 }

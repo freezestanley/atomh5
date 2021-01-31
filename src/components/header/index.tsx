@@ -18,12 +18,19 @@ const langList: ItemTypes[] = [
 const Header: FC<PropTypes> = function (props) {
   const i18n = useIntl()
   const menu: ItemTypes[] = [
-    { label: 'HOME', value: '/home' },
-    { label: 'PROJECTS', value: '/sto' },
-    { label: 'HOW IT WORKS', value: '/howitwork' },
-    { label: 'WHO WE ARE', value: '/whoweare' },
-    // { label: 'GET IT TOUCH', value: '/get' },
+    { label: i18n.formatMessage({ id: 'footer_home' }), value: '/home' },
+    { label: i18n.formatMessage({ id: 'footer_stoprojects' }), value: '/sto' },
+    {
+      label: i18n.formatMessage({ id: 'footer_howitworks' }),
+      value: '/howitwork',
+    },
+    {
+      label: i18n.formatMessage({ id: 'footer_whoweare' }),
+      value: '/whoweare',
+    },
+    { label: i18n.formatMessage({ id: 'header_get_in_touch' }), value: '/get' },
   ]
+
   const [list, setList] = useState<ItemTypes[]>([]),
     [visible, setVisible] = useState(false),
     currLang = getLocale(),
