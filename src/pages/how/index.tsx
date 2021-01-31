@@ -2,6 +2,7 @@
  * @description 描述
  */
 import React, { FC } from 'react'
+import { formatBold } from '@/utils/i18nTools'
 import styles from './styles/index.less'
 import { useIntl } from 'umi'
 
@@ -106,7 +107,7 @@ const How: FC<PropTypes> = function (props) {
               {i18n.formatMessage({ id: 'how_sto_item_head_1' })}
             </h2>
             <h3 className={styles.des}>
-              {i18n.formatMessage({ id: 'how_sto_item_text_1​' })}
+              {i18n.formatMessage({ id: 'how_sto_item_text_1' })}
             </h3>
           </div>
           <img
@@ -135,7 +136,7 @@ const How: FC<PropTypes> = function (props) {
             <img src={require('./images/Tokenization.png')} alt="" />
             <h2 className={styles.title}>Tokenization​​</h2>
             <h3 className={styles.des}>
-              {i18n.formatMessage({ id: 'how_sto_item_text_2' })}
+              {formatBold(i18n.formatMessage({ id: 'how_sto_item_text_2' }))}
               {/* <span>
                 {i18n.formatMessage({ id: 'how_sto_item_text_2_bold' })}
               </span> */}
@@ -152,11 +153,11 @@ const How: FC<PropTypes> = function (props) {
               {i18n.formatMessage({ id: 'how_sto_item_head_5' })}
             </h2>
             <h3 className={styles.des}>
-              {i18n.formatMessage({ id: 'how_sto_item_text_5' })}
+              {formatBold(i18n.formatMessage({ id: 'how_sto_item_text_5' }))}
             </h3>
-            <h3 className={styles.des}>
+            {/* <h3 className={styles.des}>
               <span>(T+0 near-instant settlement)</span>
-            </h3>
+            </h3> */}
           </div>
         </div>
         <div className={styles.sto_item}>
@@ -175,7 +176,9 @@ const How: FC<PropTypes> = function (props) {
               {i18n.formatMessage({ id: 'how_sto_item_head_3' })}
             </h2>
             <h3 className={styles.des}>
-              <span>{i18n.formatMessage({ id: 'how_sto_item_text_3' })}</span>
+              <span>
+                {formatBold(i18n.formatMessage({ id: 'how_sto_item_text_3' }))}
+              </span>
             </h3>
             {/* <h3 className={styles.des}>(asset specific)</h3> */}
           </div>
@@ -188,7 +191,9 @@ const How: FC<PropTypes> = function (props) {
             <img src={require('./images/Future-proofed.png')} alt="" />
             <h2 className={styles.title}>Secondary trading​</h2>
             <h3 className={styles.des}>
-              <span>{i18n.formatMessage({ id: 'how_sto_item_text_6' })}</span>
+              <span>
+                {formatBold(i18n.formatMessage({ id: 'how_sto_item_text_6' }))}
+              </span>
             </h3>
           </div>
         </div>
