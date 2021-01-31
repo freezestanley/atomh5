@@ -198,13 +198,17 @@
       color: #ef570c;
       display: flex;
       align-items: center;
-      border-radius: 3px;
+
       word-break: keep-all;
     }
 
     a:nth-child(1) {
       background: #ef570c;
       color: #fff;
+      border-radius: 3px 0 0 3px;
+    }
+    a:nth-child(2) {
+      border-radius: 0 3px 3px 0;
     }
 
     h4 {
@@ -282,17 +286,17 @@
       background: #fff;
       color: #ef570c;
     }
-  
+
     a:nth-child(2) {
       background: #ef570c;
       color: #fff;
     }
-  
+
     h4,
     ul {
       display: none;
     }
-  
+
     article {
       width: 280px;
       padding: 10px 10px 17.5px;
@@ -304,7 +308,7 @@
       align-items: flex-start;
       margin-top: 30px;
       margin-bottom: 50px;
-  
+
       img {
         display: block;
         width: 200px;

@@ -2,7 +2,6 @@
   height: 495px;
   position: relative;
   overflow: hidden;
-  // z-index: -1;
   h1 {
     opacity: 0.9;
     font-size: 12px;
@@ -16,7 +15,7 @@
     margin-bottom: 30px;
   }
   .treeicon {
-    padding: 0px 0 60px 0;
+    padding: 0px 0 40px 0;
     position: relative;
     border-left: 3px solid #ef570c;
     transform: translate(37px, 0px);
@@ -51,12 +50,18 @@
     transform: translate(-37px, 0px);
     text-align: center;
     margin-top: 20px;
+    h2 {
+      text-align: left;
+      font-size: 14px;
+      margin: 0;
+      text-indent: 22vw;
+    }
     .ps,
     .coin,
     .dt {
       position: relative;
       padding-left: 70px;
-      margin-top: 25px;
+      margin-top: 20px;
       &::before {
         position: absolute;
         display: block;
@@ -87,11 +92,12 @@
     }
     .ps::before {
       background-image: url('../images/ps.png');
+      top: -5px;
     }
     .coin::before {
       background-image: url('../images/coin.png');
       background-position: 0 0;
-      transform: translate(0px, -6px);
+      transform: translate(0px, -12px);
     }
     .dt::before {
       background-image: url('../images/st.png');
@@ -132,6 +138,16 @@
     font-size: 12px;
     font-weight: 600;
     color: #2f281e;
-    transform: translate(50px, 48px);
+    transform: translate(50px, 17vw);
+  }
+  .tree_sponsors {
+    font-size: 10px;
+    color: #2f281e;
+    transform: translate(30vw, 23vw);
+  }
+  .tree_broker {
+    font-size: 10px;
+    color: #2f281e;
+    transform: translate(30vw, 23vw);
   }
 }
