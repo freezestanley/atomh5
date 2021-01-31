@@ -4,7 +4,6 @@
 import React, { FC, useState, useEffect } from 'react'
 import { history, setLocale, getLocale, useIntl } from 'umi'
 import CommonMask, { ItemTypes } from '../commonMask'
-import { useIntl } from 'umi'
 import styles from './styles/index.less'
 const logo = require('./images/atom8_logo_s.png')
 const menuIcon = require('./images/menu.png')
@@ -21,8 +20,14 @@ const Header: FC<PropTypes> = function (props) {
   const menu: ItemTypes[] = [
     { label: i18n.formatMessage({ id: 'footer_home' }), value: '/home' },
     { label: i18n.formatMessage({ id: 'footer_stoprojects' }), value: '/sto' },
-    { label: i18n.formatMessage({ id: 'footer_howitworks' }), value: '/howitwork' },
-    { label: i18n.formatMessage({ id: 'footer_whoweare' }), value: '/whoweare' },
+    {
+      label: i18n.formatMessage({ id: 'footer_howitworks' }),
+      value: '/howitwork',
+    },
+    {
+      label: i18n.formatMessage({ id: 'footer_whoweare' }),
+      value: '/whoweare',
+    },
     { label: i18n.formatMessage({ id: 'header_get_in_touch' }), value: '/get' },
   ]
 
