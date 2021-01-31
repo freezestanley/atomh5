@@ -289,4 +289,9 @@ export default {
   who_manage_Jonathan: 'Jonathan Cheung',
   who_manage_Jonathan_desc:
     '10年以上在Manulife, FWD, ZA International等主要金融機構的產品開發和定價經驗',
+  sto_core: '核心價值觀',
+  sto_senior: '高級管理層',
+  sto_lasthink: '看看我們的最新想法',
+  sto_our: '我們的投資者',
+  sto_news: '新聞',
 }

@@ -328,4 +328,9 @@ export default {
   who_manage_Jonathan: 'Jonathan Cheung',
   who_manage_Jonathan_desc:
     '10+ years of experience in product development and pricing in major financial institutions incl. Manulife, FWD, ZA International ',
+  sto_core: 'Core Values',
+  sto_senior: 'Senior Management',
+  sto_lasthink: 'Check Out Our Latest Thinking',
+  sto_our: 'Our Investors',
+  sto_news: 'In the News',
 }
