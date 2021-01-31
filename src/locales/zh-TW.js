@@ -1,5 +1,5 @@
 export default {
-  umi: 'hello umi',
+  umi: 'Atom 8',
   header_get_in_touch: '聯絡我們',
   footer_home: '主頁',
   footer_home_description: '網站使用條款',

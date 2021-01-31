@@ -1,5 +1,5 @@
 export default {
-  umi: 'hello umi',
+  umi: 'Atom 8',
   header_get_in_touch: 'Get in Touch',
   footer_home: 'Home',
   footer_home_description: 'Conditions of Use of Website',
