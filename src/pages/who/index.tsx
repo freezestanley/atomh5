@@ -5,6 +5,7 @@ import AtSlider from '@/components/atSlider'
 import Lastthink from '@/components/LastSlider'
 import React, { FC, useRef } from 'react'
 import { useIntl } from 'umi'
+import { formatBold } from '@/utils/i18nTools'
 import Valuechart from './components/valuechat'
 import jc from './images/a.jpg'
 import chengyue from './images/chengyue.png'
@@ -48,8 +49,9 @@ const Person: FC<personTypes> = function (props) {
         className={styles['avater']}
         style={{ backgroundImage: `url(${props?.avater})` }}
       ></div>
-      <div className={styles['name']}>{props.name}
-        <a href={ props.link } target="_blank" className={styles['linked']}></a>
+      <div className={styles['name']}>
+        {props.name}
+        <a href={props.link} target="_blank" className={styles['linked']}></a>
       </div>
       <div className={styles['introduce']}>{props.introduce}</div>
     </div>
@@ -129,53 +131,88 @@ const WHO: FC<PropTypes> = function (props) {
   const LastItem = [
     {
       url: require('./images/news/who_we_are_news_dummy1.png'),
-      text: 'Lorem Ipsum is simply dummy text of the printing.'
+      text: 'Lorem Ipsum is simply dummy text of the printing.',
     },
     {
       url: require('./images/news/who_we_are_news_dummy2.png'),
-      text: 'Lorem Ipsum is simply dummy text of the printing.'
+      text: 'Lorem Ipsum is simply dummy text of the printing.',
     },
     {
       url: require('./images/news/who_we_are_news_dummy3.png'),
-      text: 'Lorem Ipsum is simply dummy text of the printing.'
+      text: 'Lorem Ipsum is simply dummy text of the printing.',
     },
     {
       url: require('./images/news/who_we_are_news_dummy1.png'),
-      text: 'Lorem Ipsum is simply dummy text of the printing.'
+      text: 'Lorem Ipsum is simply dummy text of the printing.',
     },
     {
       url: require('./images/news/who_we_are_news_dummy2.png'),
-      text: 'Lorem Ipsum is simply dummy text of the printing.'
+      text: 'Lorem Ipsum is simply dummy text of the printing.',
     },
     {
       url: require('./images/news/who_we_are_news_dummy3.png'),
-      text: 'Lorem Ipsum is simply dummy text of the printing.'
-    }
+      text: 'Lorem Ipsum is simply dummy text of the printing.',
+    },
   ]
-
+  const personer = [
+    {
+      name: i18n.formatMessage({ id: 'who_manage_KenLo' }),
+      link: 'https://www.linkedin.com/in/ken-lo-52979098/',
+      introduce: i18n.formatMessage({ id: 'who_manage_KenLo_desc' }),
+    },
+    {
+      name: i18n.formatMessage({ id: 'who_manage_xiaochuan' }),
+      link: 'https://www.linkedin.com/in/xiaochuan-wu-26069185',
+      introduce: i18n.formatMessage({ id: 'who_manage_xiaochuan_desc' }),
+    },
+    {
+      name: i18n.formatMessage({ id: 'who_manage_yueCheng' }),
+      link: 'https://www.linkedin.com/in/dan-cheng-73472a3',
+      introduce: i18n.formatMessage({ id: 'who_manage_yueCheng_desc' }),
+    },
+    {
+      name: i18n.formatMessage({ id: 'who_manage_Jonathan' }),
+      link: 'https://www.linkedin.com/in/jonathan-cheung-b229b017/Jonathan',
+      introduce: i18n.formatMessage({ id: 'who_manage_Jonathan_desc' }),
+    },
+  ]
   return (
     <div className={styles['WHO']}>
       <div className={styles['WHO_banner']}>{ i18n.formatMessage({ id: 'sto_whoweare' })}</div>
       <div className={styles['WHO_article']}>
+<<<<<<< HEAD
         <p>
         {formatBold(i18n.formatMessage({ id: 'who_desc' }))}
         </p>
         <p>
         {formatBold(i18n.formatMessage({ id: 'who_desc_2' }))}
         </p>
+=======
+        <p>{formatBold(i18n.formatMessage({ id: 'who_desc' }))}</p>
+        <p>{formatBold(i18n.formatMessage({ id: 'who_desc_2' }))}</p>
+>>>>>>> 22b3ade305f228970633dcf82169c7ab71c320d7
       </div>
 
       <div className={styles['WHO_box']}>
         <Valuechart />
       </div>
       <div className={styles['core_values']}>
+<<<<<<< HEAD
         <h3>{ i18n.formatMessage({ id: 'sto_core' }) }</h3>
+=======
+        <h3>{i18n.formatMessage({ id: 'sto_core' })}</h3>
+>>>>>>> 22b3ade305f228970633dcf82169c7ab71c320d7
 
         <AtSlider items={coreValuesItem} />
-
       </div>
       <div className={styles['WHO_manage']}>
+<<<<<<< HEAD
         <div className={styles['WHO_title']}>{ i18n.formatMessage({ id: 'sto_senior' }) } </div>
+=======
+        <div className={styles['WHO_title']}>
+          {i18n.formatMessage({ id: 'sto_senior' })}
+        </div>
+>>>>>>> 22b3ade305f228970633dcf82169c7ab71c320d7
         {personer.map((ele, idx, arr) => {
           return (
             <Person
@@ -183,12 +220,13 @@ const WHO: FC<PropTypes> = function (props) {
               name={ele.name}
               avater={ITEMS[idx]}
               introduce={ele.introduce}
-              link={ ele.link }
+              link={ele.link}
             />
           )
         })}
       </div>
 
+<<<<<<< HEAD
       <div className={ styles['lastthinkbox']}>
         <h1>{ i18n.formatMessage({ id: 'sto_lasthink' }) }</h1>
         <Lastthink items={LastItem} />
@@ -198,10 +236,21 @@ const WHO: FC<PropTypes> = function (props) {
       <Investor logo={logo} label={i18n.formatMessage({ id: 'sto_our' }) } />
       <div className={ styles['lastthinkbox']}>
         <h1>{ i18n.formatMessage({ id: 'sto_news' }) }</h1>
+=======
+      <div className={styles['lastthinkbox']}>
+        <h1>{i18n.formatMessage({ id: 'sto_lasthink' })}</h1>
         <Lastthink items={LastItem} />
       </div>
 
-
+      <Investor
+        logo={logo}
+        label={`${i18n.formatMessage({ id: 'sto_our' })}`}
+      />
+      <div className={styles['lastthinkbox']}>
+        <h1>{i18n.formatMessage({ id: 'sto_news' })}</h1>
+>>>>>>> 22b3ade305f228970633dcf82169c7ab71c320d7
+        <Lastthink items={LastItem} />
+      </div>
     </div>
   )
 }
