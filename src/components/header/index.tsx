@@ -28,7 +28,10 @@ const Header: FC<PropTypes> = function (props) {
       label: i18n.formatMessage({ id: 'footer_whoweare' }),
       value: '/whoweare',
     },
-    { label: i18n.formatMessage({ id: 'header_get_in_touch' }), value: '/get' },
+    {
+      label: i18n.formatMessage({ id: 'header_get_in_touch' }),
+      value: '/getittouch',
+    },
   ]
 
   const [list, setList] = useState<ItemTypes[]>([]),
@@ -48,6 +51,11 @@ const Header: FC<PropTypes> = function (props) {
       setLang(item.subLabel)
       setLocale(item.value, false)
     } else {
+      if (item.value === '/getittouch') {
+        console.log('get it touch')
+
+        return
+      }
       history.push(item.value)
     }
     setVisible(false)
