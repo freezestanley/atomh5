@@ -20,7 +20,18 @@ const partnersLogo = [
 ]
 interface PropTypes {}
 const Home: FC<PropTypes> = function (props) {
-  const i18n = useIntl()
+  const i18n = useIntl();
+
+  const openIssueDialog = e => {
+    const section = e.target.parentNode.parentNode;
+    section.classList.remove(styles.invest);
+  };
+
+  const openInvestDialog = e => {
+    const section = e.target.parentNode.parentNode;
+    section.classList.add(styles.invest);
+  };
+
   return (
     <div className={styles.home}>
       <section className={styles.banner}>
@@ -111,8 +122,8 @@ const Home: FC<PropTypes> = function (props) {
       <section className={styles.products}>
         <h2>{i18n.formatMessage({ id: 'home_products_head' })}</h2>
         <div>
-          <a>{i18n.formatMessage({ id: 'home_products_choose_text_1' })}</a>
-          <a>{i18n.formatMessage({ id: 'home_products_choose_text_2' })}</a>
+          <a onClick={openIssueDialog}>{i18n.formatMessage({ id: 'home_products_choose_text_1' })}</a>
+          <a onClick={openInvestDialog}>{i18n.formatMessage({ id: 'home_products_choose_text_2' })}</a>
         </div>
         <h4>{i18n.formatMessage({ id: 'home_products_text' })}</h4>
         <ul>
