@@ -19,7 +19,7 @@ const How: FC<PropTypes> = function (props) {
   return (
     <div className={styles.how}>
       <section className={styles.banner}>
-        <h2>How It Works</h2>
+        <h2>{i18n.formatMessage({ id: 'footer_howitworks' })}</h2>
       </section>
       <section className={styles.what}>
         <h2 className={styles.title}>

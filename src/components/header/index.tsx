@@ -2,26 +2,28 @@
  * @description 描述
  */
 import React, { FC, useState, useEffect } from 'react'
-import { history, setLocale, getLocale } from 'umi'
+import { history, setLocale, getLocale, useIntl } from 'umi'
 import CommonMask, { ItemTypes } from '../commonMask'
 import styles from './styles/index.less'
 const logo = require('./images/atom8_logo_s.png')
 const menuIcon = require('./images/menu.png')
 const icons = [require('./images/language.png'), require('./images/arrow.png')]
 interface PropTypes {}
-const menu: ItemTypes[] = [
-  { label: 'HOME', value: '/home' },
-  { label: 'PROJECTS', value: '/sto' },
-  { label: 'HOW IT WORKS', value: '/howitwork' },
-  { label: 'WHO WE ARE', value: '/whoweare' },
-  { label: 'GET IT TOUCH', value: '/get' },
-]
+
 const langList: ItemTypes[] = [
   { label: 'ENGLISH', subLabel: 'EN', value: 'en-US', type: 'lang' },
-  { label: '简体中文', subLabel: '简', value: 'zh-CN', type: 'lang' },
+  // { label: '简体中文', subLabel: '简', value: 'zh-CN', type: 'lang' },
   { label: '繁體中文', subLabel: '繁', value: 'zh-TW', type: 'lang' },
 ]
 const Header: FC<PropTypes> = function (props) {
+  const i18n = useIntl()
+  const menu: ItemTypes[] = [
+    { label: 'HOME', value: '/home' },
+    { label: 'PROJECTS', value: '/sto' },
+    { label: 'HOW IT WORKS', value: '/howitwork' },
+    { label: 'WHO WE ARE', value: '/whoweare' },
+    // { label: 'GET IT TOUCH', value: '/get' },
+  ]
   const [list, setList] = useState<ItemTypes[]>([]),
     [visible, setVisible] = useState(false),
     currLang = getLocale(),
