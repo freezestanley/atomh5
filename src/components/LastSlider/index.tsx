@@ -11,7 +11,7 @@ interface PropTypes {
   items: { url: string; text?: string }[] // 图片url
   carouselProps?: any // react-slick属性
 }
-const AtSlider: FC<PropTypes> = function ({ items, carouselProps = {} }) {
+const LastSlider: FC<PropTypes> = function ({ items, carouselProps = {} }) {
   function renderList() {
     if (!Array.isArray(items)) return
     return items.map((item, idx) => {
@@ -19,14 +19,15 @@ const AtSlider: FC<PropTypes> = function ({ items, carouselProps = {} }) {
         <div key={ `${idx}bcd`}>
           <div className={styles['item']} key={idx}>
             <img src={item.url} />
-            <section>{item.text}</section>
+            <h1>By someone |  03 March 2019</h1>
+            <div className={styles['descript']}>{item.text}</div>
           </div>
         </div>
       )
     })
   }
   return (
-    <div className={styles['at_slider']}>
+    <div className={styles['last_slider']}>
       <Carousel
         // autoplay
         autoplaySpeed={3000}
@@ -42,4 +43,4 @@ const AtSlider: FC<PropTypes> = function ({ items, carouselProps = {} }) {
   )
 }
 
-export default AtSlider
+export default LastSlider

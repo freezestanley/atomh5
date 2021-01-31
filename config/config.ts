@@ -20,9 +20,9 @@ export default defineConfig({
     immer: true,
   },
   forkTSChecker: {},
-  dynamicImport: {
-    // loading: '@/components/PageLoading/index',
-  },
+  // dynamicImport: {
+  //   loading: '@/components/PageLoading/index',
+  // },
   targets: {
     ie: 11,
     android: 9,

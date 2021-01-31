@@ -2,6 +2,7 @@
  * @description 描述
  */
 import AtSlider from '@/components/atSlider'
+import Lastthink from '@/components/LastSlider'
 import React, { FC, useRef } from 'react'
 import { useIntl } from 'umi'
 import Valuechart from './components/valuechat'
@@ -130,6 +131,34 @@ const WHO: FC<PropTypes> = function (props) {
       text: i18n.formatMessage({ id: 'who_core_txt_5' }),
     },
   ]
+
+  const LastItem = [
+    {
+      url: require('./images/news/who_we_are_news_dummy1.png'),
+      text: 'Lorem Ipsum is simply dummy text of the printing.'
+    },
+    {
+      url: require('./images/news/who_we_are_news_dummy2.png'),
+      text: 'Lorem Ipsum is simply dummy text of the printing.'
+    },
+    {
+      url: require('./images/news/who_we_are_news_dummy3.png'),
+      text: 'Lorem Ipsum is simply dummy text of the printing.'
+    },
+    {
+      url: require('./images/news/who_we_are_news_dummy1.png'),
+      text: 'Lorem Ipsum is simply dummy text of the printing.'
+    },
+    {
+      url: require('./images/news/who_we_are_news_dummy2.png'),
+      text: 'Lorem Ipsum is simply dummy text of the printing.'
+    },
+    {
+      url: require('./images/news/who_we_are_news_dummy3.png'),
+      text: 'Lorem Ipsum is simply dummy text of the printing.'
+    }
+  ]
+
   return (
     <div className={styles['WHO']}>
       <div className={styles['WHO_banner']}>Who we are</div>
@@ -154,7 +183,9 @@ const WHO: FC<PropTypes> = function (props) {
       </div>
       <div className={styles['core_values']}>
         <h3>Core Values </h3>
+
         <AtSlider items={coreValuesItem} />
+
       </div>
       <div className={styles['WHO_manage']}>
         <div className={styles['WHO_title']}>Senior Management </div>
@@ -171,26 +202,19 @@ const WHO: FC<PropTypes> = function (props) {
         })}
       </div>
 
+      <div className={ styles['lastthinkbox']}>
+        <h1>Check Out Our Latest Thinking</h1>
+        <Lastthink items={LastItem} />
+      </div>
+
+
       <Investor logo={logo} label={'Our Investors'} />
+      <div className={ styles['lastthinkbox']}>
+        <h1>In the News</h1>
+        <Lastthink items={LastItem} />
+      </div>
 
-      {/* <div> */}
-      {/* <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1258px" height="960px">
-          <image width="200" height="200" stroke="black" href="http://jtl3d.oss-cn-hangzhou.aliyuncs.com/contents/54c89316-bcf7-59f1-934b-9314429f5b7a/top.png">
-          </image>
-      </svg> */}
-      {/* <Aa /> */}
-      {/* </div> */}
 
-      {/* <Carousel
-        ref={carouselRef}
-        loop
-        direction="left"
-        onChange={(index) => {
-          console.log(`onChange: ${index}`);
-        }}
-      >
-        {contentRender()}
-    </Carousel> */}
     </div>
   )
 }
