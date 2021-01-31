@@ -33,7 +33,9 @@ const Valuechart: FC<PropTypes> = function (props) {
           {i18n.formatMessage({ id: 'home_values_chart_text' })}
           <div className={styles['ps']}>
             <h1>
-              {i18n.formatHTMLMessage({ id: 'home_values_chart_item_head_2' })}
+              {i18n.formatHTMLMessage({
+                id: 'home_values_chart_item_head_2',
+              })}
             </h1>
             <h3>
               {i18n.formatMessage({ id: 'home_values_chart_item_text_2' })}
