@@ -4,7 +4,6 @@
 import React, { FC, useState, useEffect } from 'react'
 import { history, setLocale, getLocale, useIntl } from 'umi'
 import CommonMask, { ItemTypes } from '../commonMask'
-import { useIntl } from 'umi'
 import styles from './styles/index.less'
 const logo = require('./images/atom8_logo_s.png')
 const menuIcon = require('./images/menu.png')
