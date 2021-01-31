@@ -2,9 +2,12 @@
  * @description 描述
  */
 import React, { FC } from 'react'
+import { useIntl } from 'umi'
 import styles from './styles/index.less'
 interface PropTypes {}
 const Footer: FC<PropTypes> = function (props) {
+  const i18n = useIntl()
+  // {i18n.formatMessage({ id: 'home_costs_item_head_2_1' })}
   return (
     <>
       <div className={styles['footer-pre']}>
@@ -12,10 +15,10 @@ const Footer: FC<PropTypes> = function (props) {
           <img src={require('./images/atom8_logo_s.png')} />
         </div>
         <div className={styles['page-list']}>
-          <span>HOME</span>
-          <span>STO PROJECTS</span>
-          <span>How It Works</span>
-          <span>Who We Are</span>
+          <span>{i18n.formatMessage({ id: 'footer_home' })}</span>
+          <span>{i18n.formatMessage({ id: 'footer_stoprojects' })}</span>
+          <span>{i18n.formatMessage({ id: 'footer_howitworks' })}</span>
+          <span>{i18n.formatMessage({ id: 'footer_whoweare' })}</span>
         </div>
       </div>
       <div className={styles['footer-next']}>
@@ -23,9 +26,9 @@ const Footer: FC<PropTypes> = function (props) {
       </div>
       <footer>
         <ul>
-          <li>Data Privacy Policy</li>
-          <li>User Agreement</li>
-          <li>Cookies Policy</li>
+          <li><a href="/static/pdf/Atom8_Data_Privacy_Policy.pdf" target="_blank" >{i18n.formatMessage({ id: 'footer_stoprojects_description' })}</a></li>
+          <li><a href="/static/pdf/Atom8_User_Agreement.pdf" target="_blank" >{i18n.formatMessage({ id: 'footer_home_description' })}</a></li>
+          <li><a href="/static/pdf/Atom8_Cookies_Policy.pdf" target="_blank" >{i18n.formatMessage({ id: 'footer_howitworks_description' })}</a></li>
         </ul>
       </footer>
     </>

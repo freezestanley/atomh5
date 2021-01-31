@@ -4,6 +4,7 @@
 import React, { FC, useState, useEffect } from 'react'
 import { history, setLocale, getLocale, useIntl } from 'umi'
 import CommonMask, { ItemTypes } from '../commonMask'
+import { useIntl } from 'umi'
 import styles from './styles/index.less'
 const logo = require('./images/atom8_logo_s.png')
 const menuIcon = require('./images/menu.png')
@@ -18,12 +19,13 @@ const langList: ItemTypes[] = [
 const Header: FC<PropTypes> = function (props) {
   const i18n = useIntl()
   const menu: ItemTypes[] = [
-    { label: 'HOME', value: '/home' },
-    { label: 'PROJECTS', value: '/sto' },
-    { label: 'HOW IT WORKS', value: '/howitwork' },
-    { label: 'WHO WE ARE', value: '/whoweare' },
-    // { label: 'GET IT TOUCH', value: '/get' },
+    { label: i18n.formatMessage({ id: 'footer_home' }), value: '/home' },
+    { label: i18n.formatMessage({ id: 'footer_stoprojects' }), value: '/sto' },
+    { label: i18n.formatMessage({ id: 'footer_howitworks' }), value: '/howitwork' },
+    { label: i18n.formatMessage({ id: 'footer_whoweare' }), value: '/whoweare' },
+    { label: i18n.formatMessage({ id: 'header_get_in_touch' }), value: '/get' },
   ]
+
   const [list, setList] = useState<ItemTypes[]>([]),
     [visible, setVisible] = useState(false),
     currLang = getLocale(),

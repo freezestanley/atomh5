@@ -113,11 +113,9 @@ export default {
   home_products_item_text_3_1: '有关尽职调查范围和协助的谘询服务',
   home_products_item_text_3_2:
     '拟写报价备忘录并连接到数字交易所（减低审查所需时间）',
-  home_products_item_text_3_3:
-    'IT Implementation – complementing Advisory service​',
   home_products_invest_subscribe: '订阅HKbitEX上的证券型代币项目',
   home_products_invest_comment:
-    'HKbitEX是一家机构级数字资产交易所，并有保险覆盖其託管业务。HKbitEX是Atom 8有限公司的附属公司。',
+    'HKbitEX是一家机构级数字资产交易所，并有保险覆盖其託管业务。HKbitEX是Atom 8有限公司的联营公司。',
   home_partners_head: '我们的合作伙伴均为行业中的领头人',
   how_banner_head_1: '证券型代币是什麽 - ',
   how_banner_head_2: '证券型代币发行（STO）',
@@ -223,7 +221,7 @@ export default {
   sto_Alltype: '全部',
   sto_Current: '进行中',
   sto_Upcoming: '即将开始',
-  sto_open: '展开',
+  sto_open: '详情',
   sto_viewfund: '查看基金',
   sto_targetreturn: '目标收益',
   sto_targetsize: '目标规模',
@@ -270,10 +268,10 @@ export default {
     '除了加密资产和资金筹集之外，区块链的最大用例是贸易融资。',
   how_academy_bc_a_4_3:
     '传统上，由于重複融资问题，银行通常不会向中小企业提供供应链融资。但是现在，通过利用区块链的加密元素，银行可以更有信心地与新客户打交道。贸易金融区块链的例子包括香港的eTradeconnect和欧洲的We.trade。',
-  who_desc: `[b] Atom 8[/b]Limited提供端到端安全令牌服务（STO）授权发行人以更高的成本筹集资金的解决方案高效的方式。它作为一个；[b]基于区块链的工作流编排平台[/b]服务业务客户，包括赞助商（香港证监会RA6），发行人以及数字保管人。`,
-  who_desc_2: `Atom 8有限公司是一家联营公司，隶属于[b]香港数字资产EX有限公司[/b]www.hkbitex.com.hk提供数字资产（加密货币和安全令牌）的托管和交易。港交所是证监会第1及第7类牌照的申请人。`,
-  who_core_txt_1: '我们做的每件事都很出色.',
-  who_core_txt_2: '努力做出有意义的改变.',
+  who_desc: `[b] Atom 8[/b] Limited提供端到端安全令牌服务（STO）授权发行人以更高的成本筹集资金的解决方案高效的方式。它作为一个[b]基于区块链的工作流编排平台[/b]服务业务客户，包括赞助商（香港证监会RA6），发行人以及数字保管人。`,
+  who_desc_2: `Atom 8 有限公司是[b]香港數字資產EX有限公司[/b]（HKbitEX）的姐妹公司。HKbitEX於 www.hkbitex,com.hk 提供數字資產（加密貨幣和安全令牌）的托管和交易，是證監會第1及第7類牌照的申請人。`,
+  who_core_txt_1: '我们做的每件事都很出色',
+  who_core_txt_2: '努力做出有意义的改变',
   who_core_txt_3: '多元文化团队',
   who_core_txt_4: '勇于创新',
   who_core_txt_5: '以人为本',
@@ -289,4 +287,16 @@ export default {
   who_manage_Jonathan: 'Jonathan Cheung',
   who_manage_Jonathan_desc:
     '10年以上在Manulife, FWD, ZA International等主要金融机构的产品开发和定价经验',
+  sto_toast: '注册成功，您将收到我们最新的信息',
+  sto_toast1: '请输入正确的邮件地址',
+  sto_tag: '标签',
+  sto_lockup: '封锁',
+  sto_banner: '证券型代币项目',
+  sto_howwork: '运作模式',
+  sto_whoweare: '关于我们',
+  sto_core: '核心价值观',
+  sto_senior: '高级管理层',
+  sto_lasthink: '看看我们的最新想法',
+  sto_our: '我们的投资者',
+  sto_news: '新闻',
 }
