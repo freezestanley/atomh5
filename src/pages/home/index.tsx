@@ -121,7 +121,7 @@ const Home: FC<PropTypes> = function (props) {
       </section>
       <section className={styles.products}>
         <h2>{i18n.formatMessage({ id: 'home_products_head' })}</h2>
-        <div>
+        <div className={styles.tabs}>
           <a onClick={openIssueDialog}>{i18n.formatMessage({ id: 'home_products_choose_text_1' })}</a>
           <a onClick={openInvestDialog}>{i18n.formatMessage({ id: 'home_products_choose_text_2' })}</a>
         </div>
