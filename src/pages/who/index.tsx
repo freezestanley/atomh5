@@ -5,7 +5,6 @@ import AtSlider from '@/components/atSlider'
 import Lastthink from '@/components/LastSlider'
 import React, { FC, useRef } from 'react'
 import { useIntl } from 'umi'
-import { formatBold } from '@/utils/i18nTools'
 import Valuechart from './components/valuechat'
 import jc from './images/a.jpg'
 import chengyue from './images/chengyue.png'
@@ -24,7 +23,7 @@ const ITEMS = [
   ken,
   // wxc,
   chengyue,
-  jc
+  jc,
 ]
 const contentRender = () => {
   return ITEMS.map((item, i) => {
@@ -77,7 +76,6 @@ const Investor: FC<investorType> = function (props) {
   )
 }
 
-
 interface PropTypes {}
 const WHO: FC<PropTypes> = function (props) {
   const carouselRef = useRef()
@@ -96,13 +94,13 @@ const WHO: FC<PropTypes> = function (props) {
     {
       name: i18n.formatMessage({ id: 'who_manage_yueCheng' }),
       link: 'https://www.linkedin.com/in/dan-cheng-73472a3',
-      introduce: i18n.formatMessage({ id: 'who_manage_yueCheng_desc' })
+      introduce: i18n.formatMessage({ id: 'who_manage_yueCheng_desc' }),
     },
     {
       name: i18n.formatMessage({ id: 'who_manage_Jonathan' }),
       link: 'https://www.linkedin.com/in/jonathan-cheung-b229b017/Jonathan',
-      introduce: i18n.formatMessage({ id: 'who_manage_Jonathan_desc' })
-    }
+      introduce: i18n.formatMessage({ id: 'who_manage_Jonathan_desc' }),
+    },
   ]
   const coreValuesItem = [
     {
@@ -153,10 +151,11 @@ const WHO: FC<PropTypes> = function (props) {
       text: 'Lorem Ipsum is simply dummy text of the printing.',
     },
   ]
-
   return (
     <div className={styles['WHO']}>
-      <div className={styles['WHO_banner']}>{ i18n.formatMessage({ id: 'sto_whoweare' })}</div>
+      <div className={styles['WHO_banner']}>
+        {i18n.formatMessage({ id: 'sto_whoweare' })}
+      </div>
       <div className={styles['WHO_article']}>
         <p>{formatBold(i18n.formatMessage({ id: 'who_desc' }))}</p>
         <p>{formatBold(i18n.formatMessage({ id: 'who_desc_2' }))}</p>
