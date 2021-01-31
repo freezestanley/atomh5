@@ -8,6 +8,7 @@ import { useIntl, getLocale } from 'umi'
 // const charts = [chart1, chart2, chart3, chart4, chart5, chart6];
 const banner = {
   'zh-CN': require('./images/home_banner_zh.png'),
+  'zh-TW': require('./images/home_banner_zh.png'),
   'en-US': require('./images/home_banner_en.png'),
 }
 
