@@ -78,6 +78,7 @@ const Home: FC<PropTypes> = function (props) {
         </ul>
       </section>
       <div className={styles.values}>
+        <h2>{i18n.formatMessage({ id: 'home_values_head' })}</h2>
         <div className={styles.box}>
           <Valuechat />
         </div>
