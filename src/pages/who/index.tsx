@@ -18,7 +18,6 @@ import logo7 from './images/investors/2_4.png'
 import ken from './images/ken.png'
 import wxc from './images/wxc.jpg'
 import styles from './styles/index.less'
-import { formatBold } from '@/utils/i18nTools'
 
 const ITEMS = [
   ken,
