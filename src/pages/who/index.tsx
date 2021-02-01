@@ -128,33 +128,6 @@ const WHO: FC<PropTypes> = function (props) {
       text: i18n.formatMessage({ id: 'who_core_txt_5' }),
     },
   ]
-
-  const LastItem = [
-    {
-      url: require('./images/news/who_we_are_news_dummy1.png'),
-      text: 'Lorem Ipsum is simply dummy text of the printing.',
-    },
-    {
-      url: require('./images/news/who_we_are_news_dummy2.png'),
-      text: 'Lorem Ipsum is simply dummy text of the printing.',
-    },
-    {
-      url: require('./images/news/who_we_are_news_dummy3.png'),
-      text: 'Lorem Ipsum is simply dummy text of the printing.',
-    },
-    {
-      url: require('./images/news/who_we_are_news_dummy1.png'),
-      text: 'Lorem Ipsum is simply dummy text of the printing.',
-    },
-    {
-      url: require('./images/news/who_we_are_news_dummy2.png'),
-      text: 'Lorem Ipsum is simply dummy text of the printing.',
-    },
-    {
-      url: require('./images/news/who_we_are_news_dummy3.png'),
-      text: 'Lorem Ipsum is simply dummy text of the printing.',
-    },
-  ]
   useEffect(() => {
     fetchLastThinkData()
   }, [])
