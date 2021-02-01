@@ -299,4 +299,7 @@ export default {
   sto_lasthink: '看看我們的最新想法',
   sto_our: '我們的投資者',
   sto_news: '新聞',
+  contact_verify_name: '請輸入姓名',
+  contact_verify_email: '請輸入郵箱',
+  contact_verify_correct_email: '請輸入正確的郵箱',
 }

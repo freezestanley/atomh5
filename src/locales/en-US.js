@@ -337,4 +337,7 @@ export default {
   sto_lasthink: 'Check Out Our Latest Thinking',
   sto_our: 'Our Investors',
   sto_news: 'In the News',
+  contact_verify_name: 'Please enter a valid name',
+  contact_verify_email: 'Please enter a valid email address',
+  contact_verify_correct_email: 'Please enter the correct email address',
 }

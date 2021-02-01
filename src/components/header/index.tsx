@@ -37,7 +37,7 @@ const Header: FC<PropTypes> = function (props) {
 
   const [list, setList] = useState<ItemTypes[]>([]),
     [visible, setVisible] = useState(false),
-    [contactVisible, setContactVisible] = useState(false),
+    [contactVisible, setContactVisible] = useState(true),
     currLang = getLocale(),
     [lang, setLang] = useState('EN')
   function onBurgerClick() {
@@ -54,18 +54,15 @@ const Header: FC<PropTypes> = function (props) {
       setLocale(item.value, false)
     } else {
       if (item.value === '/getittouch') {
-        setVisible(false)
         setContactVisible(true)
-        return
+      } else {
+        history.push(item.value)
       }
-      history.push(item.value)
     }
     setVisible(false)
   }
   useEffect(() => {
     const curr = langList.find((item) => item.value === currLang)
-    console.log('curr', { curr, currLang })
-
     setLang(curr?.subLabel)
   }, [])
 

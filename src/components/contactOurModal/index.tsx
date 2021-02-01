@@ -24,11 +24,9 @@ const ContactMeModal: FC<PropTypes> = function ({
   const [form] = Form.useForm()
   const ref = useRef<FormInstance>()
   const bodyStyles: CSSProperties = {
-    borderRadius: '20px',
+    borderRadius: '8px',
     background: '#f8fbfc',
-    paddingTop: '50px',
-    padding: '50px 100px',
-    paddingBottom: '57px',
+    padding: '20px',
   }
   async function onSubmit() {
     try {

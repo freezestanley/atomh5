@@ -20,17 +20,17 @@ const partnersLogo = [
 ]
 interface PropTypes {}
 const Home: FC<PropTypes> = function (props) {
-  const i18n = useIntl();
+  const i18n = useIntl()
 
-  const openIssueDialog = e => {
-    const section = e.target.parentNode.parentNode;
-    section.classList.remove(styles.invest);
-  };
+  const openIssueDialog = (e) => {
+    const section = e.target.parentNode.parentNode
+    section.classList.remove(styles.invest)
+  }
 
-  const openInvestDialog = e => {
-    const section = e.target.parentNode.parentNode;
-    section.classList.add(styles.invest);
-  };
+  const openInvestDialog = (e) => {
+    const section = e.target.parentNode.parentNode
+    section.classList.add(styles.invest)
+  }
 
   return (
     <div className={styles.home}>
@@ -123,8 +123,12 @@ const Home: FC<PropTypes> = function (props) {
       <section className={styles.products}>
         <h2>{i18n.formatMessage({ id: 'home_products_head' })}</h2>
         <div className={styles.tabs}>
-          <a onClick={openIssueDialog}>{i18n.formatMessage({ id: 'home_products_choose_text_1' })}</a>
-          <a onClick={openInvestDialog}>{i18n.formatMessage({ id: 'home_products_choose_text_2' })}</a>
+          <a onClick={openIssueDialog}>
+            {i18n.formatMessage({ id: 'home_products_choose_text_1' })}
+          </a>
+          <a onClick={openInvestDialog}>
+            {i18n.formatMessage({ id: 'home_products_choose_text_2' })}
+          </a>
         </div>
         <h4>{i18n.formatMessage({ id: 'home_products_text' })}</h4>
         <ul>
@@ -137,7 +141,7 @@ const Home: FC<PropTypes> = function (props) {
               {i18n.formatMessage({ id: 'home_products_item_text_3_1' })}
             </p>
             <p className={styles.list}>
-              {i18n.formatMessage({ id: 'home_products_item_text_3_3' })}
+              {i18n.formatMessage({ id: 'home_products_item_text_3_2' })}
             </p>
           </li>
           <li>

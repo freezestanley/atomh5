@@ -299,4 +299,7 @@ export default {
   sto_lasthink: '看看我们的最新想法',
   sto_our: '我们的投资者',
   sto_news: '新闻',
+  contact_verify_name: '请输入姓名',
+  contact_verify_email: '请输入邮箱',
+  contact_verify_correct_email: '请输入正确的邮箱',
 }
