@@ -62,6 +62,8 @@ const Header: FC<PropTypes> = function (props) {
   }
   useEffect(() => {
     const curr = langList.find((item) => item.value === currLang)
+    console.log('curr', { curr, currLang })
+
     setLang(curr?.subLabel)
   }, [])
 
