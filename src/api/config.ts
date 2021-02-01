@@ -18,7 +18,8 @@ message.config({
 })
 
 const request = extend({
-  prefix: IS_DEV ? '/api' : '',
+  // prefix: IS_DEV ? '/api' : '',
+  prefix: 'https://www.894569.xyz/api/v1',
   // charset: 'utf8',
   // 请求响应类型，根据业务给
   // requestType: 'json',
@@ -28,7 +29,7 @@ const request = extend({
   useCache: false, // 是否使用缓存
   // ttl 缓存过期时间，默认 60 * 1000
   // errorHandler: serverErrorHandler, // 由于不是通过服务器状态码处理结果，不使用
-  paramsSerializer: function(params) {
+  paramsSerializer: function (params) {
     return Qs.stringify(params, { encodeValuesOnly: true, encode: true })
     // arrayFormat: 'brackets',
   },
@@ -54,14 +55,14 @@ request.interceptors.request.use((url, options) => {
   return request
 })
 // 响应拦截器
-request.interceptors.response.use(async response => {
+request.interceptors.response.use(async (response) => {
   pageLoading.hideLoading()
   const clone = response.clone()
   const getHeaderContentType = clone.headers.get('Content-Type')
   if (getHeaderContentType?.includes('application/json')) {
     const json = await clone.json()
-    if (!json.success) {
-      message.error(json.message)
+    if (json?.code !== 0) {
+      message.error(json.msg)
     }
   }
   return response

@@ -182,7 +182,7 @@ const Home: FC<PropTypes> = function (props) {
         </article>
       </section>
       <section className={styles.partners}>
-        <h2>We work with industry-leading partners</h2>
+        <h2>{i18n.formatMessage({ id: 'home_partners_head' })}</h2>
         <ul>
           <li>
             <img src={partnersLogo[0]} alt="" />
