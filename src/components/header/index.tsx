@@ -37,7 +37,7 @@ const Header: FC<PropTypes> = function (props) {
 
   const [list, setList] = useState<ItemTypes[]>([]),
     [visible, setVisible] = useState(false),
-    [contactVisible, setContactVisible] = useState(true),
+    [contactVisible, setContactVisible] = useState(false),
     currLang = getLocale(),
     [lang, setLang] = useState('EN')
   function onBurgerClick() {
