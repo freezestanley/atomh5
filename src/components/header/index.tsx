@@ -4,6 +4,7 @@
 import React, { FC, useState, useEffect } from 'react'
 import { history, setLocale, getLocale, useIntl } from 'umi'
 import CommonMask, { ItemTypes } from '../commonMask'
+import ContactOurModal from '@/components/contactOurModal'
 import styles from './styles/index.less'
 const logo = require('./images/atom8_logo_s.png')
 const menuIcon = require('./images/menu.png')
@@ -36,6 +37,7 @@ const Header: FC<PropTypes> = function (props) {
 
   const [list, setList] = useState<ItemTypes[]>([]),
     [visible, setVisible] = useState(false),
+    [contactVisible, setContactVisible] = useState(false),
     currLang = getLocale(),
     [lang, setLang] = useState('EN')
   function onBurgerClick() {
@@ -52,8 +54,8 @@ const Header: FC<PropTypes> = function (props) {
       setLocale(item.value, false)
     } else {
       if (item.value === '/getittouch') {
-        console.log('get it touch')
-
+        setVisible(false)
+        setContactVisible(true)
         return
       }
       history.push(item.value)
@@ -87,6 +89,10 @@ const Header: FC<PropTypes> = function (props) {
         {/* </div> */}
       </div>
       <CommonMask visible={visible} list={list} onClick={onMaskClick} />
+      <ContactOurModal
+        visible={contactVisible}
+        onClose={() => setContactVisible(false)}
+      />
     </div>
   )
 }

@@ -20,19 +20,19 @@ declare interface TableColumnType {
 /**
  * 公共响应方式
  */
-declare interface ResType<T = null> {
-  success: boolean
-  code: string
-  value: T
-  message: string
-  pageNum?: number | null
-  pageSize?: number | null
-  additionalInfo?: {
-    count: number
-    // 接口额外返回的参数, 依据具体接口而定
-    [propName: string]: any
-  }
-}
+// declare interface ResType<T = null> {
+//   success: boolean
+//   code: string
+//   value: T
+//   message: string
+//   pageNum?: number | null
+//   pageSize?: number | null
+//   additionalInfo?: {
+//     count: number
+//     // 接口额外返回的参数, 依据具体接口而定
+//     [propName: string]: any
+//   }
+// }
 /**
  * @description 分页类型
  */

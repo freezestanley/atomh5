@@ -1,48 +1,46 @@
 /**
  * @description 描述
  */
-import React, { FC, CSSProperties, useRef } from 'react';
-import { Modal, Form, Input, message } from 'antd';
-import { useIntl } from 'umi';
-import { FormInstance } from 'antd/lib/form';
-import { USER } from '@/api';
-import pattern from '@/utils/pattern';
-import { PostContactReq } from '@/api/modules/user/interface';
-import styles from './styles/index.less';
-const close = require('./images/icon-close.png');
-const { TextArea } = Input;
+import React, { FC, CSSProperties, useRef } from 'react'
+import { Modal, Form, Input, message } from 'antd'
+import { useIntl } from 'umi'
+import { FormInstance } from 'antd/lib/form'
+import { USER } from '@/api'
+import pattern from '@/utils/pattern'
+import { PostContactReq } from '@/api/modules/user/interface'
+import styles from './styles/index.less'
+const { TextArea } = Input
 interface PropTypes {
-  visible: boolean;
-  title?: string;
-  onClose: () => void;
+  visible: boolean
+  title?: string
+  onClose: () => void
 }
-const ContactMeModal: FC<PropTypes> = function({
+const ContactMeModal: FC<PropTypes> = function ({
   title = '',
   visible,
   onClose,
 }) {
-  const i18n = useIntl();
-  const [form] = Form.useForm();
-  const ref = useRef<FormInstance>();
+  const i18n = useIntl()
+  const [form] = Form.useForm()
+  const ref = useRef<FormInstance>()
   const bodyStyles: CSSProperties = {
     borderRadius: '20px',
     background: '#f8fbfc',
     paddingTop: '50px',
     padding: '50px 100px',
     paddingBottom: '57px',
-  };
+  }
   async function onSubmit() {
     try {
-      const values: PostContactReq = await ref.current.validateFields();
-      console.log(values);
-      if (!values) return;
-      const res: ResType = await USER.PostContact(values);
+      const values = (await ref.current.validateFields()) as PostContactReq
+      if (!values) return
+      const res: ResType = await USER.PostContact(values)
       if (res.code === 0) {
-        message.success('提交成功');
-        onClose();
+        message.success('提交成功')
+        onClose()
       }
     } catch (error) {
-      console.warn(error);
+      console.warn(error)
     }
   }
   return (
@@ -142,22 +140,7 @@ const ContactMeModal: FC<PropTypes> = function({
         </div>
       </div>
     </Modal>
-  );
-};
+  )
+}
 
-export default ContactMeModal;
-// import { Form, Input } from 'antd'
-// import { FormInstance } from 'antd/lib/form'
-// import React, { forwardRef } from 'react'
-// interface PropTypes {}
-// const TestForm = forwardRef<FormInstance, PropTypes>((props, ref) => {
-//   const [form] = Form.useForm()
-//   return (
-//     <Form form={form} ref={ref}>
-//       <Form.Item label='' name=''>
-//         <Input placeholder='请输入' />
-//       </Form.Item>
-//     </Form>
-//   )
-// })
-// export default TestForm
+export default ContactMeModal
