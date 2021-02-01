@@ -83,7 +83,8 @@ interface PropTypes {}
 const WHO: FC<PropTypes> = function (props) {
   const carouselRef = useRef()
   const i18n = useIntl(),
-    [lastThinkData, setLastThinkData] = useState<LastThinkRes[]>([])
+    [lastThinkData, setLastThinkData] = useState<LastThinkRes[]>([]),
+    [newsData, setLastNewsData] = useState<LastThinkRes[]>([])
   const personer = [
     {
       name: i18n.formatMessage({ id: 'who_manage_KenLo' }),
@@ -130,15 +131,17 @@ const WHO: FC<PropTypes> = function (props) {
   ]
   useEffect(() => {
     fetchLastThinkData()
+    fetchLastThinkData('news')
   }, [])
-  async function fetchLastThinkData() {
+  async function fetchLastThinkData(news?: string) {
     try {
       const res: ResType<LastThinkRes[]> = await CMS.CmsNews({
         offset: 0,
         limit: 10,
+        query: news,
       })
       if (res.code === 0) {
-        setLastThinkData(res.data)
+        news ? setLastNewsData(res.data) : setLastThinkData(res.data)
       }
     } catch (error) {}
   }
@@ -188,7 +191,7 @@ const WHO: FC<PropTypes> = function (props) {
       />
       <div className={styles['lastthinkbox']}>
         <h1>{i18n.formatMessage({ id: 'sto_news' })}</h1>
-        <Lastthink items={lastThinkData} />
+        <Lastthink items={newsData} />
       </div>
     </div>
   )
