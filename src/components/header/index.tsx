@@ -51,7 +51,7 @@ const Header: FC<PropTypes> = function (props) {
   function onMaskClick(item: ItemTypes) {
     if (item.type === 'lang') {
       setLang(item.subLabel)
-      setLocale(item.value, false)
+      setLocale(item.value, true)
     } else {
       if (item.value === '/getittouch') {
         setContactVisible(true)
