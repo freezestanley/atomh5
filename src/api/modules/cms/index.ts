@@ -15,7 +15,7 @@ export const CmsProjects = async (data: Types.CmsProjectType) => {
   return request.get(`${prefix}/cms/projects`, { data })
 }
 
-export const CmsSubscription = async (params: Types.CmsProjectDetailReq) => {
+export const CmsSubscription = async (params: Types.CmsEmailReq) => {
   return request.get(`${prefix}/subscriptions`, { params })
 }
 

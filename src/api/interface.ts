@@ -10,3 +10,4 @@ interface UploadResType {
   ossUrl: string // oss绝对路径
   objectKey: string
 }
+

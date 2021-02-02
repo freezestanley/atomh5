@@ -1,3 +1,76 @@
+.sto_success {
+  border-radius: 3px;
+  box-shadow: 0 1px 8px 0 rgba(76, 217, 100, 0.5);
+  background: #fff;
+  margin: 0 10px;
+  padding: 20px;
+  position: absolute;
+  top: 50%;
+  margin-top: -74px;
+  height: 148px;
+
+  &:before {
+    content: ' ';
+    position: relative;
+    width: 10.9375vw;
+    height: 6.25vw;
+    border: 3.125vw solid #c2fb3b;
+    border-top: transparent;
+    border-right: transparent;
+    display: block;
+    transform: rotate(-45deg) translate(-11px, -10px);
+    /* top: 6.25vw; */
+    left: 50%;
+    margin-bottom: 30px;
+  }
+  span {
+    display: block;
+    font-size: 16px;
+    line-height: 1.38;
+    text-align: center;
+    color: #5a6570;
+  }
+}
+.sto_fail {
+  border-radius: 3px;
+  box-shadow: 0 1px 8px 0 rgba(255, 45, 85, 0.4);
+  background: #fff;
+  margin: 0 10px;
+  padding: 20px;
+  position: absolute;
+  top: 50%;
+  margin-top: -74px;
+  height: 148px;
+  &:before,
+  &:after {
+    content: ' ';
+    width: 0px;
+    height: 10.9375vw;
+    border-right: 3.125vw solid #ff2d55;
+    display: block;
+    transform: rotate(-45deg) translate(15px, -12px);
+    position: relative;
+    left: 50%;
+    top: 13px;
+  }
+  &:after {
+    content: ' ';
+    width: 0px;
+    height: 10.9375vw;
+    border-left: -2.1875vw solid #ff2d55;
+    display: block;
+    transform: rotate(45deg);
+    margin-top: 0;
+    position: absolute;
+  }
+  span {
+    display: block;
+    font-size: 16px;
+    line-height: 1.38;
+    text-align: center;
+    color: #5a6570;
+  }
+}
 .sto {
   .sto_banner {
     background: url('../images/sto_banner1.jpg') no-repeat;
@@ -27,6 +100,34 @@
       line-height: normal;
       letter-spacing: normal;
       color: var(--white);
+    }
+  }
+  .sto_email {
+    margin-bottom: 10px;
+    & > input {
+      font-size: 12px;
+      border: none;
+      outline: none;
+      width: 70%;
+      display: inline-block;
+      border-radius: 1.7px;
+      border: solid 0.6px #bcd0e5;
+      background-color: #fff;
+      border: none;
+      margin-right: 10px;
+      text-indent: 10px;
+      height: 30px;
+      color: #000;
+    }
+    & > button {
+      font-size: 12px;
+      width: calc(30% - 10px);
+      height: 30px;
+      display: inline-block;
+      border-radius: 1.7px;
+      background-color: #ff5b1c;
+      border: none;
+      outline: none;
     }
   }
 }

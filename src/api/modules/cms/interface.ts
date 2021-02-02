@@ -56,6 +56,7 @@ export interface NewsRes {
 export interface CmsProjectDetailReq {
   projectUniqueId: string
 }
+
 export interface CmsProjectDetailRes {
   focus: string
   avatar_url: string
@@ -91,4 +92,7 @@ export interface CmsProjectsList {
   title: String
   unique_id: String
   website: String
+}
+export interface CmsEmailReq {
+  email: string
 }
