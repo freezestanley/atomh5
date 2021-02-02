@@ -340,4 +340,7 @@ export default {
   contact_verify_name: 'Please enter a valid name',
   contact_verify_email: 'Please enter a valid email address',
   contact_verify_correct_email: 'Please enter the correct email address',
+  sto_coming_error: 'An error occured during submission, please try again.',
+  sto_coming_success: 'Thank you for your enquiry, we will get back to you soon.'
+
 }

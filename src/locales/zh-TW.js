@@ -302,4 +302,7 @@ export default {
   contact_verify_name: '請輸入姓名',
   contact_verify_email: '請輸入郵箱',
   contact_verify_correct_email: '請輸入正確的郵箱',
+  sto_coming_error: '感謝您的查詢，我們將會盡快與您聯絡。',
+  sto_coming_success: '提交過程出現錯誤，請重試。'
+
 }

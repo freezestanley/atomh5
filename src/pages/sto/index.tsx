@@ -22,7 +22,6 @@ const STO: FC<PropTypes> = function (props) {
   async function fetchData(e) {
     let res;
     var reg = /^([a-zA-Z]|[0-9])(\w|\-)+@[a-zA-Z0-9]+\.([a-zA-Z]{2,4})$/;
-    debugger
     if (reg.test(emilState)) {
       try {
         res = await CMS.CmsSubscription({
@@ -43,7 +42,9 @@ const STO: FC<PropTypes> = function (props) {
     let mask = document.getElementById('mask')
     mask.appendChild(div)
     div.innerHTML = `
-      <span>An error occured during submission, please try again.</span>
+      <span>${intl.formatMessage({
+        id: 'sto_coming_error',
+      })}</span>
     `
     showMask()
   }
@@ -54,8 +55,9 @@ const STO: FC<PropTypes> = function (props) {
     let mask = document.getElementById('mask')
     mask.appendChild(div)
     div.innerHTML = `
-      <span>Registration complete.</span>
-      <span>An error occured during submission, please try again.</span>
+      <span>${intl.formatMessage({
+        id: 'sto_coming_success',
+      })}</span>
     `
     showMask()
   }
