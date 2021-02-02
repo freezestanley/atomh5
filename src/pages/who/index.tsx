@@ -3,7 +3,7 @@
  */
 import AtSlider from '@/components/atSlider'
 import Lastthink from '@/components/LastSlider'
-import React, { FC, useRef } from 'react'
+import React, { FC, useRef, useState, useEffect } from 'react'
 import { useIntl } from 'umi'
 import Valuechart from '@/components/valuechat'
 import jc from './images/a.jpg'
@@ -15,10 +15,13 @@ import logo4 from './images/investors/2_1.png'
 import logo5 from './images/investors/2_2.png'
 import logo6 from './images/investors/2_3.png'
 import logo7 from './images/investors/2_4.png'
+import { CMS } from '@/api'
 import ken from './images/ken.png'
 import wxc from './images/wxc.jpg'
 import styles from './styles/index.less'
 import { formatBold } from '@/utils/i18nTools'
+import { LastThinkRes, NewsRes } from '@/api/modules/cms/interface'
+
 const ITEMS = [
   ken,
   // wxc,
@@ -79,7 +82,9 @@ const Investor: FC<investorType> = function (props) {
 interface PropTypes {}
 const WHO: FC<PropTypes> = function (props) {
   const carouselRef = useRef()
-  const i18n = useIntl()
+  const i18n = useIntl(),
+    [lastThinkData, setLastThinkData] = useState<LastThinkRes[]>([]),
+    [newsData, setLastNewsData] = useState<LastThinkRes[]>([])
   const personer = [
     {
       name: i18n.formatMessage({ id: 'who_manage_KenLo' }),
@@ -124,33 +129,22 @@ const WHO: FC<PropTypes> = function (props) {
       text: i18n.formatMessage({ id: 'who_core_txt_5' }),
     },
   ]
-
-  const LastItem = [
-    {
-      url: require('./images/news/who_we_are_news_dummy1.png'),
-      text: 'Lorem Ipsum is simply dummy text of the printing.',
-    },
-    {
-      url: require('./images/news/who_we_are_news_dummy2.png'),
-      text: 'Lorem Ipsum is simply dummy text of the printing.',
-    },
-    {
-      url: require('./images/news/who_we_are_news_dummy3.png'),
-      text: 'Lorem Ipsum is simply dummy text of the printing.',
-    },
-    {
-      url: require('./images/news/who_we_are_news_dummy1.png'),
-      text: 'Lorem Ipsum is simply dummy text of the printing.',
-    },
-    {
-      url: require('./images/news/who_we_are_news_dummy2.png'),
-      text: 'Lorem Ipsum is simply dummy text of the printing.',
-    },
-    {
-      url: require('./images/news/who_we_are_news_dummy3.png'),
-      text: 'Lorem Ipsum is simply dummy text of the printing.',
-    },
-  ]
+  useEffect(() => {
+    fetchLastThinkData()
+    fetchLastThinkData('news')
+  }, [])
+  async function fetchLastThinkData(news?: string) {
+    try {
+      const res: ResType<LastThinkRes[]> = await CMS.CmsNews({
+        offset: 0,
+        limit: 10,
+        query: news,
+      })
+      if (res.code === 0) {
+        news ? setLastNewsData(res.data) : setLastThinkData(res.data)
+      }
+    } catch (error) {}
+  }
   return (
     <div className={styles['WHO']}>
       <div className={styles['WHO_banner']}>
@@ -188,7 +182,7 @@ const WHO: FC<PropTypes> = function (props) {
 
       <div className={styles['lastthinkbox']}>
         <h1>{i18n.formatMessage({ id: 'sto_lasthink' })}</h1>
-        <Lastthink items={LastItem} />
+        <Lastthink items={lastThinkData} />
       </div>
 
       <Investor
@@ -197,7 +191,7 @@ const WHO: FC<PropTypes> = function (props) {
       />
       <div className={styles['lastthinkbox']}>
         <h1>{i18n.formatMessage({ id: 'sto_news' })}</h1>
-        <Lastthink items={LastItem} />
+        <Lastthink items={newsData} />
       </div>
     </div>
   )

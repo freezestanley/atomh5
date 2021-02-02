@@ -1,5 +1,7 @@
 import request from './config'
 import { IS_DEV } from '@/utils/env'
+export { default as CMS } from './modules/cms'
+export { default as USER } from './modules/user'
 const prefix = '/biz/api'
 
 export const QueryDictItems = async (data: DICTCodeReq) =>

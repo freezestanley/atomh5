@@ -4,6 +4,7 @@
 import React, { FC, useState, useEffect } from 'react'
 import { history, setLocale, getLocale, useIntl } from 'umi'
 import CommonMask, { ItemTypes } from '../commonMask'
+import ContactOurModal from '@/components/contactOurModal'
 import styles from './styles/index.less'
 const logo = require('./images/atom8_logo_s.png')
 const menuIcon = require('./images/menu.png')
@@ -28,11 +29,15 @@ const Header: FC<PropTypes> = function (props) {
       label: i18n.formatMessage({ id: 'footer_whoweare' }),
       value: '/whoweare',
     },
-    { label: i18n.formatMessage({ id: 'header_get_in_touch' }), value: '/get' },
+    {
+      label: i18n.formatMessage({ id: 'header_get_in_touch' }),
+      value: '/getittouch',
+    },
   ]
 
   const [list, setList] = useState<ItemTypes[]>([]),
     [visible, setVisible] = useState(false),
+    [contactVisible, setContactVisible] = useState(false),
     currLang = getLocale(),
     [lang, setLang] = useState('EN')
   function onBurgerClick() {
@@ -46,9 +51,13 @@ const Header: FC<PropTypes> = function (props) {
   function onMaskClick(item: ItemTypes) {
     if (item.type === 'lang') {
       setLang(item.subLabel)
-      setLocale(item.value, false)
+      setLocale(item.value, true)
     } else {
-      history.push(item.value)
+      if (item.value === '/getittouch') {
+        setContactVisible(true)
+      } else {
+        history.push(item.value)
+      }
     }
     setVisible(false)
   }
@@ -77,6 +86,10 @@ const Header: FC<PropTypes> = function (props) {
         {/* </div> */}
       </div>
       <CommonMask visible={visible} list={list} onClick={onMaskClick} />
+      <ContactOurModal
+        visible={contactVisible}
+        onClose={() => setContactVisible(false)}
+      />
     </div>
   )
 }

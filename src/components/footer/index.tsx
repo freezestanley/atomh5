@@ -2,12 +2,12 @@
  * @description 描述
  */
 import React, { FC } from 'react'
-import { useIntl } from 'umi'
+import { useIntl, history } from 'umi'
 import styles from './styles/index.less'
 interface PropTypes {}
 const Footer: FC<PropTypes> = function (props) {
   const i18n = useIntl()
-  // {i18n.formatMessage({ id: 'home_costs_item_head_2_1' })}
+
   return (
     <>
       <div className={styles['footer-pre']}>
@@ -15,10 +15,10 @@ const Footer: FC<PropTypes> = function (props) {
           <img src={require('./images/atom8_logo_s.png')} />
         </div>
         <div className={styles['page-list']}>
-          <span>{i18n.formatMessage({ id: 'footer_home' })}</span>
-          <span>{i18n.formatMessage({ id: 'footer_stoprojects' })}</span>
-          <span>{i18n.formatMessage({ id: 'footer_howitworks' })}</span>
-          <span>{i18n.formatMessage({ id: 'footer_whoweare' })}</span>
+          <span onClick={ (e) => history.push('/home') }>{i18n.formatMessage({ id: 'footer_home' })}</span>
+          <span onClick={ (e) => history.push('/sto') }>{i18n.formatMessage({ id: 'footer_stoprojects' })}</span>
+          <span onClick={ (e) => history.push('/howitwork') }>{i18n.formatMessage({ id: 'footer_howitworks' })}</span>
+          <span onClick={ (e) => history.push('/whoweare') }>{i18n.formatMessage({ id: 'footer_whoweare' })}</span>
         </div>
       </div>
       <div className={styles['footer-next']}>

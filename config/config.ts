@@ -11,6 +11,7 @@ const path = require('path')
 const { UMI_ENV } = process.env
 export default defineConfig({
   title: 'atom8',
+  favicon: 'favicon.ico',
   theme,
   mountElementId: 'app',
   // treeShaking: true,

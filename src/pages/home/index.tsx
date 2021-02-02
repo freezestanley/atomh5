@@ -1,11 +1,13 @@
 /**
  * @description 描述
  */
-import React, { FC } from 'react'
+import React, { FC, useState } from 'react'
 import styles from './styles/index.less'
 import { useIntl } from 'umi'
 import Valuechat from '@/components/valuechat'
 import Advisory from '@/components/advisory'
+import ContactOurModal from '@/components/contactOurModal'
+
 const logos = {
   hkbitex: require('./images/logo-hkbitex.png'),
 }
@@ -20,17 +22,18 @@ const partnersLogo = [
 ]
 interface PropTypes {}
 const Home: FC<PropTypes> = function (props) {
-  const i18n = useIntl();
+  const i18n = useIntl(),
+    [contactVisible, setContactVisible] = useState(false)
 
-  const openIssueDialog = e => {
-    const section = e.target.parentNode.parentNode;
-    section.classList.remove(styles.invest);
-  };
+  const openIssueDialog = (e) => {
+    const section = e.target.parentNode.parentNode
+    section.classList.remove(styles.invest)
+  }
 
-  const openInvestDialog = e => {
-    const section = e.target.parentNode.parentNode;
-    section.classList.add(styles.invest);
-  };
+  const openInvestDialog = (e) => {
+    const section = e.target.parentNode.parentNode
+    section.classList.add(styles.invest)
+  }
 
   return (
     <div className={styles.home}>
@@ -38,7 +41,9 @@ const Home: FC<PropTypes> = function (props) {
         <h2>{i18n.formatMessage({ id: 'home_banner_head1' })}</h2>
         <h2>{i18n.formatMessage({ id: 'home_banner_head2' })}</h2>
         <h3>{i18n.formatMessage({ id: 'home_banner_text' })}</h3>
-        <div>{i18n.formatMessage({ id: 'home_getintouch' })}</div>
+        <div onClick={() => setContactVisible(true)}>
+          {i18n.formatMessage({ id: 'home_getintouch' })}
+        </div>
       </section>
       <section className={styles.highcosts}>
         <h2>{i18n.formatMessage({ id: 'home_costs_head' })}</h2>
@@ -78,6 +83,7 @@ const Home: FC<PropTypes> = function (props) {
         </ul>
       </section>
       <div className={styles.values}>
+        <h2>{i18n.formatMessage({ id: 'home_values_head' })}</h2>
         <div className={styles.box}>
           <Valuechat />
         </div>
@@ -122,8 +128,12 @@ const Home: FC<PropTypes> = function (props) {
       <section className={styles.products}>
         <h2>{i18n.formatMessage({ id: 'home_products_head' })}</h2>
         <div className={styles.tabs}>
-          <a onClick={openIssueDialog}>{i18n.formatMessage({ id: 'home_products_choose_text_1' })}</a>
-          <a onClick={openInvestDialog}>{i18n.formatMessage({ id: 'home_products_choose_text_2' })}</a>
+          <a onClick={openIssueDialog}>
+            {i18n.formatMessage({ id: 'home_products_choose_text_1' })}
+          </a>
+          <a onClick={openInvestDialog}>
+            {i18n.formatMessage({ id: 'home_products_choose_text_2' })}
+          </a>
         </div>
         <h4>{i18n.formatMessage({ id: 'home_products_text' })}</h4>
         <ul>
@@ -136,7 +146,7 @@ const Home: FC<PropTypes> = function (props) {
               {i18n.formatMessage({ id: 'home_products_item_text_3_1' })}
             </p>
             <p className={styles.list}>
-              {i18n.formatMessage({ id: 'home_products_item_text_3_3' })}
+              {i18n.formatMessage({ id: 'home_products_item_text_3_2' })}
             </p>
           </li>
           <li>
@@ -177,7 +187,7 @@ const Home: FC<PropTypes> = function (props) {
         </article>
       </section>
       <section className={styles.partners}>
-        <h2>We work with industry-leading partners</h2>
+        <h2>{i18n.formatMessage({ id: 'home_partners_head' })}</h2>
         <ul>
           <li>
             <img src={partnersLogo[0]} alt="" />
@@ -196,6 +206,10 @@ const Home: FC<PropTypes> = function (props) {
           </li>
         </ul>
       </section>
+      <ContactOurModal
+        visible={contactVisible}
+        onClose={() => setContactVisible(false)}
+      />
     </div>
   )
 }
