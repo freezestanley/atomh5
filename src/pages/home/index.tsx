@@ -1,11 +1,13 @@
 /**
  * @description 描述
  */
-import React, { FC } from 'react'
+import React, { FC, useState } from 'react'
 import styles from './styles/index.less'
 import { useIntl } from 'umi'
 import Valuechat from '@/components/valuechat'
 import Advisory from '@/components/advisory'
+import ContactOurModal from '@/components/contactOurModal'
+
 const logos = {
   hkbitex: require('./images/logo-hkbitex.png'),
 }
@@ -20,7 +22,8 @@ const partnersLogo = [
 ]
 interface PropTypes {}
 const Home: FC<PropTypes> = function (props) {
-  const i18n = useIntl()
+  const i18n = useIntl(),
+    [contactVisible, setContactVisible] = useState(false)
 
   const openIssueDialog = (e) => {
     const section = e.target.parentNode.parentNode
@@ -38,7 +41,9 @@ const Home: FC<PropTypes> = function (props) {
         <h2>{i18n.formatMessage({ id: 'home_banner_head1' })}</h2>
         <h2>{i18n.formatMessage({ id: 'home_banner_head2' })}</h2>
         <h3>{i18n.formatMessage({ id: 'home_banner_text' })}</h3>
-        <div>{i18n.formatMessage({ id: 'home_getintouch' })}</div>
+        <div onClick={() => setContactVisible(true)}>
+          {i18n.formatMessage({ id: 'home_getintouch' })}
+        </div>
       </section>
       <section className={styles.highcosts}>
         <h2>{i18n.formatMessage({ id: 'home_costs_head' })}</h2>
@@ -201,6 +206,10 @@ const Home: FC<PropTypes> = function (props) {
           </li>
         </ul>
       </section>
+      <ContactOurModal
+        visible={contactVisible}
+        onClose={() => setContactVisible(false)}
+      />
     </div>
   )
 }
