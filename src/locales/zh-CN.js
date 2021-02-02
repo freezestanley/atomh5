@@ -303,5 +303,5 @@ export default {
   contact_verify_email: '请输入邮箱',
   contact_verify_correct_email: '请输入正确的邮箱',
   sto_coming_error: '感謝您的查詢，我們将会尽快与您联络。',
-  sto_coming_success: '提交过程出现错误，请重试。'
+  sto_coming_success: '提交过程出现错误，请重试。',
 }
